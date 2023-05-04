@@ -1,0 +1,215 @@
+html{
+  max-width: 100%;
+}
+body {
+  background-color: white;
+  font-family: 'Times New Roman';
+  font-size: 20px;
+ margin:0;
+ left:0; right: 0;
+ width: 100%;
+ text-align: center;
+ color: white;
+}
+header {
+  background-color: #713c5f;
+  width: 100%;
+  top:0;
+  height: 70px;
+  margin: 0%;
+  padding: 5px;
+  right:0;
+  left:0;}
+.logo{
+  width: 120px;
+  display: inline-block;
+  margin-right: auto;
+}
+nav{
+  width:20%;
+  font-size: 35px;
+    background-color: #A84448;
+    text-align: left;
+    margin: 0%;
+    left:0;
+    padding-bottom: 100%;
+    z-index: 3;
+    position: absolute;
+    display: inline;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+}
+nav *{
+    text-decoration: none;
+    color: white;
+    position: relative;
+    padding:10px;
+    display: block;
+    cursor: pointer;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+nav *:hover{
+    background-color: #99B19C;
+}
+summary{
+  outline: none;
+  list-style: none;
+  width:100%;
+  height: 100%;
+  cursor: pointer;
+  padding:2%;
+}
+section{
+  margin:2%;
+  margin-top: 3.5%;
+  display: block;
+  background-color: rgba(205, 202, 202, 0.462);
+  padding: 1%;
+  border-radius: 10px;
+	pointer-events: all;
+  text-align: left;
+  margin-left: 25%;
+  width:65%
+}
+.profile summary{
+  width:10px;
+  height: 10px;
+}
+.profile label{
+  font-size: larger;
+  font-weight: bold;
+}
+.profile img, .statusBar img, .prevProduct img,.method img{
+  width:30px;
+  border-radius: 30%;
+  padding: 2px;
+  display: inline;
+}
+input,button,select {
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  color: #747474;
+  margin-top:20px;
+  font-family: inherit;
+}
+input:hover,button:hover,select:hover {
+  box-shadow: 0px 3px 10px rgba(69, 69, 69, 0.655);
+    } 
+    input:active,select:active,button:active {
+      box-shadow:  0 0 8px 2px rgba(0, 0, 0, 0.525);
+    }
+    input:focus,option:focus {
+      box-shadow: 0px 3px 10px rgba(25, 25, 25, 0.841);
+    }
+    .profile img:hover,.currentOrder:hover,.prevProduct:hover{
+      box-shadow: 0px 3px 10px rgba(146, 145, 145, 0.57);
+    }
+    #drop:hover{
+      filter: invert();
+    }
+    .profile:hover,.current:hover,.old:hover{
+      box-shadow: 0px 3px 10px rgba(99, 98, 98, 0.71);
+
+    }
+   input[type="radio"]{
+      box-shadow: none;
+    }
+    button{
+  background-color:#A84448;
+  color: white;
+}
+.active{
+  background-color: #99B19C;
+}
+.profile,.current,.old,.paymentMethod .method{
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+  color: #99B19C;
+  width: 97%;
+  display: flex;
+}
+.profile span,.currentOrder,.prevProduct{
+font-style: italic;
+font-weight: normal;
+font-size: 20px;
+color: #747474;
+border-radius: 10px;
+}
+.profile ::placeholder{
+  color:#bd4448;
+  font-weight: bold;
+  font-style: italic;
+}
+.profile details{
+  width:37%;
+  margin-left: auto;
+  margin-bottom: 10px;
+}
+
+.statusBar img{
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 5px;
+  padding: 5px;
+  border-color:#cccbcb
+}
+.statusBar .done{
+  border-color: #99B19C;
+}
+.product img{
+float: right;
+margin-right: 10px;
+}
+.prevProduct img{
+  border-radius: 0%;
+  margin-right: 20px;
+}
+.currentOrder details[open],.prevProduct details[open]{
+  padding-left:4%;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(200, 198, 198, 0.393);
+}
+.data{
+  color: rgb(196, 151, 40);
+  font-style: normal;
+}
+.method label{
+  cursor: pointer;
+}
+.method img{
+  width:100px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.method summary{
+height:100px
+}
+#cashImg{
+  margin-left: 23px;
+}
+#drop{
+width:40px;
+float: right;
+vertical-align: baseline;
+border-radius: 40%;
+}
+form{
+  margin: 2%;
+  width:100%
+}

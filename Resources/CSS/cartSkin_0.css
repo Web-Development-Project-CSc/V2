@@ -1,0 +1,127 @@
+html {
+    max-width: 100%;
+}
+
+body {
+    background-color: white;
+    color: white;
+    font-family: 'Times New Roman';
+    margin: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+form {
+    margin-top: 10px;
+    background-color: #713c5f;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 30px;
+}
+
+img {
+    width: 30px;
+}
+
+#logo {
+    width: 20%;
+    margin: 10px;
+}
+
+header {
+    font-size: 299%;
+    width: 94.68%;
+    text-align: left;
+    background-color: #a74447;
+    padding: 1%;
+    padding-left: 40px;
+    margin: 0%;
+
+}
+
+h2 {
+    color: #c49728;
+}
+ h1, h2{
+    margin: 3%;
+ }
+.item {
+    background-color: white;
+    color: #c49728;
+    width: 80%;
+    height:250px;
+    text-align: left;
+    padding: 1%;
+    margin: 3%;
+    margin-left: 8%;
+    border-radius: 20px;
+    padding-bottom: 7%;
+    border-color: #A84448;
+    border: solid;
+    border-width: 2px;
+}
+
+.item:hover,
+.quantity img:hover {
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
+
+h1 {
+    color: rgb(57, 57, 57)
+}
+
+.pr {
+    width: 30%;
+    height:160px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    float: right;
+    margin-right: 2%;
+}
+
+.quantity img {
+    width: 60px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.quantity {
+    margin-top: 80px;
+    margin-left: 100px;
+}
+
+.num {
+    border: solid;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgb(237, 237, 237);
+    margin-left: 10px;
+    margin-right: 12px;
+    padding: 2.5%;
+    box-shadow: 0px 3px 10px rgb(47, 47, 47);
+    color: rgb(57, 57, 57);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+button {
+    width: 75px;
+    background-color: #A84448;
+    border-color: #f5f0e3;
+    border-width: 2px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+span {
+    display: inline-block;
+}
+
+button:hover {
+    box-shadow: 0px 3px 10px rgb(0, 0, 0);
+}
