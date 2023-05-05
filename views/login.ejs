@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flavoured/log in</title>
+    <link rel="stylesheet" href="/CSS/loginSkin_0.css" />
+</head>
+
+<body>
+    <form action="MyProfile.html" method="get" id="myForm">
+        <div class="flavoured">
+            <header>Login Form</header>
+            <img src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo" />
+        </div>
+        <div class="data">
+            <label class="email">Email :
+            </label>
+            <input class="tb" type="email" placeholder="Enter Your Email" name="email" id="email" required />
+            <div id="error-1">
+                <span><img src="/IMAGES/required.png" alt="req" />Email does not
+                    exist</span>
+            </div>
+        </div>
+        <div class="data2">
+            <label class="password">Password :
+            </label>
+            <input class="tb" type="password" placeholder="Enter Your Password" name="psw" id="psw" required />
+            <div id="error0">
+                <span><img src="/IMAGES/required.png" alt="req" />Password is incorrect</span>
+            </div>
+        </div>
+        <button type="submit" id="logger">Login</button>
+        <button type="button" class="cancelbtn" id="cancel">Cancel</button>
+        <div class="signUp">
+            <a href="ForgetPassword.html">Forgot password?</a>
+            <label>
+                <input class="ck" type="checkbox" checked="checked" /> Remember me</label>
+        </div>
+        <div class="signUp">
+            <p>not a member?</p>
+            <a href="SIGNUP.html">sign up now?</a>
+        </div>
+    </form>
+    <script type="text/javascript" src="JS/Account.js"></script>
+</body>
+
+</html>
