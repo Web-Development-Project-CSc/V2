@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavoured/admin dashboard</title>
+    <link rel="stylesheet" href="/CSS/usersSkin_0.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+
+            <span><img id="logo" src="IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+        </div>
+        <ul class="nav-links">
+            <li> <a href="dashboard.html">
+                    <img src="IMAGES/data-report.png" alt="dashboard">
+                    <span class="links_name">Dashboard</span></a>
+            </li>
+            <li> <a href="dashboard.html">
+                    <img src="IMAGES/stats.png" alt="analytics">
+                    <span class="links_name">Analytics</span></a>
+            </li>
+            <li><a href="dashboard.html">
+                    <img src="IMAGES/order.png" alt="order">
+                    <span class="links_name">Order list</span></a>
+            </li>
+            <li><a href="products.html">
+                    <img src="IMAGES/product.png" alt="products">
+                    <span class="links_name">Products</span></a>
+            </li>
+            <li class="active"> <a href="users.html">
+                    <img src="IMAGES/customers.png" alt="users">
+                    <span class="links_name">Users</span></a>
+            </li>
+            <li id="out">
+                <a href="index.html">
+                    <img src="IMAGES/logout.png" alt="exit">
+                    <span class="links_name">Log out</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <section>
+        <nav>
+            <div class="sidebar-button">
+                <span class="dashboard">Admin Dashboard</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <img src="IMAGES/search.png" alt="search">
+            </div>
+            <div class="profile-details">
+                <span class="admin_name"> Welcome, Flavourer</span>
+                <img src="IMAGES/admin.png" alt="admin">
+            </div>
+        </nav>
+    </section>
+    <section class="userData">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th class="numbers">Purchases</th>
+            </tr>
+            <tr>
+                <td>Mohab Ashraf</td>
+                <td>mohab@gmail.com</td>
+                <td>Obour</td>
+                <td class="numbers">10</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+            <tr>
+                <td>Youssef Yehia</td>
+                <td>youssef@gmail.com</td>
+                <td>Hegaz</td>
+                <td class="numbers">20</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+            <tr>
+                <td>Abdulla Sherif</td>
+                <td>abdulla@gmail.com</td>
+                <td>Tagamo3</td>
+                <td class="numbers">15</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+            <tr>
+                <td>James Bond</td>
+                <td>james@gmail.com</td>
+                <td>London</td>
+                <td class="numbers">50</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+            <tr>
+                <td>The Rock</td>
+                <td>rock@gmail.com</td>
+                <td>USA</td>
+                <td class="numbers">100</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+            <tr>
+                <td>Mohamed Abdu</td>
+                <td>mohamed@gmail.com</td>
+                <td>Zatoon</td>
+                <td class="numbers">1</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+            <tr>
+                <td>Salwa Beattl</td>
+                <td>salwa@gmail.com</td>
+                <td>El Eroba</td>
+                <td class="numbers">2</td>
+                <td><button class="modifyButton">modify</button></td>
+                <td><button class="deleteButton">delete</button></td>
+            </tr>
+        </table>
+        <div id="edit">
+            <button id="adder" class="addButton">Add</button>
+            <span>
+                <input type="text" placeholder="Name" id="Name" required />
+            </span>
+            <span class="inputEmail">
+                <input type="text" placeholder="Email" id="Email" required />
+            </span>
+        </div>
+    </section>
+</body>
+
+</html>

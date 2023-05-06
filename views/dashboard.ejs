@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/CSS/adminSkin_0.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flavoured/admin dashboard</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+
+      <span><img id="logo" src="IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+    </div>
+    <ul class="nav-links">
+      <li class="active">
+        <img src="IMAGES/data-report.png" alt="dashboard">
+        <span class="links_name">Dashboard</span>
+      </li>
+      <li>
+        <img src="IMAGES/stats.png" alt="analytics">
+        <span class="links_name">Analytics</span>
+      </li>
+      <li>
+        <img src="IMAGES/order.png" alt="order">
+        <span class="links_name">Order list</span>
+      </li>
+      <li><a href="products.html">
+        <img src="IMAGES/product.png" alt="products">
+         <span class="links_name">Products</span></a>
+      </li>
+      <li> <a href="users.html"> 
+        <img src="IMAGES/customers.png" alt="users">
+        <span class="links_name">Users</span></a>
+      </li>
+      <li id="out">
+        <a href="index.html">
+          <img src="IMAGES/logout.png" alt="exit">
+          <span class="links_name">Log out</span></a>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <span class="dashboard">Admin Dashboard</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <img src="IMAGES/search.png" alt="search">
+      </div>
+      <div class="profile-details">
+        <span class="admin_name"> Welcome, Flavourer</span>
+        <img src="IMAGES/admin.png" alt="admin" >
+      </div> 
+    </nav>
+
+    <div class=" home-content">
+        <div class="overview-boxes all">
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total Order</div>
+              <div class="number">4,000</div>
+              <div class="indicator">
+                <span class="text">Up from yesterday</span>
+              </div>
+            </div>
+            <img src="IMAGES/checklist.png" alt="total order">
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total Sales</div>
+              <div class="number"> 1,000</div>
+              <div class="indicator">
+                <span class="text">Up from yesterday</span>
+              </div>
+            </div>
+            <img src="IMAGES/economy.png" alt="total sales">
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total Profit</div>
+              <div class="number">6,876</div>
+              <div class="indicator">
+                <span class="text">Up from yesterday</span>
+              </div>
+            </div>
+            <img src="IMAGES/financial-profit.png" alt="top sales">
+          </div>
+          <div class="box">
+            <div class="right-side">
+              <div class="box-topic">Total Returns</div>
+              <div class="number">7,086</div>
+              <div class="indicator">
+                <span class="text">Down From Today</span>
+              </div>
+            </div>
+            <img src="IMAGES/return.png" alt="total returns">
+          </div>
+        </div>
+
+        <div class="sales-boxes">
+          <div class="recent-sales box all">
+            <div class="title">Recent Sales</div>
+            <div class="sales-details">
+              <ul class="details">
+                <li class="topic">Date</li>
+                <li>2/3/2023</li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Customer</li>
+                <li>Shawant Boraay</li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Status</li>
+                <li>Delivered</li>
+              </ul>
+              <ul class="details">
+                <li class="topic">Total</li>
+                <li>300.98</li>
+              </ul>
+            </div>           
+            <details class="button">
+              <summary><span>Customer feedback</span></summary>
+              <ul>
+                <li>Not filled all the way up<img src="IMAGES/dislike.png" alt="bad"></li>
+                <li>Very fast delivery<img src="IMAGES/thumb-up.png" alt="good"></li>
+                <li>Flavour was too flavourful<img src="IMAGES/dislike.png" alt="bad"></li>
+                <li>Great packaging<img src="IMAGES/thumb-up.png" alt="good"></li>
+                <li>Friendly interaction with customer service<img src="IMAGES/thumb-up.png" alt="good"></li>
+              </ul>
+            </details>
+          </div>
+          <div class="top-sales box all">
+            <div class="title">Top Seling Products</div>
+            <ul class="top-sales-details">
+              <li>
+                <span class="product">Kentucky Fried Chicken #123</span>
+                <span class="price">304</span>
+              </li>
+              <li>
+                <span class="product">Molokhia #345</span>
+                <span class="price">265</span>
+              </li>
+              <li>
+                <span class="product">Cinnabon #567</span>
+                <span class="price">198</span>
+              </li>
+              <li>
+                <span class="product">Toblerone #789</span>
+                <span class="price">150</span>
+              </li>
+              <li>
+                <span class="product">ObourLand #911</span>
+                <span class="price">27</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </section>
+  <script src="JS/admin.js" type="text/javascript"></script>
+</body>
+
+</html>
