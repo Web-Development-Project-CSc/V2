@@ -194,7 +194,6 @@ color:rgb(64, 64, 64)
   z-index: 5;
   position:absolute;
   padding:2%;
-  width:26%
 }
 .--visible {
 	opacity: 1;
@@ -334,4 +333,7 @@ margin-right: auto;
   width:90px;
   float: right;
   margin:2%;
+}
+details[open] .productInfo{
+  width:24%
 }
