@@ -10,7 +10,7 @@ router.get('/signup',(req,res)=>{
 router.get('/cart',(req,res)=>{
     res.render('cart',  { layout: false});
 })
-router.get('/profile',(req,res)=>{
+router.get('/myprofile',(req,res)=>{
     res.render('myProfile',  { layout: false});
 })
 router.get('/forgetpass',(req,res)=>{
