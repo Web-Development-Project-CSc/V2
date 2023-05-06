@@ -16,6 +16,4 @@ router.get('/users', (req,res)=>{
 router.get('/store', (req,res)=>{
     res.render('store')
 })
-
-module.exports = router
 module.exports = router
