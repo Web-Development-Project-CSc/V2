@@ -10,10 +10,15 @@ router.get('/signup',(req,res)=>{
 router.get('/cart',(req,res)=>{
     res.render('cart',  { layout: false});
 })
-router.get('/myprofile',(req,res)=>{
+router.get('/profile',(req,res)=>{
     res.render('myProfile',  { layout: false});
 })
 router.get('/forgetpass',(req,res)=>{
-    res.render('',  { layout: false});
+    res.render('forgetPassword',  { layout: false});
 })
+
+router.get('/privacypolicy', (req,res)=>{
+    res.render('privacyPolicy',{ layout:false})
+});
+
 module.exports = router

@@ -4,7 +4,7 @@ const expressLayouts= require('express-ejs-layouts')
 const path = require('path')
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
-const storeRouter = require('./routes/store')
+const adminRouter = require('./routes/admin')
 
 
 app.set('view engine','ejs');
@@ -15,6 +15,8 @@ app.use(express.static('public'));
 
 
 app.use('/',indexRouter)
-app.use('/store',storeRouter)
 app.use('/user',userRouter)
+app.use('/admin',adminRouter)
+
+
 app.listen(process.env.PORT || 3000)
