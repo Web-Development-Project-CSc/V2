@@ -46,14 +46,17 @@ header {
 h2 {
     color: #c49728;
 }
- h1, h2{
+
+h1,
+h2 {
     margin: 3%;
- }
+}
+
 .item {
     background-color: white;
     color: #c49728;
     width: 80%;
-    height:250px;
+    height: 250px;
     text-align: left;
     padding: 1%;
     margin: 3%;
@@ -76,7 +79,7 @@ h1 {
 
 .pr {
     width: 30%;
-    height:160px;
+    height: 160px;
     margin-bottom: 5px;
     border-radius: 20px;
     float: right;

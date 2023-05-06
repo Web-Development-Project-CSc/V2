@@ -1,0 +1,265 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  background-color: #f9f1db;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+img {
+  width: 40px;
+}
+
+#logo {
+  width: 75%;
+  margin: 13%;
+  padding-top: 30%;
+  padding-bottom: 15%;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background-color: #A84448;
+  transition: all 0.5s ease;
+  font-size: 24px;
+}
+
+.sidebar.active {
+  width: 60px;
+}
+
+.sidebar .logo-details {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .logo-details .logo_name {
+  color: #f9f1db;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.sidebar .nav-links {
+  margin-top: 15%;
+  color: white;
+  padding-left: 5%;
+}
+
+li {
+  list-style: n+one;
+}
+
+li img {
+  vertical-align: middle;
+}
+
+.sidebar .nav-links li:hover,
+.active {
+  background-color: #99B19C;
+  width:101%;
+}
+
+.sidebar .nav-links #out {
+  position: absolute;
+  bottom: 20px;
+  width: 94%
+}
+
+.nav-links li {
+  cursor: pointer;
+}
+
+
+.sidebar.active {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+nav{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: #713c5f;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: calc(100% - 240px);
+  left: 240px;
+  z-index: 101;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px #713c5f(0, 0, 0, 0.1);
+}
+
+nav .sidebar-button {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+nav .search-box {
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 20px;
+  display: flex;
+}
+
+.search-box img {
+  margin: 2%;
+  width: 20px;
+  cursor: pointer;
+}
+
+.search-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+}
+
+nav .search-box .bx-search {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: #713c5f;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+}
+
+nav .profile-details {
+  display: flex;
+  align-items: center;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 190px;
+  margin-right: 4%;
+  padding: 0 15px 0 2px;
+}
+
+nav .profile-details img {
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+nav .profile-details .admin_name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+.nav-links img {
+  filter: invert();
+  margin: 5%;
+}
+.products{
+  background-color:white;
+  border-radius: 6px;
+z-index: 100;
+position: absolute;
+text-align: center;
+margin-top: 6%;
+margin-left: 18%;
+width:80%;
+padding-bottom: 3.5%;
+}
+.products li{
+  border-radius: 6px;
+  padding:3%;
+  padding-bottom: 4%;
+  padding-top: 1%;
+  margin-bottom:1%;
+  margin-right: 3%;
+  text-align: left;
+display: block;
+}
+li:hover{
+  box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
+}
+
+button{
+border: 0;
+color: #ffffff;
+background-color:#99B19C;
+outline: 0;
+padding: 0;
+transition: all 200ms ease-in;
+cursor: pointer;
+box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+border-radius: 6px;
+padding: 12px 36px;
+margin-left:5%;
+font-family: 'Times New Roman', Times, serif;
+float:right;
+}
+input{
+  display: inline-block;
+  border: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  color: #747474;
+  font-family: inherit;
+}
+.del{
+  background-color:#A84448;
+}
+button:active, input:focus{
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.525);
+  border-radius: 6px;
+}
+ul{
+  list-style: none;
+  margin:1%;
+}
+#adder{
+  float: left;
+  margin-bottom: 2%;
+  background-color:#713c5f;
+}
+.products .title{
+  color: rgb(196, 151, 40);
+}
+.products img{
+  width:17%;
+  margin-top:1%;
+  height:175px;
+}
+ul input{
+float:right  
+}
+#edit{
+  position: absolute;
+  z-index: 100;
+  width:100%;
+  margin-left:-50%;
+  margin-top:-0.4%
+}
