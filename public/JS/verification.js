@@ -1,6 +1,6 @@
 
 document.getElementById("cpword").onchange = function() {confirmPass()};
-document.getElementById("cancelBTN").onclick= function() { location.replace("index.html");}
+document.getElementById("cancelBTN").onclick= function() { location.replace("/");}
     function confirmPass(){
 
         let p=document.getElementById("pword").value;
