@@ -6,7 +6,6 @@
 *Flavoured* is an online store that specializes in selling custom and specific food **flavourings** in various **shades**. The idea is to bring all customers the delight of enjoying their favourite snacks ; through emulating their taste and color, in two easy to use products *(powder - liquid)*. Many estimated flavours are available on the store from the get-go contrived of a collection of our team's favourite snacks and multiple surveys that were ran through our university, *MIU,* mates. Our slogan "***Taste the Shades***" was designed to imply that both the visuals and taste of our products mean a lot to us.
 
 
-
 ![Logo](https://raw.githubusercontent.com/Web-Development-Project-CSc/Flavoured/main/HTML/RESOURCE/Flavoured-transformeddblackwithslogan.png)
 ## Creators
 
