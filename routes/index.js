@@ -1,4 +1,5 @@
 const express = require('express')
+const app = express()
 const router = express.Router()
 
 router.get('/', (req,res)=>{
@@ -11,3 +12,6 @@ router.get('/store', (req,res)=>{
     res.render('store')
 });
 module.exports = router
+app.use(function(req,res,next){ 
+    res.render('404')
+});

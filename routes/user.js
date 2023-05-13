@@ -13,8 +13,11 @@ router.get('/cart',(req,res)=>{
 router.get('/myprofile',(req,res)=>{
     res.render('myProfile',  { layout: false});
 })
-router.get('/forgetpass',(req,res)=>{
+router.get('/forgetpassword',(req,res)=>{
     res.render('forgetPassword',  { layout: false});
+})
+router.get('/confirm',(req,res)=>{
+    res.render('confirmationPage',  { layout: false});
 })
 
 router.get('/privacypolicy', (req,res)=>{
