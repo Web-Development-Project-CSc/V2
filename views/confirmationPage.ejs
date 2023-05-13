@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<layout:null>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flavoured/sign up</title>
+    <link rel="stylesheet" href="/CSS/recoverySkin_0.css" />
+</head>
+
+<body>
+    <form action="/user/myprofile" method="get" id="myForm">
+        <div class="flavoured">
+            <header>Password Recovery</header>
+            <img src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo" />
+        </div>
+        <div>
+            <label class="name" for="email">Email :</label>
+            <input type="email" placeholder="Enter Your Email" name="email" id="email" required />
+        </div>
+        <div>
+            <label class="password" for="psw">Password :</label>
+            <input type="password" id="pword" placeholder="Enter Your Password" name="psw" required />
+        </div>
+        <div>
+            <label for="psw-repeat">Confirm Password :</label>
+            <input type="password" id="cpword" placeholder="Confirm Your Password" name="confirmation" required />
+            <div id="error">
+                <span><img src="/IMAGES/required.png" alt="required" />Passwords do not
+                    match</span>
+            </div>
+        </div>
+        <div class="clearfix">
+            <button type="submit" class="confirmbtn">Confirm</button>
+            <button id="cancelBTN" type="button" class="cancelbtn"><a href="/admin/login"></a>Cancel</button>
+        </div>
+    </form>
+    <script type="text/javascript" src="/JS/confpage.js"></script>
+</body>
+
+</html>
