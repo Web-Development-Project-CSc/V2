@@ -1,11 +1,14 @@
 <head>
+    
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/CSS/homeSkin_0.css"/>
     <title>Flavoured/home</title>
 </head>
-
+        app.use(function(req,res,next){ 
+         res.status(404)render('404'); 
+        });
         <script type="text/javascript" src="/JS/navbar.js"></script>
         <div class="bigIcon scrollfade --animate --hidden">
             <img src="/IMAGES/Flavoured-transformeddblackwithslogan.png" alt="icon"/>
