@@ -217,7 +217,7 @@ margin-left:5%;
 font-family: 'Times New Roman', Times, serif;
 float:right;
 }
-input{
+input, .imgadd{
   display: inline-block;
   border: 0;
   padding: 0;
@@ -229,6 +229,7 @@ input{
   color: #747474;
   font-family: inherit;
 }
+
 .del{
   background-color:#A84448;
 }
@@ -259,7 +260,7 @@ float:right
 #edit{
   position: absolute;
   z-index: 100;
-  width:100%;
+  width:97%;
   margin-left:-50%;
   margin-top:-0.4%
 }
