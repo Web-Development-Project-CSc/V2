@@ -27,10 +27,7 @@ router.get('/users', (req,res)=>{
 router.get('/store', (req,res)=>{
     res.render('store',{layout: false})
 })
-router.get('/upload', (req,res)=>{
-    res.render('upload',{layout: false})
-})
-router.post('/upload',upload.single('image'), (req,res)=>{
-    res.send('uploaded')
+router.post('/products',upload.single('image'), (req,res)=>{
+    res.render('products',{layout: false})
 })
 module.exports = router
