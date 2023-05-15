@@ -18,6 +18,7 @@ const orderSchema = new mongoose.Schema({
             type:String,
             shade:String,
             quantity:Number,
+            date:Date,
             progress: function(stat){
                 this.status.name = stat;
                 if(stat === null){
