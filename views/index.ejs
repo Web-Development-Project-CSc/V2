@@ -1,94 +1,91 @@
 <head>
-    
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="/CSS/homeSkin_0.css"/>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/homeSkin_0.css" />
     <title>Flavoured/home</title>
 </head>
-        app.use(function(req,res,next){ 
-         res.status(404)render('404'); 
-        });
-        <script type="text/javascript" src="/JS/navbar.js"></script>
-        <div class="bigIcon scrollfade --animate --hidden">
-            <img src="/IMAGES/Flavoured-transformeddblackwithslogan.png" alt="icon"/>
-        </div>
-        <section class="info scrollfade --animate --hidden">
-            <div class="changingImage">
-                <img class="mySlides fade" src="/IMAGES/testing.png" alt="p1"/>
-                <img class="mySlides fade" src="/IMAGES/delivery.png" alt="p3"/>
-                <img class="mySlides fade" src="/IMAGES/product.jpg" alt="p2"/>
-                <a class="prev" onclick="plusSlides(-1)"></a>
-                <a class="next" onclick="plusSlides(1)"></a>
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+<script type="text/javascript" src="/JS/navbar.js"></script>
+<div class="bigIcon scrollfade --animate --hidden">
+    <img src="/IMAGES/Flavoured-transformeddblackwithslogan.png" alt="icon" />
+</div>
+<section class="info scrollfade --animate --hidden">
+    <div class="changingImage">
+        <img class="mySlides fade" src="/IMAGES/testing.png" alt="p1" />
+        <img class="mySlides fade" src="/IMAGES/delivery.png" alt="p3" />
+        <img class="mySlides fade" src="/IMAGES/product.jpg" alt="p2" />
+        <a class="prev" onclick="plusSlides(-1)"></a>
+        <a class="next" onclick="plusSlides(1)"></a>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <script type="text/javascript" src="/JS/slideshow.js"></script>
+    <p>
+        Flavoured is multi-owned company that has been in the works for years.
+        We work exclusively with the highest ranking food scientists that are
+        always in the lab, testing and targetting new flavours to bring to your
+        door. Alongside our original and generic options, Flavoured tries to
+        partner with all your favorite brands to make all your favorite snacks
+        and meals all the more accessible, customizable and enjoyable. All our
+        deliveries are done carefully by our shipping team to ensure you a
+        comforting experience throughout. We at Flavoured understand that people
+        eat with their eyes as well which is why we try to provide you with your
+        choice of colorings to make all your meals TASTE and LOOK like your
+        favorites. We offer all our products in two forms to fit your demand.
+    </p>
+</section>
+<section class="items scrollfade --animate --hidden">
+    <div class="itemsHeader">Best Sellers</div>
+    <div class="product scrollfade --animate --hidden">
+        <img class="productimg" src="/IMAGES/Flavours/KFC-logo-696x391.jpg" alt="pr1" />
+        <details>
+            <summary>KFC</summary>
+            <div class="productInfo">
+                Price : EGP 45.02
+                <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
+                    <input type="radio" name="state1" class="liquid" checked /></label>
+                <label><img src="/IMAGES/powder.png" alt="powder" />Powder
+                    <input type="radio" name="state1" class="powder" /></label>
+                <label class="color">Shade :
+                    <input type="color" value="#9A6751" /></label>
             </div>
-            <script type="text/javascript" src="/JS/slideshow.js"></script>
-            <p>
-                Flavoured is multi-owned company that has been in the works for years.
-                        We work exclusively with the highest ranking food scientists that are
-                        always in the lab, testing and targetting new flavours to bring to your
-                        door. Alongside our original and generic options, Flavoured tries to
-                        partner with all your favorite brands to make all your favorite snacks
-                        and meals all the more accessible, customizable and enjoyable. All our
-                        deliveries are done carefully by our shipping team to ensure you a
-                        comforting experience throughout. We at Flavoured understand that people
-                        eat with their eyes as well which is why we try to provide you with your
-                        choice of colorings to make all your meals TASTE and LOOK like your
-                        favorites. We offer all our products in two forms to fit your demand.
-            </p>
-        </section>
-        <section class="items scrollfade --animate --hidden">
-            <div class="itemsHeader">Best Sellers</div>
-            <div class="product scrollfade --animate --hidden">
-                <img class="productimg" src="/IMAGES/Flavours/KFC-logo-696x391.jpg" alt="pr1"/>
-                <details>
-                    <summary>KFC</summary>
-                    <div class="productInfo">
-                        Price : EGP 45.02 
-                        <label><img src="/IMAGES/bottle.png" alt="liquid"/>Liquid
-                            <input type="radio" name="state1" class="liquid" checked/></label>
-                        <label><img src="/IMAGES/powder.png" alt="powder"/>Powder
-                            <input type="radio" name="state1" class="powder"/></label>
-                        <label class="color">Shade :
-                            <input type="color" value="#9A6751"/></label>
-                    </div>
-                </details>
+        </details>
+    </div>
+    <div class="product scrollfade --animate --hidden">
+        <img class="productimg" src="/IMAGES/Flavours/Molokhia.jpg" alt="pr2" />
+        <details>
+            <summary>Molokhia</summary>
+            <div class="productInfo">
+                Price : EGP 20.22
+                <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
+                    <input type="radio" name="state2" class="liquid" checked /></label>
+                <label><img src="/IMAGES/powder.png" alt="powder" />Powder
+                    <input type="radio" name="state2" class="powder" /></label>
+                <label class="color">Shade :
+                    <input type="color" value="#9A6751" /></label>
             </div>
-            <div class="product scrollfade --animate --hidden">
-                <img class="productimg" src="/IMAGES/Flavours/Molokhia.jpg" alt="pr2"/>
-                <details>
-                    <summary>Molokhia</summary>
-                    <div class="productInfo">
-                        Price : EGP 20.22 
-                        <label><img src="/IMAGES/bottle.png" alt="liquid"/>Liquid
-                            <input type="radio" name="state2" class="liquid" checked/></label>
-                        <label><img src="/IMAGES/powder.png" alt="powder"/>Powder
-                            <input type="radio" name="state2" class="powder"/></label>
-                        <label class="color">Shade :
-                            <input type="color" value="#9A6751"/></label>
-                    </div>
-                </details>
+        </details>
+    </div>
+    <div class="product scrollfade --animate --hidden">
+        <img class="productimg" src="/IMAGES/Flavours/Cinnabon.png" alt="pr3" />
+        <details>
+            <summary>Cinnabon</summary>
+            <div class="productInfo">
+                Price : EGP 36.00
+                <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
+                    <input type="radio" name="state3" class="liquid" checked /></label>
+                <label><img src="/IMAGES/powder.png" alt="powder" />Powder
+                    <input type="radio" name="state3" class="powder" /></label>
+                <label class="color">Shade :
+                    <input type="color" value="#9A6751" /></label>
             </div>
-            <div class="product scrollfade --animate --hidden">
-                <img class="productimg" src="/IMAGES/Flavours/Cinnabon.png" alt="pr3"/>
-                <details>
-                    <summary>Cinnabon</summary>
-                    <div class="productInfo">
-                        Price : EGP 36.00
-                        <label><img src="/IMAGES/bottle.png" alt="liquid"/>Liquid
-                            <input type="radio" name="state3" class="liquid" checked/></label>
-                        <label><img src="/IMAGES/powder.png" alt="powder"/>Powder
-                            <input type="radio" name="state3" class="powder"/></label>
-                        <label class="color">Shade :
-                            <input type="color" value="#9A6751"/></label>
-                    </div>
-                </details>
-            </div>
-            <script type="text/javascript" src="/JS/BS.JS"></script>
-        </section>
-        <script type="text/javascript" src="/JS/scrollfade.js"></script>
-        
-       
+        </details>
+    </div>
+    <script type="text/javascript" src="/JS/BS.JS"></script>
+</section>
+<script type="text/javascript" src="/JS/scrollfade.js"></script>
+
+
 </html>
