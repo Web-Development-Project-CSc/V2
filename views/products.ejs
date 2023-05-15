@@ -105,8 +105,8 @@
      <span id="edit">
     <form action="/admin/products" method="POST" enctype="multipart/form-data">
         <input type="text" placeholder="ProductName" id="name" required />
-        <input type="text" placeholder="Price" id="nprice" required />
-        <button id="imgadd" type="button" onclick="document.getElementById('image').click(); return false;">Upload Image</button>
+        <input type="text" placeholder="Price" id="nprice" required class="pricee" />
+        <button class="imgaddbutton" id="imgadd" type="button" onclick="document.getElementById('image').click(); return false;">Upload Image</button>
         <input type="file" name="image" style="visibility: hidden;" id="image" required />
         <button type="submit" id="adder">Add</button>
     </span>

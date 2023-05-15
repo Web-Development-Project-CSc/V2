@@ -187,8 +187,8 @@ nav .profile-details .admin_name {
   margin-top: 6.5%;
   margin-left: 18%;
   width: 80%;
-  padding-bottom: 3%;
-  margin-bottom: 5%;
+  padding-bottom: 3.5%;
+  margin-bottom: 6%;
 }
 
 .products li {
@@ -234,6 +234,7 @@ input,
   padding: 12px 36px;
   color: #747474;
   font-family: inherit;
+  margin-bottom: 2%;
 }
 
 .del {
@@ -252,9 +253,36 @@ ul {
 }
 
 #adder {
-  float: left;
-  margin-bottom: 2%;
+  border: 0;
+  color: #ffffff;
   background-color: #713c5f;
+  outline: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 6px;
+  padding: 12px 43px;
+  margin-left: 4%;
+  margin-right: -14%;
+  font-family: 'Times New Roman', Times, serif;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#adder:active {
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.525);
+  border-radius: 6px;
+}
+
+.imgaddbutton {
+  margin-left: -9%;
+  margin-right: 17%;
+  padding: 12px 19px;
+  margin-bottom: 3.5%;
+}
+
+.pricee {
+  margin-left: 1%;
 }
 
 .products .title {
@@ -277,4 +305,25 @@ ul input {
   width: 97%;
   margin-left: -50%;
   margin-top: -0.4%
+}
+
+span form input[type="text"] {
+  display: inline-block;
+  border: 0;
+  padding: 0%;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  color: #747474;
+  font-family: inherit;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 1.2%;
+  margin-left: 1.5%;
+}
+
+span form input[type="file"] {
+  margin: 0%;
 }
