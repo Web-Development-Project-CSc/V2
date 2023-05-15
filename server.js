@@ -18,5 +18,7 @@ app.use('/',indexRouter)
 app.use('/user',userRouter)
 app.use('/admin',adminRouter)
 
-
+app.use((req, res) => {
+    res.status(404).render("notFound",{layout: false});
+});
 app.listen(process.env.PORT || 3000)
