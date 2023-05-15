@@ -13,5 +13,4 @@ router.get('/store', (req,res)=>{
 });
 module.exports = router
 app.use(function(req,res,next){ 
-    res.render('404')
 });
