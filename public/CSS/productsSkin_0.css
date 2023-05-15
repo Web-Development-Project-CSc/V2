@@ -62,7 +62,7 @@ li img {
 .sidebar .nav-links li:hover,
 .active {
   background-color: #99B19C;
-  width:101%;
+  width: 101%;
 }
 
 .sidebar .nav-links #out {
@@ -81,7 +81,7 @@ li img {
   left: 60px;
 }
 
-nav{
+nav {
   color: white;
   display: flex;
   justify-content: space-between;
@@ -177,47 +177,53 @@ nav .profile-details .admin_name {
   filter: invert();
   margin: 5%;
 }
-.products{
-  background-color:white;
+
+.products {
+  background-color: white;
   border-radius: 6px;
-z-index: 100;
-position: absolute;
-text-align: center;
-margin-top: 6%;
-margin-left: 18%;
-width:80%;
-padding-bottom: 3.5%;
+  z-index: 100;
+  position: absolute;
+  text-align: center;
+  margin-top: 6.5%;
+  margin-left: 18%;
+  width: 80%;
+  padding-bottom: 3%;
+  margin-bottom: 5%;
 }
-.products li{
+
+.products li {
   border-radius: 6px;
-  padding:3%;
+  padding: 3%;
   padding-bottom: 4%;
   padding-top: 1%;
-  margin-bottom:1%;
+  margin-bottom: 1%;
   margin-right: 3%;
   text-align: left;
-display: block;
+  display: block;
 }
-li:hover{
+
+li:hover {
   box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
 }
 
-button{
-border: 0;
-color: #ffffff;
-background-color:#99B19C;
-outline: 0;
-padding: 0;
-transition: all 200ms ease-in;
-cursor: pointer;
-box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
-border-radius: 6px;
-padding: 12px 36px;
-margin-left:5%;
-font-family: 'Times New Roman', Times, serif;
-float:right;
+button {
+  border: 0;
+  color: #ffffff;
+  background-color: #99B19C;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 6px;
+  padding: 12px 36px;
+  margin-left: 5%;
+  font-family: 'Times New Roman', Times, serif;
+  float: right;
 }
-input, .imgadd{
+
+input,
+.imgadd {
   display: inline-block;
   border: 0;
   padding: 0;
@@ -230,37 +236,45 @@ input, .imgadd{
   font-family: inherit;
 }
 
-.del{
-  background-color:#A84448;
+.del {
+  background-color: #A84448;
 }
-button:active, input:focus{
+
+button:active,
+input:focus {
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.525);
   border-radius: 6px;
 }
-ul{
+
+ul {
   list-style: none;
-  margin:1%;
+  margin: 1%;
 }
-#adder{
+
+#adder {
   float: left;
   margin-bottom: 2%;
-  background-color:#713c5f;
+  background-color: #713c5f;
 }
-.products .title{
+
+.products .title {
   color: rgb(196, 151, 40);
 }
-.products img{
-  width:17%;
-  margin-top:1%;
-  height:175px;
+
+.products img {
+  width: 17%;
+  margin-top: 1%;
+  height: 175px;
 }
-ul input{
-float:right  
+
+ul input {
+  float: right
 }
-#edit{
+
+#edit {
   position: absolute;
   z-index: 100;
-  width:97%;
-  margin-left:-50%;
-  margin-top:-0.4%
+  width: 97%;
+  margin-left: -50%;
+  margin-top: -0.4%
 }
