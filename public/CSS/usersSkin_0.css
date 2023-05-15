@@ -32,12 +32,13 @@ img {
   z-index: 200;
   width: 78%;
   position: absolute;
-  margin-top: 6.5%;
+  margin-top: 6.7%;
   margin-left: 17.5%;
   margin-right: 18%;
   padding: 1%;
   padding-right: -2%;
   margin-bottom: 10%;
+  padding-bottom: 0%;
 }
 
 tr,
@@ -64,7 +65,7 @@ th {
   text-align: left;
   padding: 0.5%;
   border-radius: 10px;
-  color:rgba(24, 24, 24, 0.886);
+  color: rgba(24, 24, 24, 0.886);
 }
 
 td,
@@ -74,6 +75,7 @@ th {
 
 th {
   color: rgb(196, 151, 40);
+  font-size: 24px;
 }
 
 .modifyButton {
