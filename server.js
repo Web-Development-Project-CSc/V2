@@ -5,7 +5,7 @@ const path = require('path')
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
 const adminRouter = require('./routes/admin')
-
+const mongoose  = require('mongoose')
 
 app.set('view engine','ejs');
 app.set('views',__dirname +'/views');

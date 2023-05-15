@@ -1,0 +1,6 @@
+const mongoose= require ("mongoose")
+const db=mongoose.connect("mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/?retryWrites=true&w=majority")
+const Account=require('./models/accounts.js')
+function adduser(name, email, password)
+let newUser = new Account();
+
