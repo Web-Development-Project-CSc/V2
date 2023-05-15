@@ -38,6 +38,7 @@ img {
   padding: 1%;
   padding-right: -2%;
   margin-bottom: 10%;
+  padding-bottom: 0%;
 }
 
 tr,
@@ -64,7 +65,7 @@ th {
   text-align: left;
   padding: 0.5%;
   border-radius: 10px;
-  color:rgba(24, 24, 24, 0.886);
+  color: rgba(24, 24, 24, 0.886);
 }
 
 td,
