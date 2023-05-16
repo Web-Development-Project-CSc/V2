@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose= require ("mongoose")
+const db=mongoose.connect(process.env.DBCONNECT)
 const Account=require('./models/accounts.js')
 function adduser(name, email, password)
 let newUser = new Account();
-const db=process.env.DBCONNECT;
+
