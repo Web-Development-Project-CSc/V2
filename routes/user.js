@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require('express')
 const router = express.Router();
-const key_name = "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"
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(key_name);
+sgMail.setApiKey(process.env.SG_K);
 
 router.get('/login', (req,res)=>{
     res.render('login',  { layout: false})

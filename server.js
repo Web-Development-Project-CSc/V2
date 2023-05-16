@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express= require('express')
 const app = express()
 const expressLayouts= require('express-ejs-layouts')
@@ -21,4 +22,4 @@ app.use('/admin',adminRouter)
 app.use((req, res) => {
     res.status(404).render("notFound",{layout: false});
 });
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT)
