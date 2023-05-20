@@ -15,7 +15,7 @@ const orderSchema = new mongoose.Schema({
                 type: mongoose.SchemaTypes.objectid,
                 ref:"Accounts"
             },
-            type:String,
+            form:String,
             shade:String,
             quantity:Number,
             date:Date,
