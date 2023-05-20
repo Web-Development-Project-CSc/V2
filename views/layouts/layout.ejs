@@ -8,11 +8,16 @@
             <div class="menuOn">
                 <img class="profileIcon" src="/IMAGES/acc.png" alt="profile"/>
                 <div class="profileMenu">
-                    <div class="profileHeader">
-                        <a href="/user/myprofile">My Profile</a>
-                    </div>
+                    <% if (user==''){ %>
                     <a href="/user/signup">Sign Up</a>
                     <a href="/user/login">Log In</a>
+                    <% } else { %>
+                        <div class="profileHeader">
+                            <a href="/user/myprofile">My Profile</a>
+                        </div>
+                        <div><a href='/logOut'> Log Out</a></div>
+                        <% } %>
+                     
                 </div>
             </div>
         </header>

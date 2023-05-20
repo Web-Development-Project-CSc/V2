@@ -16,6 +16,10 @@ router.get('/support', (req,res)=>{
 router.get('/store', (req,res)=>{
     res.render('store', { user: (req.session.user === undefined ? "" : req.session.user) })
 });
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+  });
 module.exports = router
 app.use(function(req,res,next){ 
 });
