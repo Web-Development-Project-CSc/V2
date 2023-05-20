@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require('express')
 const router = express.Router();
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SG_K);
+//sgMail.setApiKey(process.env.SG_K);
 
 router.get('/login', (req,res)=>{
     res.render('login',  { layout: false})
@@ -20,7 +20,7 @@ router.get('/forgetpassword',(req,res)=>{
 
     res.render('forgetPassword',  { layout: false});
 })
-router.get('/confirm',(req,res)=>{
+/*router.get('/confirm',(req,res)=>{
     res.render('confirmationPage',  { layout: false});
     let z =`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
@@ -274,7 +274,7 @@ router.get('/confirm',(req,res)=>{
         html: z,
 }
     sgMail.send(message).then( response => console.log('Mail sent successfully')).catch(error => console.log(error.message));
-});
+});*/
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 });
