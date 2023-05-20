@@ -7,22 +7,34 @@ const accountSchema = new mongoose.Schema({
     address:String,
     birthDate:Date,
     email:String,
-    paymentMethod:String,
+    paymentMethod:{
+        type:String,
+        default:"Cash"
+    },
     card:
     {
+    type:{
         cvv:String,
         cardNumber:Number,
         expDate:Date,
+    }, default:null
     },
-    numPurchases:Number,
+    numPurchases:{
+        type:Number,
+        default:0
+    },
     boughtProducts:[
     {
         type: mongoose.SchemaTypes.objectid,
-        ref:"Products"
-    }],
+        ref:"Products",
+        default:null
+    }]
+   ,role:{
+    type: String, 
+    default:"customer"} 
+    ,
     buy: function(p){
         this.boughtProducts.$push(p);
     }
-   ,role:{type: String, default:"customer"} 
 })
 module.exports = mongoose.Model('Account',accountSchema)
