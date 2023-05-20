@@ -17,21 +17,31 @@ saveUninitialized: true }))
 
 
 router.get('/', (req,res)=>{
-    res.render('dashboard',{layout: false})
+    if(req.session.user !== undefined && req.session.user.role==='admin')
+    res.render('dashboard',{layout: false}, { user: (req.session.user === undefined ? "" : req.session.user) })
+    else res.redirect('admin/login')
 })
 
 router.get('/products' , (req,res)=>{
-    res.render('products',{layout: false})
+    if(req.session.user !== undefined && req.session.user.role==='admin')
+    res.render('products',{layout: false}, { user: (req.session.user === undefined ? "" : req.session.user) })
+    else res.redirect('login')
 })
 
 router.get('/users', (req,res)=>{
-    res.render('users',{layout: false})
+    if(req.session.user !== undefined && req.session.user.role==='admin')
+    res.render('users',{layout: false}, { user: (req.session.user === undefined ? "" : req.session.user) })
+    else res.redirect('login')
 })
 
-router.get('/store', (req,res)=>{
-    res.render('store',{layout: false})
+
+router.get('/login', (req,res)=>{
+    res.render('login',  { layout: false}, { user: (req.session.user === undefined ? "" : req.session.user) })
+
 })
 router.post('/products',upload.single('image'), (req,res)=>{
-    res.render('products',{layout: false})
+    if(req.session.user !== undefined && req.session.user.role==='admin')
+    res.render('products',{layout: false}, { user: (req.session.user === undefined ? "" : req.session.user) })
+    else res.redirect('login')
 })
 module.exports = router
