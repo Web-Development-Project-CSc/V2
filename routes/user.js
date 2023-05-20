@@ -3,6 +3,9 @@ const express = require('express')
 const router = express.Router();
 //const sgMail = require('@sendgrid/mail');
 //sgMail.setApiKey(process.env.SG_K);
+const session = require('express-session');
+router.use(session({ secret: 'Your_Secret_Key', resave: false,
+saveUninitialized: true }))
 
 router.get('/login', (req,res)=>{
     res.render('login',  { layout: false})

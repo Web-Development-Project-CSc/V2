@@ -7,7 +7,9 @@ const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
 const adminRouter = require('./routes/admin')
 const mongoose  = require('mongoose')
-
+const session = require('express-session')
+app.use(session({ secret: 'Your_Secret_Key', resave: false,
+saveUninitialized: true }))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/?retryWrites=true&w=majority')
 
 app.set('view engine','ejs');

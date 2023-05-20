@@ -11,6 +11,10 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({storage: storage});
+const session = require('express-session')
+router.use(session({ secret: 'Your_Secret_Key', resave: false,
+saveUninitialized: true }))
+
 
 router.get('/', (req,res)=>{
     res.render('dashboard',{layout: false})
