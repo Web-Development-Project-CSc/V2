@@ -8,14 +8,18 @@ saveUninitialized: true }))
 
 
 router.get('/', (req,res)=>{
-    res.render('index')
+    res.render('index', { user: (req.session.user === undefined ? "" : req.session.user) })
 })
 router.get('/support', (req,res)=>{
-    res.render('help')
+    res.render('help' ,{ user: (req.session.user === undefined ? "" : req.session.user) })
 })
 router.get('/store', (req,res)=>{
-    res.render('store')
+    res.render('store', { user: (req.session.user === undefined ? "" : req.session.user) })
 });
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+  });
 module.exports = router
 app.use(function(req,res,next){ 
 });
