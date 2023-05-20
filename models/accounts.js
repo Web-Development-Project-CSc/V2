@@ -23,5 +23,6 @@ const accountSchema = new mongoose.Schema({
     buy: function(p){
         this.boughtProducts.$push(p);
     }
+   ,role:{type: String, default:"customer"} 
 })
 module.exports = mongoose.Model('Account',accountSchema)
