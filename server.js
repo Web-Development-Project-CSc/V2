@@ -22,4 +22,4 @@ app.use('/admin',adminRouter)
 app.use((req, res) => {
     res.status(404).render("notFound",{layout: false});
 });
-app.listen(process.env.PORT)
+app.listen(3000 || process.env.PORT );
