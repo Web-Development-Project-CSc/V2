@@ -68,12 +68,13 @@ header {
   border-color: #A84448;
   border-style: solid;
   border-width: 10px;
-  width: 150px;
-  height: 123px;
+  width: 120px;
+  height: 80px;
   background-color: #A84448;
   border-radius: 20px;
   position: fixed;
-  left: 84%;
+  left: 86%;
+  padding-bottom: 3px;
 }
 
 .profileHeader {
