@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer');
 const path = require('path');
+const mongoose = require('mongoose');
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
         cb(null,'./public/IMAGES/');
@@ -11,9 +12,8 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({storage: storage});
-const session = require('express-session')
-router.use(session({ secret: 'Your_Secret_Key', resave: false,
-saveUninitialized: true }))
+mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/?retryWrites=true&w=majority')
+
 
 
 router.get('/', (req,res)=>{

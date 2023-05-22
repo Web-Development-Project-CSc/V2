@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const accountSchema = new mongoose.Schema({
-    name:String,
+    name: String,
     password:String,
     country:String,
     phone:Number,
@@ -11,30 +11,29 @@ const accountSchema = new mongoose.Schema({
         type:String,
         default:"Cash"
     },
-    card:
-    {
-    type:{
-        cvv:String,
-        cardNumber:Number,
-        expDate:Date,
-    }, default:null
-    },
+    
     numPurchases:{
         type:Number,
         default:0
     },
-    boughtProducts:[
-    {
-        type: mongoose.SchemaTypes.objectid,
-        ref:"Products",
-        default:null
-    }]
-   ,role:{
+   role:{
     type: String, 
     default:"customer"} 
-    ,
-    buy: function(p){
-        this.boughtProducts.$push(p);
-    }
+    ,card:
+    {
+        type: Object({
+                cvv:String,
+                cardNumber:Number,
+                expDate:Date,
+            }), 
+    default:null
+    }, 
+    boughtProducts:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"Products",
+            default:null
+        }]
+    
 })
-module.exports = mongoose.Model('Account',accountSchema)
+module.exports =  mongoose.model('Accounts',accountSchema)
