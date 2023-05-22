@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
-const Accounts = require('../models/accounts');
+const Accounts = require('../models/Accounts');
 router.use(express.urlencoded({extended:true}))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/?retryWrites=true&w=majority').then(resault =>{console.log("connected")}).catch(err => {console.log(err)})
 router.get('/', (req,res)=>{
@@ -24,7 +24,6 @@ router.get('/logout', (req, res) => {
     }
  console.log(Accounts.find({}))
 Accounts.find(user).then(result => {
-    console.log(result)
 if(result.length >0){
     req.session.user = result[0];
     console.log(req.session.user);
