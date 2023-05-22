@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
-const Accounts = require('../models/Accounts');
+const Accounts = require('../models/accounts');
 router.use(express.urlencoded({extended:true}))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 router.get('/', (req,res)=>{
