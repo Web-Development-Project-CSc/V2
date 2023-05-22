@@ -17,7 +17,9 @@ router.get('/cart',(req,res)=>{
     res.render('cart',  { layout: false});
 })
 router.get('/myprofile',(req,res)=>{
-    res.render('myProfile',  { layout: false});
+    if(req.session.user){ res.render('myProfile', {username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod ,layout: false});
+  }else
+  { res.redirect('/user/login');}
 })
 router.get('/forgetpassword',(req,res)=>{
 
