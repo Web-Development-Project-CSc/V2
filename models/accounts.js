@@ -33,7 +33,6 @@ const accountSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref:"Products",
             default:null
-        }]
-    
-})
+        }],   
+}, {timestamps:true})
 module.exports =  mongoose.model('Accounts',accountSchema)
