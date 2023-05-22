@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
-const Accounts = require('../models/accounts');
+const Accounts = require('../models/Accounts');
 router.use(express.urlencoded({extended:true}))
-mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/?retryWrites=true&w=majority',
-{useNewUrlParser: true, useUnifiedTopology:true}).then(result =>{console.log("connected")}).catch(err => {console.log(err)})
+mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 router.get('/', (req,res)=>{
     res.render('index', { user: (req.session.user === undefined ? "" : req.session.user) })
 })
@@ -23,16 +22,15 @@ router.get('/logout', (req, res) => {
         email: req.body.email,
         password: req.body.psw
     }
-Accounts.findOne( {
-    email: req.body.email,
-}).then(result => {
+    console.log(user);
+Accounts.findOne( user ).then(result => {
 if(result){
-    req.session.user = result.json;
+    req.session.user = result;
     console.log(req.session.user);
     console.log("logged in");
     if(req.session.user !== undefined && req.session.user.role==='admin') 
     res.redirect('/admin');
-    else if(req.session.user !== undefined && req.session.user.role==='user')
+    else if(req.session.user !== undefined && req.session.user.role==='customer')
     res.redirect('/user/myprofile');
 }
 else {
