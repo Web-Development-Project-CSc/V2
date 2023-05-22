@@ -26,7 +26,8 @@
     <section>
         <div class="profile">
             <label>Full Name :
-                <span id="clientName">Fname Mname Lname
+                <span id="clientName">
+                    <%=username%>
                 </span>
             </label>
             <details>
@@ -37,7 +38,7 @@
         </div>
         <div class="profile">
             <label>Email :
-                <span id="clientEmail">Person@mail.com</span>
+                <span id="clientEmail"><%= email %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -47,7 +48,7 @@
         </div>
         <div class="profile">
             <label>Password :
-                <span id="clientPassword">••••••••</span>
+                <span id="clientPassword"><%= password %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -57,7 +58,7 @@
         </div>
         <div class="profile">
             <label>Phone Number :
-                <span id="clientPhone">+01 234567890</span>
+                <span id="clientPhone"><%= phone%></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -77,7 +78,7 @@
         </div>
         <div class="profile">
             <label>Country :
-                <span id="clientCountry">Country Name</span>
+                <span id="clientCountry"><%= country %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -376,7 +377,7 @@
         </div>
         <div class="profile">
             <label>Address :
-                <span id="clientAddress">012th street building 4</span>
+                <span id="clientAddress"><%= address %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -472,8 +473,8 @@
     </section>
     <section class="paymentMethod">
         <div class="method">
-            <label><img id="cashImg" src="/IMAGES/cash-payment.png" alt="cash" />Cash
-                on delivery
+            <label><img id="cashImg" src="/IMAGES/cash-payment.png" alt="cash" />
+                cash on delivery
                 <input type="radio" id="cash" name="method" checked /></label>
         </div>
         <div class="method">
