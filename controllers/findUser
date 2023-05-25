@@ -10,10 +10,10 @@ const findUser = async (req,res)=>{
     Accounts.findOne( user ).then(result => {
         if(result){
             req.session.user = result;
-            console.log(req.session.user);
+            console.log(result);
             console.log("logged in");
             if(req.session.user !== undefined && req.session.user.role==='admin') 
-            return "/admin";
+            res.redirect( "/admin");
             else if(req.session.user !== undefined && req.session.user.role==='customer')
             res.redirect("/user/myprofile");
         }

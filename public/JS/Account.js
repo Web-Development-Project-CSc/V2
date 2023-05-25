@@ -159,9 +159,10 @@ function hide(){
 document.getElementById('logger').addEventListener("click", function(event){
     event.preventDefault();
     if(confirm()==true) {
-     if(getUser(getid(e.value))==getUser(admin.id))
-      location.replace("/admin");
-     else  document.getElementById("myForm").submit();;
+    //  if(getUser(getid(e.value))==getUser(admin.id))
+    //   location.replace("/admin");
+    //  else 
+     document.getElementById("myForm").submit();;
     }
     else return false;
   });

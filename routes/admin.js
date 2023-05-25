@@ -42,7 +42,7 @@ router.get('/users', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login', { layout: false}, {user: req.session.user || '' });
+  res.render('login', { layout: false});
 });
 
 router.post('/products', upload.single('image'), (req, res) => {
