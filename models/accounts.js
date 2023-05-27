@@ -31,7 +31,7 @@ const accountSchema = new mongoose.Schema({
     boughtProducts:[
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"Products",
+            ref:"products",
             default:null
         }],   
 }, {timestamps:true})

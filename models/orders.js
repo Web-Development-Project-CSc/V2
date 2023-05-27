@@ -7,13 +7,13 @@ const orderSchema = new mongoose.Schema({
     delivered:Boolean,
     product:
         {
-            type: mongoose.SchemaTypes.objectid,
-            ref:"Products"
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"products"
         },
         customer:
             {
-                type: mongoose.SchemaTypes.objectid,
-                ref:"Accounts"
+                type: mongoose.Schema.Types.ObjectId,
+                ref:"accounts"
             },
             form:String,
             shade:String,
