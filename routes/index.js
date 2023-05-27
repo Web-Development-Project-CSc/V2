@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
-const Accounts = require('../models/accounts');
 const Products = require('../models/products');
 const findUser = require('../controllers/findUser');
 router.use(express.urlencoded({extended:true}))
@@ -14,7 +13,7 @@ router.get('/support', (req,res)=>{
 })
 router.get('/store', (req,res)=>{
     let prods
-   Products.find().then(result =>{
+    Products.find().then(result =>{
     prods=result
     res.render('store', { user: (req.session.user === undefined ? "" : req.session.user) , prods: prods})
     }).catch(err => {console.log(err)}).then(
