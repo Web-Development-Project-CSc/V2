@@ -11,7 +11,7 @@
 
 <body>
    
-    <form action="/user/myprofile" method="get" id="myForm">
+    <form action="/user/signing" method="post" id="myForm">
         <div class="flavoured">
             <header>Sign Up</header>
             <img src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo" />
@@ -323,11 +323,11 @@
         </div>
         <div>
             <label class="birthdate" for="birthdate">Birthdate :</label>
-            <input id="bdate" type="date" name="birthdate" required max="2007-01-01" />
+            <input id="bdate" name="bdate" type="date"  required max="2007-01-01" />
         </div>
         <div>
             <label class="mobile" for="mobile">Mobile :</label>
-            <input type="tel" name="mobile" placeholder="0123456789" id="mobile" required />
+            <input type="tel" name="phone" placeholder="0123456789" id="mobile" required />
         </div>
         <div>
             <label class="password" for="psw">Password :</label>
