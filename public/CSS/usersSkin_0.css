@@ -78,6 +78,14 @@ th {
   font-size: 24px;
 }
 
+.modButton{
+  padding-left: 7%;
+}
+
+.delButton{
+  padding-left: 4%;
+}
+
 .modifyButton {
   border: 0;
   color: #ffffff;
