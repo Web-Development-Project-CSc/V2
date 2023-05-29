@@ -64,7 +64,7 @@
             <span class="title"><%=prods[index].name%></span>
             <div class="info">EGP <%=prods[index].price%></div>
             <img src="<%=prods[index].imgUrl%>" alt="<%=prods[index].name%>">
-            <button class ="del">Delete</button><button class ="mod">Modify</button>
+            <button class ="del" onclick="location.replace('/admin/removep?name=<%=prods[index].name%>')">Delete</button><button class ="mod">Modify</button>
             <input type="text" placeholder="Price" id="price1" required />
         </li>
         <%}%>

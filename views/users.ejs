@@ -67,7 +67,6 @@
                 <th>Address</th>
                 <th class="numbers">Purchases</th>
             </tr>
-            <%console.log(accounts)%>
                 <tr>
                     <% for( let index=0; index < accounts.length; index++ ) { %>
                         <td>
@@ -83,25 +82,29 @@
                             <%=accounts[index].numPurchases%>
                         </td>
                         <td class="modButton"><button class="modifyButton">modify</button></td>
-                        <td class="delButton"><button class="deleteButton">delete</button></td>
+                        <td class="delButton"><button class="deleteButton" onclick="location.replace('/admin/removeu?id=<%=accounts[index]._id%>')">delete</button></td>
                 </tr>
                 <% } %>
         </table>
         <div id="edit">
-            <form action="" method="post">
+            <form action="/admin/addinguser" method="post">
                 <button type="submit" id="adder" class="addButton">Add</button>
                 <span>
-                    <input type="text" placeholder="Name" id="Name" required />
+                    <input type="text" placeholder="Name" id="Name" name="name" required />
                 </span>
                 <span class="inputEmail">
-                    <input type="text" placeholder="Email" id="Email" required />
+                    <input type="text" placeholder="Email" id="Email" name="email" required />
                 </span>
                 <span class="inputPassword">
-                    <input type="password" placeholder="Password" id="Password" required />
+                    <input type="password" placeholder="Password" id="Password" name="psw" required />
                 </span>
                 <span class="inputTel">
-                    <input type="tel" placeholder="+20" id="Mobile" required />
+                    <input type="tel" placeholder="+20" id="Mobile" name="phone" required />
                 </span>
+                <input type="hidden" name="role" id="role" value="admin">
+                <input type="hidden" name="address" id="address" value="The Flavoured Lands">
+                <input type="hidden" name="country" id="country" value="Flavoura">
+                <input type="hidden" name="bdate" id="bdate" value="<%= Date.now()%>">
             </form>
         </div>
 

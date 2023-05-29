@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path');
 const addProduct = require('../controllers/addProduct');
+const removeProduct = require('../controllers/removeProduct');
 const Products = require('../models/products')
+const removeUser = require('../controllers/removeUser')
 const Accounts = require('../models/accounts')
+const addAccount = require('../controllers/addAccount')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
@@ -44,6 +46,10 @@ router.get('/users', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { layout: false});
 });
+
+router.get("/removep",removeProduct.remove)
+router.get("/removeu",removeUser.remove)
+router.post("/addinguser",addAccount.addUser)
 
 router.post('/addproducts', upload.single('image'),  addProduct.addProduct)
 
