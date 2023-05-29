@@ -19,13 +19,21 @@ router.get('/support', (req,res)=>{
     res.render('help' ,{ user: (req.session.user === undefined ? "" : req.session.user) })
 })
 router.get('/store', (req,res)=>{
+    res.redirect('/store/1')
+});
+router.get('/store/:page',  (req, res) => {
+    let pageNumber = parseInt(req.params.page);
     let prods
     Products.find().then(result =>{
-    prods=result
-    res.render('store', { user: (req.session.user === undefined ? "" : req.session.user) , prods: prods})
-    }).catch(err => {console.log(err)}).then(
-   )
-});
+    if(pageNumber>result.length/9) pageNumber = result.length/9;
+    if(pageNumber<1) pageNumber = 1;
+    prods=result.slice((pageNumber-1)*9, ((pageNumber-1)*9)+9);
+    res.render('store', { user: (req.session.user === undefined ? "" : req.session.user) , 
+    prods: prods,
+    current_page: pageNumber,
+    total_page: Math.ceil(result.length/9)})
+    }).catch(err => {console.log(err)}).then()
+  });
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');
