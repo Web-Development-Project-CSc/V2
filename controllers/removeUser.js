@@ -8,9 +8,9 @@ const remove = async (req,res)=>{
      res.redirect('/admin/users');
    } else {
      console.log('No account found');
-     res.redirect('/admin/users');
-   }
+     res.redirect("admin/login?message='Could not find account'");
+    }
   }
-  else res.redirect('/admin/users');
+  res.redirect("admin/login?message = 'Can not remove their royal highness'");
 }
 module.exports = {remove}

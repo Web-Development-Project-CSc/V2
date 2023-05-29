@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <%- include('./partials/errors.ejs') %>
+
     <form action="/logging" method="post" id="myForm">
         <div class="flavoured">
             <header>Login Form</header>
@@ -33,7 +35,7 @@
             </div>
         </div>
         <button type="submit" id="logger">Login</button>
-        <button type="button" class="cancelbtn" id="cancel">Cancel</button>
+        <button type="button" class="cancelbtn" onclick="location.replace('/')"id="cancel">Cancel</button>
         <div class="signUp">
             <a href="/user/forgetpassword">Forgot password?</a>
             <label>

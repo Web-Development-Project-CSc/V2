@@ -2,12 +2,13 @@ require("dotenv").config();
 const express= require('express')
 const app = express()
 const expressLayouts= require('express-ejs-layouts')
-const path = require('path')
+const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
 const adminRouter = require('./routes/admin')
 const mongoose  = require('mongoose')
 const session = require('express-session')
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})

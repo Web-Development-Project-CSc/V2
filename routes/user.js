@@ -9,10 +9,10 @@ router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
 
 router.get('/login', (req,res)=>{
-    res.render('login',  { layout: false})
+    res.render('login',  { message: '', layout: false})
 })
 router.get('/signup',(req,res)=>{
-    res.render('signup',  { layout: false});
+    res.render('signup',  { message: '', layout: false});
 })
 router.post('/checker',check.check);
 
@@ -23,22 +23,22 @@ router.use((req, res, next) => {
       next();
   }
   else {
-    res.redirect('user/login');
+    res.redirect("user/login?message = 'Must be logged in to view this page'");
   }
 });
 
 router.get('/cart',(req,res)=>{
-    res.render('cart',  { layout: false});
+    res.render('cart',  { message: '', layout: false});
 })
 router.get('/myprofile',(req,res)=>{
- res.render('myProfile', {username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod , bDay: req.session.user.birthDate ,layout: false});
+ res.render('myProfile', {message: '', username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod , bDay: req.session.user.birthDate ,layout: false});
 })
 
 router.get('/forgetpassword',(req,res)=>{
-    res.render('forgetPassword',  { layout: false});
+    res.render('forgetPassword',  {message: '', layout: false});
 })
 router.get('/confirmation',(req,res)=>{
-    res.render('confirmationPage',  { layout: false});
+    res.render('confirmationPage',  {message: '', layout: false});
     });
 router.get('/confirm',sendEmail.sendEmail)
 

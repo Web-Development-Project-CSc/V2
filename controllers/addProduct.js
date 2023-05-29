@@ -11,7 +11,8 @@ try{
 }
 catch(err){
     console.log(err);
-    res.redirect('/admin/products');
+    res.redirect("admin/login?message='Could not add product'");
+
 }
 }
 module.exports = {addProduct}

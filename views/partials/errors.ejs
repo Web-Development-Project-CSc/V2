@@ -1,7 +1,7 @@
 <head>
     <style>
         #error-message {
-            color: rgb(101, 4, 4);
+            color: rgb(138, 0, 0);
             font-size: 20px;
             font-weight: bold;
             text-align: center;
@@ -9,7 +9,9 @@
         }
     </style>
 </head>
-<div id="error-message">
-    <% if (message == undefined ) message ='' %>
-    <%= message %>
-</div>
+<div id="error-message"> </div>
+<script>
+    let urlParams = new URLSearchParams(window.location.search);
+    let m = urlParams.get('message');
+    document.getElementById('error-message').innerHTML = m;
+</script>

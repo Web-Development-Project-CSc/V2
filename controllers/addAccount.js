@@ -31,8 +31,8 @@ try{
 }
 catch(err){
     console.log(err);
-    if(role == 'customer') res.redirect('/signup');
-    else res.redirect('/admin/users');
+    if(role == 'customer') res.redirect("signup?message='Could not add user'");
+    else res.redirect("admin/login?message='Could not add user'");
 }
 }
 module.exports = {addUser}

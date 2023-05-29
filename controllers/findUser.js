@@ -18,7 +18,7 @@ const findUser = async (req,res)=>{
         else{
         console.log(result)
         console.log("not logged in");
-        res.redirect( "/")
+        res.redirect( "/user/login/?message='Failed to login'",)
         }
     }).catch(err => {
         console.log(err);

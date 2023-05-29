@@ -7,7 +7,7 @@ const remove = async (req,res)=>{
      res.redirect('/admin/products');
    } else {
      console.log('No product found');
-     res.redirect('/admin/products');
-   }
+     res.redirect("admin/login?message='Could not find product'");
+    }
 }
 module.exports = {remove}
