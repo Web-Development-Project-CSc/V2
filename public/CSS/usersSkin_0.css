@@ -49,8 +49,8 @@ th {
 
 table {
   background-color: white;
-  width: 90%;
-  margin-left: 5%;
+  width: 92%;
+  margin-left: 4.2%;
 
 }
 
@@ -79,11 +79,11 @@ th {
 }
 
 .modButton{
-  padding-left: 5.5%;
+  padding-left: 0.5%;
 }
 
 .delButton{
-  padding-left: 2.5%;
+  padding-left: 0.5%;
 }
 
 .modifyButton {
@@ -128,7 +128,7 @@ th {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
   border-radius: 6px;
   padding: 12px 36px;
-  margin-left: 5.9%;
+  margin-left: 5.0%;
   margin-right: 2%;
   font-family: 'Times New Roman', Times, serif;
   vertical-align: middle;
@@ -148,16 +148,16 @@ input {
   font-family: inherit;
   vertical-align: middle;
   text-align: center;
-  width: 60%;
+  width: 65%;
 }
 
 .inputEmail {
-  margin-left: 0%;
-  margin-right: 0%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
 }
 
 .inputTel{
-  margin-left: 0%;
+  margin-left: 0.5%;
 }
 
 span {
