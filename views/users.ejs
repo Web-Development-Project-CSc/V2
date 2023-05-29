@@ -68,26 +68,40 @@
                 <th class="numbers">Purchases</th>
             </tr>
             <%console.log(accounts)%>
-            <tr>
-                <% for( let index = 0; index < accounts.length; index++ ) { %>
-                <td><%=accounts[index].name%></td>
-                <td><%=accounts[index].email%></td>
-                <td><%=accounts[index].address%></td>
-                <td class="numbers"><%=accounts[index].numPurchases%></td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
-            <% } %>
+                <tr>
+                    <% for( let index=0; index < accounts.length; index++ ) { %>
+                        <td>
+                            <%=accounts[index].name%>
+                        </td>
+                        <td>
+                            <%=accounts[index].email%>
+                        </td>
+                        <td>
+                            <%=accounts[index].address%>
+                        </td>
+                        <td class="numbers">
+                            <%=accounts[index].numPurchases%>
+                        </td>
+                        <td><button class="modifyButton">modify</button></td>
+                        <td><button class="deleteButton">delete</button></td>
+                </tr>
+                <% } %>
         </table>
         <div id="edit">
-            <button id="adder" class="addButton">Add</button>
-            <span>
-                <input type="text" placeholder="Name" id="Name" required />
-            </span>
-            <span class="inputEmail">
-                <input type="text" placeholder="Email" id="Email" required />
-            </span>
+            <form action="" method="post">
+                <button type="submit" id="adder" class="addButton">Add</button>
+                <span>
+                    <input type="text" placeholder="Name" id="Name" required />
+                </span>
+                <span class="inputEmail">
+                    <input type="text" placeholder="Email" id="Email" required />
+                </span>
+                <span class="inputPassword">
+                    <input type="password" placeholder="Password" id="Password" required />
+                </span>
+            </form>
         </div>
+
     </section>
 </body>
 
