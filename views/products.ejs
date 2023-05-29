@@ -59,48 +59,15 @@
     </section>
     <section class=" products">
         <ul>
+            <% for( let index = 0; index < prods.length; index++ ) { %>
           <li>
-            <span class="title">Bimbo</span>
-            <div class="info">EGP 16.00</div>
-            <img src="/IMAGES/Flavours/Bimbo.jpg" alt="bimbo">
+            <span class="title"><%=prods[index].name%></span>
+            <div class="info">EGP <%=prods[index].price%></div>
+            <img src="<%=prods[index].imgUrl%>" alt="<%=prods[index].name%>">
             <button class ="del">Delete</button><button class ="mod">Modify</button>
             <input type="text" placeholder="Price" id="price1" required />
         </li>
-          <li>
-            <span class ="title">ObourLand</span>
-            <div class="info">EGP 6.66</div>
-            <img src="/IMAGES/Flavours/Obourland.png" alt="obourland">
-            <button class ="del">Delete</button><button class ="mod">Modify</button>
-            <input type="text" placeholder="Price" id="price2" required />
-        </li>
-          <li>
-            <span class ="title">Taro</span>
-            <div class="info">EGP 27.99</div>
-            <img src="/IMAGES/Flavours/Taro.png" alt="taro">
-            <button class ="del">Delete</button><button class ="mod">Modify</button>
-            <input type="text" placeholder="Price" id="price3" required />
-        </li>
-          <li>
-            <span class ="title">Molokhia</span>
-            <div class="info">EGP 20.22</div>
-            <img src="/IMAGES/Flavours/Molokhia.jpg" alt="Molokhia">
-            <button class ="del">Delete</button><button class ="mod">Modify</button>
-            <input type="text" placeholder="Price" id="price4" required />
-        </li>
-          <li>
-            <span class ="title">M&M's</span>
-            <div class="info">EGP 17.50</div>
-            <img src="/IMAGES/Flavours/m-ms-logo-yellow-background.jpg" alt="m&m's">
-            <button class ="del">Delete</button><button class ="mod">Modify</button>
-            <input type="text" placeholder="Price" id="price5" required />
-        </li>
-        <li>
-            <span class ="title">Twinkies</span>
-            <div class="info">EGP 8.00</div>
-            <img src="/IMAGES/Flavours/Twinkies.jpg" alt="Twinkies">
-            <button class ="del">Delete</button><button class ="mod">Modify</button>
-            <input type="text" placeholder="Price" id="price6" required />
-        </li>
+        <%}%>
       </ul>  
      <span id="edit">
     <form action="/admin/products" method="POST" enctype="multipart/form-data">

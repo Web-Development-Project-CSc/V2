@@ -1,30 +1,43 @@
 let num = document.getElementsByClassName("page");
 let pages = document.getElementsByClassName("items");
 let carts = document.querySelectorAll(".cart button");
-currentPage(1);
-function currentPage(n) {
-    showPage(pageNum = n);
-    under(n);
-  }
-  function under(n) {
+let bins  = document.querySelectorAll(".bin div");
+under(parseInt(bins[0].innerHTML));
+function currentPage(value) {
+if(value === 'p') location.replace('/store/' + (parseInt(bins[0].innerText)-1));
+if(value === 'n') location.replace('/store/' + (parseInt(bins[0].innerText)+1));
+if(value === 'c1'){
+  if(bins[0].innerText != (parseInt(num[1].innerText)))
+  location.replace('/store/' + (parseInt(num[1].innerText)));
+  else under(parseInt(bins[0].innerHTML))
+}
+if(value === 'c2'){
+  if(bins[0].innerText != (parseInt(num[2].innerText)))
+  location.replace('/store/' + (parseInt(num[2].innerText)));
+  else under(parseInt(bins[0].innerHTML))
+}
+if(value === 'c3'){
+  if(bins[0].innerText != (parseInt(num[3].innerText)))
+  location.replace('/store/' + (parseInt(num[3].innerText)));
+  else under(parseInt(bins[0].innerHTML))
+}
+}
+
+  function under(curr) {
     for (i = 0; i < num.length; i++) {
       num[i].style.textDecoration="none";
     }
-    num[n-1].style.textDecoration="underline";
-}
-  function showPage(n) {
-    let i;
-    if (n > pages.length) {pageNum = 1}    
-    if (n < 1) {pageNum = pages.length}
-    for (i = 0; i < pages.length; i++) {
-      pages[i].style.display = "none";  
-    }
-    pages[pageNum-1].style.display = "block";  
+    let me;
+    if(curr == 1) me = 1
+    if(curr > 1 && curr < bins[1].innerText) me = 2
+    if(curr == bins[1].innerText) me = 3
+    num[me].style.textDecoration="underline";
     window.scrollTo({top :0, behavior:"smooth"});
 }
+
   let details = document.getElementsByClassName("productInfo");
   let pos1 = '5.5%', pos2 = '35%', pos3='65%';
-  for (let i = 0; i < 27; i+=9) {
+  for (let i = 0; i < details.length; i+=9) {
   for(let j=0; j<9 ; j++){
     if(j%3==0) details[j+i].style.left=pos1;
     else if((j-1)%3 ==0) details[j+i].style.left=pos2;

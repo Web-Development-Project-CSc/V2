@@ -3,6 +3,8 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const mongoose = require('mongoose');
+const Products = require('../models/products')
+const Accounts = require('../models/accounts')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/');
@@ -11,11 +13,7 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
-
 const upload = multer({ storage: storage });
-
-mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
-
 router.get('/', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
     res.render('dashboard', { layout: false, user: req.session.user });
@@ -26,15 +24,17 @@ router.get('/', (req, res) => {
 
 router.get('/products', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
-    res.render('products', { layout: false, user: req.session.user });
+    Products.find().then(prods =>{
+    res.render('products', { layout: false, user: req.session.user , prods: prods})});
   } else {
     res.redirect('login');
   }
 });
 
-router.get('/users', (req, res) => {
+router.get('/users', (req, res) => {  
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
-    res.render('users', { layout: false, user: req.session.user });
+    Accounts.find().then(accounts =>
+    res.render('users', { layout: false, user: req.session.user , accounts: accounts}))
   } else {
     res.redirect('login');
   }

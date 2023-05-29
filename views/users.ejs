@@ -67,62 +67,17 @@
                 <th>Address</th>
                 <th class="numbers">Purchases</th>
             </tr>
+            <%console.log(accounts)%>
             <tr>
-                <td>Mohab Ashraf</td>
-                <td>mohab@gmail.com</td>
-                <td>Obour</td>
-                <td class="numbers">10</td>
+                <% for( let index = 0; index < accounts.length; index++ ) { %>
+                <td><%=accounts[index].name%></td>
+                <td><%=accounts[index].email%></td>
+                <td><%=accounts[index].address%></td>
+                <td class="numbers"><%=accounts[index].numPurchases%></td>
                 <td><button class="modifyButton">modify</button></td>
                 <td><button class="deleteButton">delete</button></td>
             </tr>
-            <tr>
-                <td>Youssef Yehia</td>
-                <td>youssef@gmail.com</td>
-                <td>Hegaz</td>
-                <td class="numbers">20</td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
-            <tr>
-                <td>Abdulla Sherif</td>
-                <td>abdulla@gmail.com</td>
-                <td>Tagamo3</td>
-                <td class="numbers">15</td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
-            <tr>
-                <td>James Bond</td>
-                <td>james@gmail.com</td>
-                <td>London</td>
-                <td class="numbers">50</td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
-            <tr>
-                <td>The Rock</td>
-                <td>rock@gmail.com</td>
-                <td>USA</td>
-                <td class="numbers">100</td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
-            <tr>
-                <td>Mohamed Abdu</td>
-                <td>mohamed@gmail.com</td>
-                <td>Zatoon</td>
-                <td class="numbers">1</td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
-            <tr>
-                <td>Salwa Beattl</td>
-                <td>salwa@gmail.com</td>
-                <td>El Eroba</td>
-                <td class="numbers">2</td>
-                <td><button class="modifyButton">modify</button></td>
-                <td><button class="deleteButton">delete</button></td>
-            </tr>
+            <% } %>
         </table>
         <div id="edit">
             <button id="adder" class="addButton">Add</button>

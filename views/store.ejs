@@ -24,13 +24,13 @@
         </div>
     </section>
     <section class="items fade">
-        <% prods.forEach(element => {%>
+        <% for (let element = 0; element < prods.length; element++) { %>
         <div class="product ">
-            <img class="productimg" src="<%=element.imgUrl%>" alt="<%=element.imgUrl%>" />
+            <img class="productimg" src="<%=prods[element].imgUrl%>" alt="<%=prods[element].imgUrl%>" />
             <details>
-                <summary><%= element.name %></summary>
+                <summary><%= prods[element].name %></summary>
                 <div class="productInfo">
-                    Price : EGP <%=element.price %>
+                    Price : EGP <%=prods[element].price %>
                     <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
                         <input type="radio" name="state1" class="liquid" checked /></label>
                     <label><img src="/IMAGES/powder.png" alt="powder" />Powder
@@ -44,15 +44,33 @@
                 </div>
             </details>
         </div>
-        <% }) %>
+        <% } %>
     <div id="pages">
-        <span class="page" onclick="currentPage(1)">1</span>
-        <span class="page" onclick="currentPage(2)">2</span>
-        <span class="page" onclick="currentPage(3)">3</span>
+        <span class="page" onclick="currentPage('p')"><</span>
+       
+        <% let c1 , c2 , c3;
+           if(current_page>1 && current_page< total_page) c1 = current_page - 1, c2 = current_page, c3 = current_page + 1;
+           if(current_page === total_page) c1 = total_page - 2, c2 = total_page - 1, c3 = total_page;
+           if(current_page === 1) c1 = 1, c2 =2, c3 = 3;
+        %>
+
+        <div class="bin">
+            <div><%= current_page%></div>
+            <div><%= total_page%></div>
+        </div>
+
+        <span class="page" onclick="currentPage('c1')"><%= c1 %> </span>
+        <span class="page" onclick="currentPage('c2')"><%= c2 %> </span>
+        <span class="page" onclick="currentPage('c3')"><%= c3 %> </span>
+        <span class="page" onclick="currentPage('n')">></span>
+
         <span class="go">
             <a href="/user/cart">
                 <img src="/IMAGES/gotocart.png" alt="go to cart"><span id="go"></span>
-            </a></span>
+            </a>
+        </span>
+
+        </div>
         <script type="text/javascript" src="/JS/productsChange.js"></script>
         <script type="text/javascript" src="/JS/scrollfade.js"></script>
 </body>

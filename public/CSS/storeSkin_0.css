@@ -6,7 +6,10 @@ html {
   width: 87%;
   height: 400px;
 }
-
+.bin{
+  display: none;
+  visibility: hidden;
+}
 body {
   background-color: white;
   color: white;
