@@ -6,11 +6,9 @@ const findUser = require('../controllers/findUser');
 router.use(express.urlencoded({extended:true}))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 router.get('/', (req,res)=>{
-    let prods
     let q=Products.find()
     q.sort({numPurchases: -1})
-    q.limit(3).then(result =>{
-        prods=result
+    q.limit(3).then(prods =>{
         res.render('index', { user: (req.session.user === undefined ? "" : req.session.user) , prods: prods })
     })
 })
