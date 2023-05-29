@@ -1,7 +1,5 @@
 const Accounts = require('../models/accounts');
 const bcrypt = require("bcrypt");
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 function hashPassword(password) {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
