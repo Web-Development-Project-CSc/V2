@@ -16,8 +16,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 router.get('/', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
-    res.render('dashboard', { layout: false, user: req.session.user });
-  } else {
+    Products.find().sort({numPurchases: -1}).limit(5).then( prods =>{
+      res.render('dashboard', { layout: false, user: req.session.user , prods: prods})});
+    } else {
     res.redirect('admin/login');
   }
 });
