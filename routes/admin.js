@@ -30,7 +30,7 @@ router.get('/products', (req, res) => {
     Products.find().then(prods =>{
     res.render('products', { layout: false, user: req.session.user , prods: prods})});
   } else {
-    res.redirect('login');
+    res.redirect('admin/login');
   }
 });
 
@@ -39,14 +39,21 @@ router.get('/users', (req, res) => {
     Accounts.find().then(accounts =>
     res.render('users', { layout: false, user: req.session.user , accounts: accounts}))
   } else {
-    res.redirect('login');
+    res.redirect('admin/login');
   }
 });
 
 router.get('/login', (req, res) => {
   res.render('login', { layout: false});
 });
-
+router.use((req, res, next) => {
+  if (req.session.user !== undefined && req.session.user.role === 'admin') {
+      next();
+  }
+  else {
+    res.redirect('admin/login');
+  }
+});
 router.get("/removep",removeProduct.remove)
 router.get("/removeu",removeUser.remove)
 router.post("/addinguser",addAccount.addUser)

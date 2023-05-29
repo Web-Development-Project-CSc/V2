@@ -18,25 +18,30 @@ router.post('/checker',check.check);
 
 router.post('/signing',addUser.addUser);
 
+router.use((req, res, next) => {
+  if (req.session.user !== undefined && req.session.user.role === 'customer') {
+      next();
+  }
+  else {
+    res.redirect('user/login');
+  }
+});
+
 router.get('/cart',(req,res)=>{
-    if(req.session.user)
     res.render('cart',  { layout: false});
-    else
-    res.redirect('/user/login')
 })
 router.get('/myprofile',(req,res)=>{
-    if(req.session.user){ res.render('myProfile', {username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod , bDay: req.session.user.birthDate ,layout: false});
-  }else
-  { res.redirect('/user/login');}
+ res.render('myProfile', {username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod , bDay: req.session.user.birthDate ,layout: false});
 })
-router.get('/forgetpassword',(req,res)=>{
 
+router.get('/forgetpassword',(req,res)=>{
     res.render('forgetPassword',  { layout: false});
 })
 router.get('/confirmation',(req,res)=>{
     res.render('confirmationPage',  { layout: false});
     });
 router.get('/confirm',sendEmail.sendEmail)
+
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 });
