@@ -36,4 +36,4 @@ const accountSchema = new mongoose.Schema({
             default:null
         }],   
 }, {timestamps:true})
-module.exports =  mongoose.model('Accounts',accountSchema)
+module.exports =  mongoose.model('accounts',accountSchema)

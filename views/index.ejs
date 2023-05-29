@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/CSS/homeSkin_0.css" />
     <title>Flavoured/home</title>
 </head>
+<% console.log(prods) %>
 <script type="text/javascript" src="/JS/navbar.js"></script>
 <div class="bigIcon scrollfade --animate --hidden">
     <img src="/IMAGES/Flavoured-transformeddblackwithslogan.png" alt="icon" />
@@ -38,12 +39,13 @@
 </section>
 <section class="items scrollfade --animate --hidden">
     <div class="itemsHeader">Best Sellers</div>
+    <% for( let index = 0; index < prods.length; index++ ) { %>
     <div class="product scrollfade --animate --hidden">
-        <img class="productimg" src="/IMAGES/Flavours/KFC-logo-696x391.jpg" alt="pr1" />
+        <img class="productimg" src="<%=prods[index].imgUrl%>" alt="<%=prods[index].name%>" />
         <details>
-            <summary>KFC</summary>
+            <summary><%=prods[index].name%></summary>
             <div class="productInfo">
-                Price : EGP 45.02
+                Price : EGP <%=prods[index].price%>
                 <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
                     <input type="radio" name="state1" class="liquid" checked /></label>
                 <label><img src="/IMAGES/powder.png" alt="powder" />Powder
@@ -53,36 +55,7 @@
             </div>
         </details>
     </div>
-    <div class="product scrollfade --animate --hidden">
-        <img class="productimg" src="/IMAGES/Flavours/Molokhia.jpg" alt="pr2" />
-        <details>
-            <summary>Molokhia</summary>
-            <div class="productInfo">
-                Price : EGP 20.22
-                <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
-                    <input type="radio" name="state2" class="liquid" checked /></label>
-                <label><img src="/IMAGES/powder.png" alt="powder" />Powder
-                    <input type="radio" name="state2" class="powder" /></label>
-                <label class="color">Shade :
-                    <input type="color" value="#9A6751" /></label>
-            </div>
-        </details>
-    </div>
-    <div class="product scrollfade --animate --hidden">
-        <img class="productimg" src="/IMAGES/Flavours/Cinnabon.png" alt="pr3" />
-        <details>
-            <summary>Cinnabon</summary>
-            <div class="productInfo">
-                Price : EGP 36.00
-                <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
-                    <input type="radio" name="state3" class="liquid" checked /></label>
-                <label><img src="/IMAGES/powder.png" alt="powder" />Powder
-                    <input type="radio" name="state3" class="powder" /></label>
-                <label class="color">Shade :
-                    <input type="color" value="#9A6751" /></label>
-            </div>
-        </details>
-    </div>
+    <% } %>
     <script type="text/javascript" src="/JS/BS.JS"></script>
 </section>
 <script type="text/javascript" src="/JS/scrollfade.js"></script>

@@ -15,7 +15,10 @@ router.get('/signup',(req,res)=>{
 })
 router.post('/signing',addUser.addUser);
 router.get('/cart',(req,res)=>{
+    if(req.session.user)
     res.render('cart',  { layout: false});
+    else
+    res.redirect('/user/login')
 })
 router.get('/myprofile',(req,res)=>{
     if(req.session.user){ res.render('myProfile', {username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod , bDay: req.session.user.birthDate ,layout: false});

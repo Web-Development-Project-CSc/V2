@@ -3,10 +3,17 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Products = require('../models/products');
 const findUser = require('../controllers/findUser');
+const Accounts= require ('../models/accounts');
 router.use(express.urlencoded({extended:true}))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 router.get('/', (req,res)=>{
-    res.render('index', { user: (req.session.user === undefined ? "" : req.session.user) })
+    let prods
+    let q=Products.find()
+    q.sort({numPurchases: -1})
+    q.limit(3).then(result =>{
+        prods=result
+        res.render('index', { user: (req.session.user === undefined ? "" : req.session.user) , prods: prods })
+    })
 })
 router.get('/support', (req,res)=>{
     res.render('help' ,{ user: (req.session.user === undefined ? "" : req.session.user) })

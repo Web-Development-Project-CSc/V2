@@ -3,7 +3,6 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const mongoose = require('mongoose');
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/');
@@ -46,6 +45,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/products', upload.single('image'), (req, res) => {
+
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
     res.render('products', { layout: false, user: req.session.user });
   } else {
