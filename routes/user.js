@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router();
 const sendEmail = require('../controllers/sendgrid');
 const addUser = require('../controllers/addAccount');
+const check = require('../controllers/check');
 const session = require('express-session');
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
@@ -13,7 +14,10 @@ router.get('/login', (req,res)=>{
 router.get('/signup',(req,res)=>{
     res.render('signup',  { layout: false});
 })
+router.post('/checker',check.check);
+
 router.post('/signing',addUser.addUser);
+
 router.get('/cart',(req,res)=>{
     if(req.session.user)
     res.render('cart',  { layout: false});

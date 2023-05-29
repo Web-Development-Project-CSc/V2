@@ -101,19 +101,7 @@ function getid(email){
 }
 let users = [];
 let admin = new Account('Admin','12345','Egypt','012','FLAVOURED CO','flavouredmiu@gmail.com','2007-01-01');
-function addUser(user){
-makeid(user);
-users[user.id] = user;
-}
-function removeUser(id) {
-    users.splice(id, 1);
-    return users[id];
-}
-function getUser(id){
-    if(userExists(id))
-    return users[id];
-    else return ("user not found");
-}
+
 
 function userExists(id){
     if(users[id] instanceof Account)  return true;

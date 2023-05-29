@@ -2,7 +2,7 @@ let num = document.getElementsByClassName("page");
 let pages = document.getElementsByClassName("items");
 let carts = document.querySelectorAll(".cart button");
 let bins  = document.querySelectorAll(".bin div");
-under(parseInt(bins[0].innerHTML));
+under(Math.ceil(bins[0].innerHTML));
 function currentPage(value) {
 if(value === 'p') location.replace('/store/' + (parseInt(bins[0].innerText)-1));
 if(value === 'n') location.replace('/store/' + (parseInt(bins[0].innerText)+1));
@@ -19,7 +19,7 @@ if(value === 'c2'){
 if(value === 'c3'){
   if(bins[0].innerText != (parseInt(num[3].innerText)))
   location.replace('/store/' + (parseInt(num[3].innerText)));
-  else under(parseInt(bins[0].innerHTML))
+  else under(Math.ceil(bins[0].innerHTML))
 }
 }
 
@@ -29,8 +29,8 @@ if(value === 'c3'){
     }
     let me;
     if(curr == 1) me = 1
-    if(curr > 1 && curr < bins[1].innerText) me = 2
-    if(curr == bins[1].innerText) me = 3
+    if(curr > 1 && curr < parseInt(bins[1].innerHTML)) me = 2
+    if(curr == parseInt(bins[1].innerHTML)) me = 3
     num[me].style.textDecoration="underline";
     window.scrollTo({top :0, behavior:"smooth"});
 }

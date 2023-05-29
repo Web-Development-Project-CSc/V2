@@ -52,6 +52,7 @@
            if(current_page>1 && current_page< total_page) c1 = current_page - 1, c2 = current_page, c3 = current_page + 1;
            if(current_page === total_page) c1 = total_page - 2, c2 = total_page - 1, c3 = total_page;
            if(current_page === 1) c1 = 1, c2 =2, c3 = 3;
+           current_page = Math.ceil(current_page)
         %>
 
         <div class="bin">
@@ -59,9 +60,9 @@
             <div><%= total_page%></div>
         </div>
 
-        <span class="page" onclick="currentPage('c1')"><%= c1 %> </span>
-        <span class="page" onclick="currentPage('c2')"><%= c2 %> </span>
-        <span class="page" onclick="currentPage('c3')"><%= c3 %> </span>
+        <span class="page" onclick="currentPage('c1')"><%= parseInt(c1) %> </span>
+        <span class="page" onclick="currentPage('c2')"><%= parseInt(c2) %> </span>
+        <span class="page" onclick="currentPage('c3')"><%= parseInt(c3) %> </span>
         <span class="page" onclick="currentPage('n')">></span>
 
         <span class="go">

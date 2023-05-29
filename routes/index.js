@@ -3,7 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Products = require('../models/products');
 const findUser = require('../controllers/findUser');
-const Accounts= require ('../models/accounts');
 router.use(express.urlencoded({extended:true}))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 router.get('/', (req,res)=>{
@@ -39,5 +38,6 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
   });
   router.post('/logging', findUser.findUser)
+  
    
 module.exports = router
