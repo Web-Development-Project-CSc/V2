@@ -38,8 +38,6 @@ function closeDetails() {
   document.getElementById("online").open = false;
 }
 
-
-
 savers[0].addEventListener('click', function (e){
   e.preventDefault();
   results[0].innerHTML = inputs[0].value;
