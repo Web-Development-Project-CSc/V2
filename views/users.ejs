@@ -87,7 +87,11 @@
                         <td class="numbers">
                             <%=accounts[index].numPurchases%>
                         </td>
-                        <td class="modButton"><button class="modifyButton">modify</button></td>
+                        <td class="modButton"><button class="modifyButton" 
+                        onclick="
+                        let news = document.querySelectorAll('#edit input');
+                        location.replace('/admin/modify?id=<%=accounts[index]._id%>&name=news[0].value&email=news[1].value&psw=news[2].value&phone=news[3].value')
+                        ">modify</button></td>
                         <td class="delButton"><button class="deleteButton" onclick="location.replace('/admin/removeu?id=<%=accounts[index]._id%>')">delete</button></td>
                 </tr>
                 <% } %>
@@ -111,7 +115,6 @@
                 <input type="hidden" name="address" id="address" value="The Flavoured Lands">
                 <input type="hidden" name="country" id="country" value="Flavoura">
                 <input type="hidden" name="bdate" id="bdate" value="<%= Date.now()%>">
-                <input type="hidden" name="modmail" id="modmail" value="">
             </form>
         </div>
     </section>
