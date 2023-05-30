@@ -27,6 +27,7 @@ header {
   padding: 5px;
   right: 0;
   left: 0;
+  position:fixed
 }
 
 .logo {
@@ -34,6 +35,18 @@ header {
   display: inline-block;
   margin-right: -9%;
   margin-left: auto;
+}
+section {
+  margin: 2%;
+  margin-top: 7%;
+  display: block;
+  background-color: rgba(205, 202, 202, 0.462);
+  padding: 1%;
+  border-radius: 10px;
+  pointer-events: all;
+  text-align: left;
+  margin-left: 25%;
+  width: 65%
 }
 
 nav {
@@ -43,16 +56,12 @@ nav {
   text-align: left;
   margin: 0%;
   left: 0;
+  top:80px;
   padding-bottom: 100%;
   z-index: 3;
-  position: absolute;
-  display: inline;
+  position: fixed;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-}
 
 nav * {
   text-decoration: none;
@@ -79,18 +88,7 @@ summary {
   padding: 2%;
 }
 
-section {
-  margin: 2%;
-  margin-top: 3.5%;
-  display: block;
-  background-color: rgba(205, 202, 202, 0.462);
-  padding: 1%;
-  border-radius: 10px;
-  pointer-events: all;
-  text-align: left;
-  margin-left: 25%;
-  width: 65%
-}
+
 
 .profileIcon img {
   width: 25%;

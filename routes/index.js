@@ -30,7 +30,7 @@ router.get('/store/:page',  (req, res) => {
     }).catch(err => {console.log(err)}).then()});
     
 router.get('/logout', (req, res) => {
-    req.session.destroy();
+    if (req.session.user !== undefined) req.session.destroy();
     res.redirect('/');
   });
   router.post('/logging', findUser.findUser)

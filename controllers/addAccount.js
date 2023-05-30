@@ -1,13 +1,5 @@
 const Accounts = require('../models/accounts');
-const bcrypt = require("bcrypt");
-function hashPassword(password) {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-    return {hash,  salt,};
-  }
-  function verifyPassword(password, hash, salt) {
-    return bcrypt.compareSync(password, hash, salt);
-  }
+const hash = require('./hash');
 const addUser= async(req,res) =>{
     let {hash, salt} = hashPassword(req.body.psw);
     console.log(verifyPassword(req.body.psw, hash, salt));
@@ -15,6 +7,7 @@ const addUser= async(req,res) =>{
 let user = new Accounts({
     name: req.body.name,
     password: hash,
+    passwordLength: req.body.psw.length,
     encrypt: salt,
     email: req.body.email,
     phone: req.body.phone,

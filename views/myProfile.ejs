@@ -21,14 +21,14 @@
         <div class="scroller active" onclick="move(this)">My Information</div>
         <div class="scroller" onclick="move(this)">My Orders</div>
         <div class="scroller" onclick="move(this)">Payment Methods</div>
-        <a href="/stor/1e">Store</a>
+        <a href="/store/1">Store</a>
         <a href="/support">Support</a>
     </nav>
     <section>
         <div class="profile">
             <label>Full Name :
                 <span id="clientName">
-                    <%=username%>
+                    <%=user.name%>
                 </span>
             </label>
             <details>
@@ -39,7 +39,7 @@
         </div>
         <div class="profile">
             <label>Email :
-                <span id="clientEmail"><%= email %></span>
+                <span id="clientEmail"><%= user.email %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -49,7 +49,12 @@
         </div>
         <div class="profile">
             <label>Password :
-                <span id="clientPassword"><%= password %></span>
+                <% 
+                let x ='';
+                for(let i=0; i< user.passwordLength; i++)
+                x+= '•';
+                %>
+                <span id="clientPassword"><%= x %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -59,7 +64,7 @@
         </div>
         <div class="profile">
             <label>Phone Number :
-                <span id="clientPhone"><%= phone%></span>
+                <span id="clientPhone"><%= user.phone%></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -69,7 +74,11 @@
         </div>
         <div class="profile">
             <label>Birth Date :
-                <span id="clientBirthdate"><%= bDay  %></span>
+               <% 
+               let bday = user.birthDate
+               bday = bday.substring(0,10)
+                %>
+                <span id="clientBirthdate"><%= bday  %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -79,7 +88,7 @@
         </div>
         <div class="profile">
             <label>Country :
-                <span id="clientCountry"><%= country %></span>
+                <span id="clientCountry"><%= user.country %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -378,7 +387,7 @@
         </div>
         <div class="profile">
             <label>Address :
-                <span id="clientAddress"><%= address %></span>
+                <span id="clientAddress"><%= user.address %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
@@ -386,6 +395,17 @@
                 <button type="button" id="saveaddress">Save</button>
             </details>
         </div>
+        <form id="editors" style="visibility: hidden;" action="/user/modify" method="post">
+            <input type="hidden" name="newName" id="newName" value="" />
+            <input type="hidden" name="newEmail" id="newEmail" value="" />
+            <input type="hidden" name="newPassword" id="newPassword" value="" />
+            <input type="hidden" name="newPhone" id="newPhone" value="" />
+            <input type="hidden" name="newBirthdate" id="newBirthdate" value="" />
+            <input type="hidden" name="newCountry" id="newCountry" value="" />
+            <input type="hidden" name="newAddress" id="newAddress" value="" />
+            <input type="hidden" name="ogmail" id="ogmail" value="<%= user.email %>" />
+        </form>
+        <button type="button" id="doneedit" style="margin-left: 89%; margin-bottom: 1%; display:none" onclick="document.getElementById('editors').submit();">Done</button>
     </section>
     <section class="orders">
         <details class="current">

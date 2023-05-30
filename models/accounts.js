@@ -12,7 +12,7 @@ const accountSchema = new mongoose.Schema({
         type:String,
         default:"Cash"
     },
-    
+    passwordLength:Number,
     numPurchases:{
         type:Number,
         default:0

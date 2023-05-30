@@ -18,27 +18,34 @@ router.post('/checker',check.check);
 
 router.post('/signing',addUser.addUser);
 
-router.use((req, res, next) => {
-  if (req.session.user !== undefined && req.session.user.role === 'customer') {
-      next();
-  }
-  else {
-    res.redirect("user/login?message = 'Must be logged in to view this page'");
-  }
-});
 
 router.get('/cart',(req,res)=>{
+    if (req.session.user !== undefined) 
     res.render('cart',  { message: '', layout: false});
+    else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
 router.get('/myprofile',(req,res)=>{
- res.render('myProfile', {message: '', username: req.session.user.name , password: req.session.user.password, country: req.session.user.country ,phone: req.session.user.phone,address: req.session.user.address,email:req.session.user.email, payment:req.session.user.paymentMethod , bDay: req.session.user.birthDate ,layout: false});
+    if (req.session.user !== undefined) 
+    res.render('myProfile', {message: '', user: req.session.user ,layout: false});
+    else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
 
 router.get('/forgetpassword',(req,res)=>{
+    if (req.session.user !== undefined) {
+        req.session.forgot = true;
     res.render('forgetPassword',  {message: '', layout: false});
+    }
+    else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
 router.get('/confirmation',(req,res)=>{
-    res.render('confirmationPage',  {message: '', layout: false});
+    if (req.session.user !== undefined ) {
+        if(req.session.forgot == true){
+            req.session.forgot = false;
+            res.render('confirmationPage',  {message: '', layout: false});
+        }
+        else res.redirect("/user/forgetpassword?message= 'Enter your email to reset password'");
+    }
+    else res.redirect("/user/login?message= 'Must be logged in to view this page'");
     });
 router.get('/confirm',sendEmail.sendEmail)
 

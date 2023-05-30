@@ -37,7 +37,7 @@ router.get('/products', (req, res) => {
 router.get('/users', (req, res) => {  
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
     Accounts.find().then(accounts =>
-    res.render('users', { message: '', layout: false, user: req.session.user , accounts: accounts}))
+    res.render('users',{ layout: false, user: req.session.user , accounts: accounts}))
   } else {
     res.redirect("admin/login?message='Must be logged in as admin to view this page'");
   }
@@ -46,18 +46,9 @@ router.get('/users', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { layout: false});
 });
-router.use((req, res, next) => {
-  if (req.session.user !== undefined && req.session.user.role === 'admin') {
-      next();
-  }
-  else {
-    res.redirect("admin/login?message='Must be logged in as admin to view this page'");
-  }
-});
 router.get("/removep",removeProduct.remove)
 router.get("/removeu",removeUser.remove)
 router.post("/addinguser",addAccount.addUser)
-
 router.post('/addproducts', upload.single('image'),  addProduct.addProduct)
 
 module.exports = router;

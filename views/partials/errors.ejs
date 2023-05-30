@@ -6,6 +6,7 @@
             font-weight: bold;
             text-align: center;
             margin: 0.5%;
+            display:none;
         }
     </style>
 </head>
@@ -14,4 +15,7 @@
     let urlParams = new URLSearchParams(window.location.search);
     let m = urlParams.get('message');
     document.getElementById('error-message').innerHTML = m;
+    if (m != null) {
+        document.getElementById('error-message').style.display = "block";
+    }
 </script>

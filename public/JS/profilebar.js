@@ -3,6 +3,9 @@ let showers = document.getElementsByClassName("scroller");
 let inputs = document.querySelectorAll('.profile input');
 let savers = document.querySelectorAll('.profile button');
 let results = document.querySelectorAll('.profile span');
+let done = document.querySelector('#doneedit');
+let edits = document.querySelectorAll('#editors input');
+let form = document.querySelector('#editors');
 move(showers[0]);
 function move(tag){
     for(let i =0; i<showers.length; i++) showers[i].classList.remove("active");
@@ -40,10 +43,14 @@ function closeDetails() {
 savers[0].addEventListener('click', function (e){
   e.preventDefault();
   results[0].innerHTML = inputs[0].value;
+  edits[0].value = inputs[0].value;
+  done.style.display="block";
 })
 savers[1].addEventListener('click', function (e){
   e.preventDefault();
   results[1].innerHTML = inputs[1].value;
+  edits[1].value = inputs[1].value;
+  done.style.display="block";
 })
 savers[2].addEventListener('click', function (e){
   e.preventDefault();
@@ -51,41 +58,30 @@ savers[2].addEventListener('click', function (e){
   for(let i=0; i<inputs[2].value.length; i++)
   x+= '•';
   results[2].innerHTML = x;
+  edits[2].value = inputs[2].value;
+  done.style.display="block";
 })
 savers[3].addEventListener('click', function (e){
   e.preventDefault();
   results[3].innerHTML = inputs[3].value;
+  edits[3].value = inputs[3].value;
+  done.style.display="block";
 })
 savers[4].addEventListener('click', function (e){
   e.preventDefault();
   results[4].innerHTML = inputs[4].value;
+  edits[4].value = inputs[4].value;
+  done.style.display="block";
 })
 savers[5].addEventListener('click', function (e){
   e.preventDefault();
   results[5].innerHTML = inputs[5].value;
+  edits[5].value = inputs[5].value;
+  done.style.display="block";
 })
 savers[6].addEventListener('click', function (e){
   e.preventDefault();
   results[6].innerHTML = inputs[6].value;
-  
+  edits[6].value = inputs[6].value;
+  done.style.display="block";
 })
-
-let params = new URLSearchParams(window.location.search);
-let temp = params.get('name');
-if(temp!=null) results[0].innerHTML = params.get('name');
-temp = params.get('email');
-if(temp!=null) results[1].innerHTML = params.get('email');
-temp =params.get('country');
-if(temp!=null) results[5].innerHTML = params.get('country');
-temp =params.get('address');
-if(temp!=null) results[6].innerHTML = params.get('address');
-temp = params.get('birthdate');
-if(temp!=null) results[4].innerHTML = params.get('birthdate');
-temp = params.get('mobile');
-if(temp!=null) results[3].innerHTML = params.get('mobile');
-temp = params.get('psw');
-if(temp!=null){
-let x = '';
-for(let i=0; i<params.get('psw').length; i++)  x+= '•';
-results[2].innerHTML = x;
-}
