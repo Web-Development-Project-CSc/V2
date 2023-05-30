@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <%- include('./partials/errors.ejs') %>
     <header>
         <a href="/"><img class="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png"
                 alt="flavoured" /></a>
@@ -25,6 +24,7 @@
         <a href="/support">Support</a>
     </nav>
     <section>
+        <%- include('./partials/errors.ejs') %>
         <div class="profile">
             <label>Full Name :
                 <span id="clientName">
@@ -51,7 +51,7 @@
             <label>Password :
                 <% 
                 let x ='';
-                for(let i=0; i< user.passwordLength; i++)
+                for(let i=0; i< user.password.length; i++)
                 x+= '•';
                 %>
                 <span id="clientPassword"><%= x %></span>
@@ -403,7 +403,7 @@
             <input type="hidden" name="newBirthdate" id="newBirthdate" value="" />
             <input type="hidden" name="newCountry" id="newCountry" value="" />
             <input type="hidden" name="newAddress" id="newAddress" value="" />
-            <input type="hidden" name="ogmail" id="ogmail" value="<%= user.email %>" />
+            <input type="hidden" name="ogid" id="ogid" value="<%= user._id %>" />
         </form>
         <button type="button" id="doneedit" style="margin-left: 89%; margin-bottom: 1%; display:none" onclick="document.getElementById('editors').submit();">Done</button>
     </section>

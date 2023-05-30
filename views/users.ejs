@@ -88,10 +88,10 @@
                             <%=accounts[index].numPurchases%>
                         </td>
                         <td class="modButton"><button class="modifyButton" 
-                        onclick="
-                        let news = document.querySelectorAll('#edit input');
-                        location.replace('/admin/modify?id=<%=accounts[index]._id%>&name=news[0].value&email=news[1].value&psw=news[2].value&phone=news[3].value')
-                        ">modify</button></td>
+                        onclick="function mod(){
+                            let news = document.querySelectorAll('#edit input');
+                            location.replace(`/admin/modify?id=<%=accounts[index]._id%>&name=${news[0].value}&email=${news[1].value}&psw=${news[2].value}&phone=${news[3].value}`)
+                        } mod()">modify</button></td>
                         <td class="delButton"><button class="deleteButton" onclick="location.replace('/admin/removeu?id=<%=accounts[index]._id%>')">delete</button></td>
                 </tr>
                 <% } %>

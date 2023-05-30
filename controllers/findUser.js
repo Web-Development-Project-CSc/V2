@@ -1,5 +1,4 @@
 const Accounts = require('../models/accounts');
-const hash = require('./hash');
 const findUser = async (req,res)=>{
     let user = {
         email: req.body.email,

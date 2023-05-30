@@ -4,10 +4,13 @@ const router = express.Router();
 const sendEmail = require('../controllers/sendgrid');
 const addUser = require('../controllers/addAccount');
 const check = require('../controllers/check');
+const modify = require('../controllers/modifyUser');
 const session = require('express-session');
+const Accounts = require('../models/accounts')
+
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
-
+router.use(express.urlencoded({extended:true}))
 router.get('/login', (req,res)=>{
     res.render('login',  { message: '', layout: false})
 })
@@ -16,6 +19,19 @@ router.get('/signup',(req,res)=>{
 })
 router.post('/checker',check.check);
 
+router.post('/getaccounts' ,(req,res)=>{
+    let email = req.body.mail
+    Accounts.findOne({ email: email}).then(result=>{
+        if(result){
+            
+            res.send({result: 'found'})
+        }
+        else{
+            res.send({result: 'not found'})
+        }
+    })
+   
+})
 router.post('/signing',addUser.addUser);
 
 
@@ -24,6 +40,7 @@ router.get('/cart',(req,res)=>{
     res.render('cart',  { message: '', layout: false});
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
+
 router.get('/myprofile',(req,res)=>{
     if (req.session.user !== undefined) 
     res.render('myProfile', {message: '', user: req.session.user ,layout: false});
@@ -48,9 +65,9 @@ router.get('/confirmation',(req,res)=>{
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
     });
 router.get('/confirm',sendEmail.sendEmail)
-
+router.post('/modify', modify.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
-});
+})
 
 module.exports = router
