@@ -23,7 +23,8 @@ const accountSchema = new mongoose.Schema({
         type: Object({
                 cvv:String,
                 cardNumber:Number,
-                expDate:Date,
+                expMonth:String,
+                expYear:String
             }), 
     default:null
     }, 

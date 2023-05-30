@@ -7,6 +7,7 @@ const check = require('../controllers/check');
 const modify = require('../controllers/modifyUser');
 const session = require('express-session');
 const Accounts = require('../models/accounts')
+const paywith = require('../controllers/payment')
 
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
@@ -69,5 +70,6 @@ router.post('/modify', modify.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 })
+router.post('/payment',paywith.update)
 
 module.exports = router

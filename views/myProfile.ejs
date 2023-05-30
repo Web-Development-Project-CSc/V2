@@ -494,9 +494,14 @@
     </section>
     <section class="paymentMethod">
         <div class="method">
+            <%  let cs ="", cd=""
+                if (user.paymentMethod == 'Cash') 
+                cs = "checked"
+                else cd="checked"
+            %>
             <label><img id="cashImg" src="/IMAGES/cash-payment.png" alt="cash" />
                 cash on delivery
-                <input type="radio" id="cash" name="method" checked /></label>
+                <input type="radio" id="cash" name="method" <%=cs%> /></label>
         </div>
         <div class="method">
             <details id="online">
@@ -504,14 +509,27 @@
                     <label>
                         <img src="/IMAGES/credit-card.png" alt="card" />
                         MasterCard/Visa
-                        <input type="radio" id="card" name="method" />
+                        <input type="radio" id="card" name="method"  <%=cd%>/>
                     </label>
                     <img id="drop" src="/IMAGES/up-down.png" alt="details" />
                 </summary>
-                <form class="credit-card">
+                <form class="credit-card" method="post" action="/user/payment">
+                    <% 
+                            if(user.paymentMethod =! 'Card') {
+                                cvv = "CVV"
+                                number = "Card Number"
+                            }
+                            else {
+                                cvv = user.card.cvv
+                                number = user.card.cardNumber
+                            }
+                        %>
                     <div class="form-header">Credit card details</div>
-                    <input type="text" id="card-number" placeholder="Card Number" required />
-                    <select name="Month" id="month" required>
+                    <input type="text" id="card-number" name="number" placeholder="<%=number%>" required />
+                    <select id="month" name="month" required>
+                        <% if(user.card.expMonth != '') { %>
+                        <option selected hidden><%=user.card.expMonth%></option>
+                        <% } %>
                         <option value="january">January</option>
                         <option value="february">February</option>
                         <option value="march">March</option>
@@ -525,7 +543,10 @@
                         <option value="november">November</option>
                         <option value="december">December</option>
                     </select>
-                    <select name="Year" id="year" required>
+                    <select  id="year" name="year"required>
+                        <% if(user.card.expYear != '') { %>
+                            <option selected hidden><%=user.card.expYear%></option>
+                            <% } %>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
@@ -536,7 +557,7 @@
                         <option value="2030">2030</option>
                         <option value="2031">2031</option>
                     </select>
-                    <input type="text" placeholder="CVV" id="cvv" required />
+                    <input type="text" placeholder="<%=cvv%>"name="cvv" id="cvv" required />
                     <button type="submit" id="save">Save</button>
                 </form>
             </details>
