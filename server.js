@@ -13,7 +13,7 @@ app.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
 mongoose.connect('mongodb+srv://flavouredmiu:webproject123@cluster0.t6ylmgo.mongodb.net/Flavoured').then(result =>{console.log("connected")}).catch(err => {console.log(err)})
 app.use(express.urlencoded({extended:true}))
-app.use(express.json());
+app.use(express.json());    
 app.set('view engine','ejs');
 app.set('views',__dirname +'/views');
 app.set('layout', 'layouts/layout');
