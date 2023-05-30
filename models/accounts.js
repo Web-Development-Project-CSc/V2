@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const accountSchema = new mongoose.Schema({
     name: String,
-    encrypt:String,
     password:String,
     country:String,
     phone:Number,
@@ -12,7 +11,6 @@ const accountSchema = new mongoose.Schema({
         type:String,
         default:"Cash"
     },
-    passwordLength:Number,
     numPurchases:{
         type:Number,
         default:0

@@ -1,14 +1,10 @@
 const Accounts = require('../models/accounts');
-const hash = require('./hash');
 const addUser= async(req,res) =>{
-    let {hash, salt} = hashPassword(req.body.psw);
-    console.log(verifyPassword(req.body.psw, hash, salt));
+  
     let role = req.body.role
 let user = new Accounts({
     name: req.body.name,
-    password: hash,
-    passwordLength: req.body.psw.length,
-    encrypt: salt,
+    password: req.body.psw,
     email: req.body.email,
     phone: req.body.phone,
     address: req.body.address,
@@ -19,6 +15,7 @@ let user = new Accounts({
 );
 try{
     await user.save();
+    req.session.user = user;
     if(role == 'customer') res.redirect('/store'); 
     else res.redirect('/admin/users');
 }
