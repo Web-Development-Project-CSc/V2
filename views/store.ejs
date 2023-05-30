@@ -15,7 +15,8 @@
     <script type="text/javascript" src="/JS/navbar.js"></script>
     <section class="searchbar">
         <div class="bar">
-            <input type="text" placeholder="i.e Flavour " required />
+            <input type="text" id="searchInput" onkeyup="sendData(this)" placeholder="i.e Flavour " required />
+           
             <span class="type">
                 <label><img src="/IMAGES/bottle.png" alt="liquid" /><input type="radio" name="state"
                         class="liquid" /></label>
@@ -23,8 +24,10 @@
                         class="powder" /></label>
             </span>
             <input type="color" name="color" value="#A84448" /><input type="button" value="Search" />
+            <div id="searchResults" class="search-results"></div>
         </div>
     </section>
+    
     <section class="items fade">
         <% for (let element = 0; element < prods.length; element++) { %>
         <div class="product ">
@@ -76,6 +79,7 @@
         </div>
         <script type="text/javascript" src="/JS/productsChange.js"></script>
         <script type="text/javascript" src="/JS/scrollfade.js"></script>
+        <script type="text/javascript" src="/JS/livesearch.js"></script>
 </body>
 
 </html>
