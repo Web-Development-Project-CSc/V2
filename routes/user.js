@@ -6,9 +6,11 @@ const addUser = require('../controllers/addAccount');
 const check = require('../controllers/check');
 const modify = require('../controllers/modifyUser');
 const session = require('express-session');
+const Accounts = require('../models/accounts')
+
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
-
+router.use(express.urlencoded({extended:true}))
 router.get('/login', (req,res)=>{
     res.render('login',  { message: '', layout: false})
 })
@@ -17,6 +19,19 @@ router.get('/signup',(req,res)=>{
 })
 router.post('/checker',check.check);
 
+router.post('/getaccounts' ,(req,res)=>{
+    let email = req.body.mail
+    Accounts.findOne({ email: email}).then(result=>{
+        if(result){
+            
+            res.send({result: 'found'})
+        }
+        else{
+            res.send({result: 'not found'})
+        }
+    })
+   
+})
 router.post('/signing',addUser.addUser);
 
 
