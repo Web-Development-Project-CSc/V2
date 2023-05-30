@@ -23,11 +23,10 @@ router.post('/getaccounts' ,(req,res)=>{
     let email = req.body.mail
     Accounts.findOne({ email: email}).then(result=>{
         if(result){
-            
-            res.send({result: 'found'})
+            res.send({result: 'found' , pass: result.password})
         }
         else{
-            res.send({result: 'not found'})
+            res.send({result: 'not found',pass: ''})
         }
     })
    
