@@ -24,7 +24,7 @@ function sendData(e) {
           }
           
           payload.forEach((item, index) => {
-            if (index > 0) searchResults.innerHTML += '<hr>';
+
             searchResults.innerHTML += '<p>' + item.name + '</p>';
           });
         })
