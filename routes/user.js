@@ -2,13 +2,10 @@ require("dotenv").config();
 const express = require('express')
 const router = express.Router();
 const sendEmail = require('../controllers/sendgrid');
-const addUser = require('../controllers/addAccount');
-const check = require('../controllers/check');
-const modify = require('../controllers/modifyUser');
+const ctrlAccounts = require('../controllers/ctrlAccounts');
 const session = require('express-session');
 const Accounts = require('../models/accounts')
-const paywith = require('../controllers/payment')
-
+const ctrlOrders = require('../controllers/ctrlOrders')
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
 router.use(express.urlencoded({extended:true}))
@@ -18,7 +15,6 @@ router.get('/login', (req,res)=>{
 router.get('/signup',(req,res)=>{
     res.render('signup',  { message: '', layout: false});
 })
-router.post('/checker',check.check);
 
 router.post('/getaccounts' ,(req,res)=>{
     let email = req.body.mail
@@ -32,8 +28,9 @@ router.post('/getaccounts' ,(req,res)=>{
     })
    
 })
-router.post('/signing',addUser.addUser);
+router.post('/signing',ctrlAccounts.addUser);
 
+router.post('/createOrder' , ctrlOrders.addOrder)
 
 router.get('/cart',(req,res)=>{
     if (req.session.user !== undefined) 
@@ -65,10 +62,10 @@ router.get('/confirmation',(req,res)=>{
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
     });
 router.get('/confirm',sendEmail.sendEmail)
-router.post('/modify', modify.modifyUser)
+router.post('/modify', ctrlAccounts.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 })
-router.post('/payment',paywith.update)
+router.post('/payment',ctrlAccounts.update)
 
 module.exports = router

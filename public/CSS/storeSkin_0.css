@@ -11,7 +11,10 @@ html {
   display: none;
   visibility: hidden;
 }
-
+#searched{
+  width: 100%;
+  display: inline;
+}
 body {
   background-color: white;
   color: white;
@@ -370,6 +373,22 @@ input[type="radio"] {
 .go img {
   display: inline-block;
   width: 40px;
+}
+#buyfromsearch{
+  vertical-align: middle;
+  background-color: #eaeaea00;
+  width: 7%;
+  padding-right: 5%;
+  margin-left: -2%;
+  box-shadow: none;
+  border-radius: 30%;
+}
+#searchedCart{
+  width:40px;
+  transform: scaleX(-1);
+}
+#searchedCart:hover{
+  transform: scaleX(-1) scale(1.3);
 }
 
 .profilebar {

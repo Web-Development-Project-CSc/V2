@@ -206,3 +206,38 @@ a:hover {
 span img {
     margin-right: 20px;
 }
+#error-1 {
+    display: none;
+    margin-left: 15%;
+    z-index: 3;
+    color: #111111e1;
+    background-color: white;
+    font-size: 30px;
+    width: 185px;
+    height: 38px;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 0px 3px 10px rgba(25, 25, 25, 0.841);
+    font-family: 'Times New Roman';
+}
+
+#error-1 img {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    margin: 3%;
+    margin-left: 0;
+    vertical-align: middle;
+}
+
+#error-1 span {
+    padding: 1%;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    border-width: 2px;
+    font-family: 'Arial Narrow';
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}

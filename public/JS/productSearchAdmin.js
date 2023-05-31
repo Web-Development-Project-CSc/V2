@@ -8,7 +8,7 @@ function sendData(e) {
       return;
     }
     else if (match && match[0] === e.value) {
-      fetch('/getResults', {
+      fetch('/admin/getResults', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ payload: e.value })
@@ -27,7 +27,7 @@ function sendData(e) {
             const p = document.createElement('p');
             p.innerHTML = item.name;
             p.addEventListener('click', () => {
-              document.querySelector("#itemclicked").value = item._id;
+              document.querySelector("#itemclicked").value = item.name;
               document.querySelector("#searchInput").value = item.name;
               searchResults.innerHTML = '';
             });

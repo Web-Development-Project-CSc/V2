@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const accountSchema = new mongoose.Schema({
-    name: String,
-    password:String,
-    country:String,
-    phone:Number,
-    address:String,
-    birthDate:Date,
-    email:String,
+    name:{type: String , required:true},
+    password:{type: String ,required:true},
+    country:{type: String ,required:true},
+    phone:{type: Number, required:true},
+    address:{type: String, required:true},
+    birthDate:{type: Date, required:true},
+    email:{type: String, required:true},
     paymentMethod:{
         type:String,
         default:"Cash"
@@ -17,7 +17,8 @@ const accountSchema = new mongoose.Schema({
     },
    role:{
     type: String, 
-    default:"customer"} 
+    default:"customer",
+    required:true} 
     ,card:
     {
         type: Object({

@@ -1,10 +1,19 @@
 const mongoose = require('mongoose')
 const orderSchema = new mongoose.Schema({
-    status:{
+    status: {
+        type:{
         name:String,
-        imgNum:Number
+        imgNum:Number,
+        },
+        default:{
+            name:"Placed",
+            imgNum:0
+        }
     },
-    delivered:Boolean,
+    delivered:{
+        type: Boolean,
+        default: false
+    },
     product:
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -17,21 +26,9 @@ const orderSchema = new mongoose.Schema({
             },
             form:String,
             shade:String,
-            quantity:Number,
-            date:Date,
-            progress: function(stat){
-                this.status.name = stat;
-                if(stat === null){
-                    this.status.name = "Placed";
-                    this.status.imgNum = 0; 
-                }
-                else if(stat === "Shipped"){
-                    this.status.imgNum = 1
-                }
-                else if(stat === "Delivered"){
-                this.status.imgNum = 2;
-                }
-                else this.delivered = true;
-            }
+            quantity:{
+                type:Number,
+                default:1
+            },
 }, {timestamps:true})
-module.exports = mongoose.Model('orders', orderSchema)
+module.exports = mongoose.model('orders', orderSchema)

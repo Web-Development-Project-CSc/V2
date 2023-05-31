@@ -1,3 +1,4 @@
+
 function sendData(e) {
     const searchResults = document.getElementById('searchResults');
     let match = e.value.match(/^[a-zA-Z ]*/);
@@ -8,7 +9,7 @@ function sendData(e) {
       return;
     }
     else if (match && match[0] === e.value) {
-      fetch('/getResults', {
+      fetch('/admin/getUserResults', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ payload: e.value })
@@ -27,7 +28,7 @@ function sendData(e) {
             const p = document.createElement('p');
             p.innerHTML = item.name;
             p.addEventListener('click', () => {
-              document.querySelector("#itemclicked").value = item._id;
+              document.querySelector("#itemclicked").value = item.name;
               document.querySelector("#searchInput").value = item.name;
               searchResults.innerHTML = '';
             });

@@ -50,8 +50,12 @@
                 <span class="dashboard">Admin Dashboard</span>
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Search...">
-                <img src="/IMAGES/search.png" alt="search">
+                <input type="text" id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
+                <form id="searched">
+                    <input type="hidden" id="itemclicked" name="itemclicked" value="">
+                <div id="searchResults" class="search-results"></div>
+               <img src="/IMAGES/search.png" alt="search">
+            </form>
             </div>
             <div class="profile-details">
                 <span class="admin_name"> Welcome, Flavourer</span>
@@ -85,5 +89,6 @@
         <button type="submit" id="adder">Add</button>
     </span>
     </section>
+    <script type="text/javascript" src="/JS/productSearchAdmin.js"></script>
 </body>
 </html>
