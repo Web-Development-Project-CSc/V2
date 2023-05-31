@@ -24,9 +24,16 @@ function sendData(e) {
           }
           
           payload.forEach((item, index) => {
-
-            searchResults.innerHTML += '<p>' + item.name + '</p>';
+            const p = document.createElement('p');
+            p.innerHTML = item.name;
+            p.addEventListener('click', () => {
+              document.querySelector("#itemclicked").value = item.name;
+              document.querySelector("#searchInput").value = item.name;
+              searchResults.innerHTML = '';
+            });
+            searchResults.appendChild(p);
           });
+          use();
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -35,4 +42,11 @@ function sendData(e) {
     
     searchResults.innerHTML = '';
   }
-
+  function use(){
+  let res = document.querySelector("#searchResults p")
+  for(let i=0;i<res.length;i++){
+    res[i].addEventListener('click',()=>{
+     
+    })
+  }
+  }

@@ -31,7 +31,6 @@ router.get('/store/:page',  (req, res) => {
 
 router.post('/getResults', async (req, res) =>{
         let payload = req.body.payload;
-        console.log(payload);
         let search = await Products.find({name: {$regex: new RegExp('^'+payload+'.*', 'i')}}).exec();
         search= search.slice (0, 3);
         res.send({payload: search});
