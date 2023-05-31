@@ -527,7 +527,7 @@
                     <div class="form-header">Credit card details</div>
                     <input type="text" id="card-number" name="number" placeholder="<%=number%>" required />
                     <select id="month" name="month" required>
-                        <% if(user.card.expMonth != '') { %>
+                        <% if(user.card != null) { %>
                         <option selected hidden><%=user.card.expMonth%></option>
                         <% } %>
                         <option value="january">January</option>
@@ -544,7 +544,7 @@
                         <option value="december">December</option>
                     </select>
                     <select  id="year" name="year"required>
-                        <% if(user.card.expYear != '') { %>
+                        <% if(user.card != null) { %>
                             <option selected hidden><%=user.card.expYear%></option>
                             <% } %>
                         <option value="2023">2023</option>
