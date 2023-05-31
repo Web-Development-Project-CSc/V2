@@ -38,10 +38,9 @@ router.get('/logout', (req, res) => {
   });
   router.post('/logging', ctrlAccounts.findUser)
   router.post('/addtocart', (req,res)=>{
- if (req.session.user !== undefined){
-            req.session.order=req.body.order;
-            console.log(req.session.order);
-}else res.redirect("/user/login?message= 'Must be logged in to view this page'")}
+ if (req.session.user !== undefined)
+            req.session.order = req.body.order;
+else res.redirect("/user/login?message= 'Must be logged in to view this page'")}
 )
    
 module.exports = router
