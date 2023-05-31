@@ -160,4 +160,11 @@ const update = async (req,res)=>{
     }
     )}
 
-module.exports = {addUser, findUser, adminModifier, modifyUser, remove, update}
+    const searchUsers = async (req, res) => {
+        let payload = req.body.payload;
+        let search = await Accounts.find({name: {$regex: new RegExp('^'+payload+'.*', 'i')}}).exec();
+        search= search.slice (0, 10);
+        res.send({payload: search});
+    }
+
+module.exports = {addUser, findUser, adminModifier, modifyUser, remove, update, searchUsers}
