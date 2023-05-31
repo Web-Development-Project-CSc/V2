@@ -13,6 +13,12 @@ const feedbackSchema = new mongoose.Schema(
                 ref:"accounts"
 
             },
+            feedback:
+            {
+
+                type : String,
+
+            }
         }  
 )
 
