@@ -33,6 +33,13 @@ router.post('/getResults', async (req, res) =>{
   res.send({payload: search});
   
   });
+  router.post('/getUserResults', async (req, res) =>{
+    let payload = req.body.payload;
+    let search = await Accounts.find({name: {$regex: new RegExp('^'+payload+'.*', 'i')}}).exec();
+    search= search.slice (0, 10);
+    res.send({payload: search});
+    
+    });
 router.get('/products', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
     Products.find().then(prods =>{
