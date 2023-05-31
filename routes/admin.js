@@ -8,6 +8,7 @@ const removeUser = require('../controllers/removeUser')
 const Accounts = require('../models/accounts')
 const addAccount = require('../controllers/addAccount')
 const adminModifier = require('../controllers/modifyUser')
+const modifyProduct = require('../controllers/modifyProduct')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
@@ -52,5 +53,5 @@ router.get("/removeu",removeUser.remove)
 router.post("/addinguser",addAccount.addUser)
 router.post('/addproducts', upload.single('image'),  addProduct.addProduct)
 router.get('/modify',adminModifier.adminModifier)
-
+router.get('/modifyproduct',modifyProduct.modify)
 module.exports = router;
