@@ -43,6 +43,11 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
   });
   router.post('/logging', findUser.findUser)
-  
+  router.post('/addtocart', (req,res)=>{
+ if (req.session.user !== undefined){
+            req.session.order=req.body.order;
+            console.log(req.session.order);
+}else res.redirect("/user/login?message= 'Must be logged in to view this page'")}
+)
    
 module.exports = router

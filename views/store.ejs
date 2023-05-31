@@ -30,22 +30,22 @@
     
     <section class="items fade">
         <% for (let element = 0; element < prods.length; element++) { %>
+            
         <div class="product ">
             <img class="productimg" src="<%=prods[element].imgUrl%>" alt="<%=prods[element].imgUrl%>" />
             <details>
                 <summary><%= prods[element].name %></summary>
                 <div class="productInfo">
                     Price : EGP <%=prods[element].price %>
-                    <label><img src="/IMAGES/bottle.png" alt="liquid" />Liquid
-                        <input type="radio" name="state1" class="liquid" checked /></label>
+                    <label><img src="/IMAGES/bottle.png" alt="liquid" />Extract
+                        <input type="radio" name="state1" class="liquid" value="Extract" required  /></label>
                     <label><img src="/IMAGES/powder.png" alt="powder" />Powder
-                        <input type="radio" name="state1" class="powder" /></label>
+                        <input type="radio" name="state1" class="powder" value="Powder" required /></label>
                     <label class="color">Shade :
                         <input type="color" value="#9A6751" /></label>
                     <div class="cart">
-                        <button type="button" name="addtocart"><img src="/IMAGES/cart icon.png" alt="cart"></button>
+                        <button type="button" name="addtocart" onclick="addtocart('<%=prods[element].id%>','<%=prods[element].name%>','<%=prods[element].price%>', '<%=element%>');"><img src="/IMAGES/cart icon.png" alt="cart"></button>
                     </div>
-
                 </div>
             </details>
         </div>

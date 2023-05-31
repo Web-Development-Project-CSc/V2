@@ -7,6 +7,7 @@ const findUser = async (req,res)=>{
     Accounts.findOne( user ).then(result => {
         if(result){
             req.session.user = result;
+            req.session.order = [];
             console.log("logged in");
             if(req.session.user !== undefined && req.session.user.role==='admin') 
             res.redirect( "/admin");

@@ -37,7 +37,7 @@ router.post('/signing',addUser.addUser);
 
 router.get('/cart',(req,res)=>{
     if (req.session.user !== undefined) 
-    res.render('cart',  { message: '', layout: false});
+    res.render('cart',  { message: '', layout: false, order: req.session.order});
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
 
