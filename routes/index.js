@@ -40,7 +40,8 @@ router.get('/logout', (req, res) => {
   router.post('/addtocart', (req,res)=>{
  if (req.session.user !== undefined){
             req.session.order = req.body.order;
-            res.session.order = req.body.order;
+            res.session = req.session;
+            res.redirect('/user/cart');
         }
 else res.redirect("/user/login?message= 'Must be logged in to view this page'")}
 )

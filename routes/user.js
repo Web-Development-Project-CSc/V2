@@ -33,6 +33,7 @@ router.post('/signing',ctrlAccounts.addUser);
 router.post('/createOrder' , ctrlOrders.addOrder)
 
 router.get('/cart',(req,res)=>{
+
     if (req.session.user !== undefined) 
     res.render('cart',  { message: '', layout: false, orders: req.session.order});
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
