@@ -16,7 +16,7 @@ const feedbackSchema = new mongoose.Schema(
             form : String,
             feedback:
             {
-        type : Boolean,
+        type : Boolean
 
             }
             
