@@ -16,12 +16,14 @@ const feedbackSchema = new mongoose.Schema(
             form : String,
             feedback:
             {
-        type : Boolean
-
+              type : Boolean,
+               positive : true
             }
             
-        }  
-)
+        },
+
+  )
+module.exports = mongoose.model('feedback', feedbackSchema)
 
         
 
