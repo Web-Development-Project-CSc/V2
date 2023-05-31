@@ -1,4 +1,3 @@
-
 document.getElementById("cpword").onchange = function() {confirmPass()};
 document.getElementById("cancelBTN").onclick= function() { location.replace("http://localhost:3000/");}
     function confirmPass(){
@@ -14,3 +13,18 @@ document.getElementById("cancelBTN").onclick= function() { location.replace("htt
           x.style.display='none';
           }  
     }
+    function checkmail(mail){
+      if(mail.value!=''){
+      fetch('/user/getaccounts',{
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({mail: mail.value})
+      }).then(res => res.json()).then(result =>{ 
+      if(result.result=='found')
+          document.getElementById('error-1').style.display='block'
+      else
+          document.getElementById('error-1').style.display='none'})
+      }
+      else 
+          document.getElementById('error-1').style.display='none'
+  }

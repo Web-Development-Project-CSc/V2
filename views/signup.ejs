@@ -23,7 +23,10 @@
         </div>
         <div>
             <label class="name" for="email">Email :</label>
-            <input type="email" placeholder="Enter Your Email" name="email" id="email" required />
+            <input type="email" placeholder="Enter Your Email" name="email" id="email" onkeyup="checkmail(this)" required />
+            <div id="error-1">
+                <span><img src="/IMAGES/required.png" alt="req" />Email already registered</span>
+            </div>
         </div>
         <div>
             <label class="country" for="country">Country :</label>
