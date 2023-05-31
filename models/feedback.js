@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { boolean } = require('webidl-conversions')
 const feedbackSchema = new mongoose.Schema(
     {
             product:
@@ -14,14 +13,8 @@ const feedbackSchema = new mongoose.Schema(
 
             },
             form : String,
-            feedback:
-            {
-              type : Boolean,
-               positive : true
-            }
-            
+            feedback: Boolean,  
         },
-
   )
 module.exports = mongoose.model('feedback', feedbackSchema)
 
