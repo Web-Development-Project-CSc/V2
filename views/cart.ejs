@@ -18,16 +18,18 @@
         
         <div class="item">
             <h1><%= orders[index].prodname %></h1>
-            <h2>Total price: <span> EGP <%= ordes[index].prodprice %></span></h2>
-            <img src="/IMAGES/mock <%=state%>.png" alt="item" class="pr">
+            <h2>Total price: <span> EGP <%= orders[index].prodprice %></span></h2>
+            <img src="/IMAGES/mock <%=orders[index].state%>.png" alt="item" class="pr">
             <div class="quantity">
                 <img src="/IMAGES/minus.png" alt="remove">
                 <span class="num">1</span>
                 <img src="/IMAGES/plus.png" alt="add">
             </div>
-            <% } %>
+        </div>
+        <% } %>   
         <button type="button"> <img src="/IMAGES/previous.png" alt="cancel" id="cncl"></button>
-        <button type="submit"> <img src="/IMAGES/purchase.png" alt="purchase"></button>
+        <button type="submit"> <img src="/IMAGES/purchase.png" alt="purchase"></button> 
+        
     </form>
     <script type="text/javascript" src="/JS/checkout.js"></script>
 </body>

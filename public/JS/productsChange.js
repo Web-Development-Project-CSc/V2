@@ -64,9 +64,8 @@ if(value === 'c3'){
   let states = document.querySelectorAll('.items input[type=radio]')
 function addtocart(prodid,prodname,prodprice,index){
 let shade= shades[index].value
-let state
-if(states[index].checked) state='extract'
-else state ='powder'
+let state ='powder'
+if(states[index*2].checked) state='extract'
 console.log(shade)
 let product={prodid,prodname,prodprice,shade,state}
 order.push(product)
