@@ -27,7 +27,7 @@ function sendData(e) {
             const p = document.createElement('p');
             p.innerHTML = item.name;
             p.addEventListener('click', () => {
-              document.querySelector("#itemclicked").value = item.name;
+              document.querySelector("#itemclicked").value = item._id;
               document.querySelector("#searchInput").value = item.name;
               searchResults.innerHTML = '';
             });

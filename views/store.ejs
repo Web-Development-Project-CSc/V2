@@ -15,16 +15,16 @@
     <script type="text/javascript" src="/JS/navbar.js"></script>
     <section class="searchbar">
         <div class="bar">
+           <form id="searched" method="post" action="/user/createOrder">
             <input type="text" id="searchInput" name="searchInput" onkeyup="sendData(this)" placeholder="Search store for a flavour: i.e Flavour_Name " required />
-           <form id="searched">
             <input type="hidden" id="itemclicked" name="itemclicked" value="">
             <span class="type">
-                <label><img src="/IMAGES/bottle.png" alt="liquid" /><input type="radio" name="state" value="extract" checked
+                <label><img src="/IMAGES/bottle.png" alt="liquid" /><input type="radio" name="form" value="extract" required
                         class="liquid" /></label>
-                <label><img src="/IMAGES/powder.png" alt="powder" /><input type="radio" name="state" value="powder"
+                <label><img src="/IMAGES/powder.png" alt="powder" /><input type="radio" name="form" value="powder" required
                         class="powder" /></label>
             </span>
-            <input type="color" name="color" value="#A84448" />
+            <input type="color" name="shade" value="#A84448" />
             <button type="submit" id="buyfromsearch"name="buyfromsearch"><img  id="searchedCart" src="/IMAGES/cart icon.png" alt="add searched to cart"></button>
             <div id="searchResults" class="search-results"></div>
             </form>

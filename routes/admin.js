@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const addProduct = require('../controllers/addProduct');
-const removeProduct = require('../controllers/removeProduct');
+const ctrlAccounts = require('../controllers/ctrlAccounts');
+const ctrlProducts = require('../controllers/ctrlProducts');
 const Products = require('../models/products')
-const removeUser = require('../controllers/removeUser')
 const Accounts = require('../models/accounts')
-const addAccount = require('../controllers/addAccount')
-const adminModifier = require('../controllers/modifyUser')
-const modifyProduct = require('../controllers/modifyProduct')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
@@ -48,10 +44,10 @@ router.get('/users', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { layout: false});
 });
-router.get("/removep",removeProduct.remove)
-router.get("/removeu",removeUser.remove)
-router.post("/addinguser",addAccount.addUser)
-router.post('/addproducts', upload.single('image'),  addProduct.addProduct)
-router.get('/modify',adminModifier.adminModifier)
-router.get('/modifyproduct',modifyProduct.modify)
+router.get("/removep",ctrlProducts.remove)
+router.get("/removeu",ctrlAccounts.remove)
+router.post("/addinguser",ctrlAccounts.addUser)
+router.post('/addproducts', upload.single('image'),  ctrlProducts.addProduct)
+router.get('/modify',ctrlAccounts.adminModifier)
+router.get('/modifyproduct',ctrlProducts.modify)
 module.exports = router;

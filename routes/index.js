@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router();
 const Products = require('../models/products');
-const findUser = require('../controllers/findUser');
+const ctrlAccounts = require('../controllers/ctrlAccounts');
+const ctrlProducts = require('../controllers/ctrlProducts');
 router.use(express.urlencoded({extended:true}))
 router.get('/', (req,res)=>{
     let q=Products.find()
@@ -29,19 +30,13 @@ router.get('/store/:page',  (req, res) => {
     total_page: Math.ceil(result.length/9)})
     }).catch(err => {console.log(err)}).then()});
 
-router.post('/getResults', async (req, res) =>{
-        let payload = req.body.payload;
-        let search = await Products.find({name: {$regex: new RegExp('^'+payload+'.*', 'i')}}).exec();
-        search= search.slice (0, 3);
-        res.send({payload: search});
-        
-        });
+router.post('/getResults', ctrlProducts.searchProducts);
     
 router.get('/logout', (req, res) => {
     if (req.session.user !== undefined) req.session.destroy();
     res.redirect('/');
   });
-  router.post('/logging', findUser.findUser)
+  router.post('/logging', ctrlAccounts.findUser)
   
    
 module.exports = router
