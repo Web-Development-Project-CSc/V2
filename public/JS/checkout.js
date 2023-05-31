@@ -1,6 +1,6 @@
 let total = document.querySelectorAll("h2 span");
 let number = document.querySelectorAll(".num");
-document.getElementById("cncl").onclick= function() { location.replace("/store/1");}
+document.getElementById("cncl").onclick= function() { location.replace("/store/1");sessionStorage.removeItem('order');}
 let buttons = document.querySelectorAll('.quantity img');
 function add(index,price){
         let num = (index * 2) + 1
@@ -14,6 +14,8 @@ function remove(index,price){
         if(int-1>=0){
         number[index].innerHTML =--int;
         total[index].innerHTML = 'EGP '+ (int*price);
-        if(int==0) buttons[num].parentNode.parentNode.remove();
+        if(int==0) {
+                buttons[num].parentNode.parentNode.remove();
+        }
         }
 }

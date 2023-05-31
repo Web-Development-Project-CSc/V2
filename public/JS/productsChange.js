@@ -2,6 +2,12 @@ let num = document.getElementsByClassName("page");
 let pages = document.getElementsByClassName("items");
 let carts = document.querySelectorAll(".cart button");
 let bins  = document.querySelectorAll(".bin div");
+let order = []
+  let pre = sessionStorage.getItem('order');
+  console.log(pre)
+  if(pre != null) order = JSON.parse(pre);
+  let shades = document.querySelectorAll('.items input[type=color]')
+  let states = document.querySelectorAll('.items input[type=radio]')
 under(Math.ceil(bins[0].innerHTML));
 function currentPage(value) {
 if(value === 'p') location.replace('/store/' + (parseInt(bins[0].innerText)-1));
@@ -44,7 +50,8 @@ if(value === 'c3'){
     else details[j+i].style.left=pos3;
   }
   }
-  let items ='', bought = 0;
+  let items ='', bought = order.length;
+  if(bought > 0) add()
   for(let i =0; i<carts.length; i++) carts[i].addEventListener("click", function(){
     bought++; 
     if(i<10) items += '0' + i + ' ';
@@ -55,16 +62,15 @@ if(value === 'c3'){
     document.getElementById("go").innerText = '(' + bought + ')';
     let a = document.querySelector(".go a");
   }
-  let order = []
-  let shades = document.querySelectorAll('.items input[type=color]')
-  let states = document.querySelectorAll('.items input[type=radio]')
+  
+  
 function addtocart(prodid,prodname,prodprice,index){
 let shade= shades[index].value
 let state ='powder'
 if(states[index*2].checked) state='extract'
-console.log(shade)
 let product={prodid,prodname,prodprice,shade,state}
 order.push(product)
+sessionStorage.setItem('order',JSON.stringify(order))
 console.log(order)
 fetch('/addtocart',{
   method: 'POST',
