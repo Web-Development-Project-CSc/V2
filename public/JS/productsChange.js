@@ -54,10 +54,6 @@ if(value === 'c3'){
   function add(){
     document.getElementById("go").innerText = '(' + bought + ')';
     let a = document.querySelector(".go a");
-    let url = new URL(a.href);
-    url.searchParams.set("item", items);
-    url.searchParams.append("num", bought);
-    a.href = url.toString();
   }
   let order = []
   let shades = document.querySelectorAll('.items input[type=color]')
