@@ -59,3 +59,20 @@ if(value === 'c3'){
     url.searchParams.append("num", bought);
     a.href = url.toString();
   }
+  let order = []
+  let shades = document.querySelectorAll('.items input[type=color]')
+  let states = document.querySelectorAll('.items input[type=radio]')
+function addtocart(prodid,prodname,prodprice,index){
+let shade= shades[index].value
+let state ='powder'
+if(states[index*2].checked) state='extract'
+console.log(shade)
+let product={prodid,prodname,prodprice,shade,state}
+order.push(product)
+console.log(order)
+fetch('/addtocart',{
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({order: order})}
+  )
+}

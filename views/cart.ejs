@@ -14,38 +14,22 @@
     <form action="/store/1">
         <img src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo" id="logo" />
         <header>Items in cart:</header>
+        <% for( let index = 0; index < orders.length; index++ ) { %>
+        
         <div class="item">
-            <h1>Flamin' Hot Cheetos</h1>
-            <h2>Total price: <span> EGP 18.75</span></h2>
-            <img src="/IMAGES/mock powder.png" alt="item" class="pr">
+            <h1><%= orders[index].prodname %></h1>
+            <h2>Total price: <span> EGP <%= orders[index].prodprice %></span></h2>
+            <img src="/IMAGES/mock <%=orders[index].state%>.png" alt="item" class="pr">
             <div class="quantity">
                 <img src="/IMAGES/minus.png" alt="remove">
                 <span class="num">1</span>
                 <img src="/IMAGES/plus.png" alt="add">
             </div>
         </div>
-        <div class="item">
-            <h1>Flamin' Hot Cheetos</h1>
-            <h2>Total price: <span> EGP 56.25</span></h2>
-            <img src="/IMAGES/mock serum.png" alt="item" class="pr">
-            <div class="quantity">
-                <img src="/IMAGES/minus.png" alt="remove">
-                <span class="num">3</span>
-                <img src="/IMAGES/plus.png" alt="add">
-            </div>
-        </div>
-        <div class="item">
-            <h1>Taro Ice Cream</h1>
-            <h2>Total price: <span> EGP 27.99</span></h2>
-            <img src="/IMAGES/mock powder.png" alt="item" class="pr">
-            <div class="quantity">
-                <img src="/IMAGES/minus.png" alt="remove">
-                <span class="num">1</span>
-                <img src="/IMAGES/plus.png" alt="add">
-            </div>
-        </div>
+        <% } %>   
         <button type="button"> <img src="/IMAGES/previous.png" alt="cancel" id="cncl"></button>
-        <button type="submit"> <img src="/IMAGES/purchase.png" alt="purchase"></button>
+        <button type="submit"> <img src="/IMAGES/purchase.png" alt="purchase"></button> 
+        
     </form>
     <script type="text/javascript" src="/JS/checkout.js"></script>
 </body>
