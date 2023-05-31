@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 const orderSchema = new mongoose.Schema({
     status:{
         name:String,
-        imgNum:Number
+        imgNum:Number,
+        default:{
+            name:"Placed",
+            imgNum:0
+        }
     },
     delivered:Boolean,
     product:
@@ -21,7 +25,10 @@ const orderSchema = new mongoose.Schema({
                 type:Number,
                 default:1
             },
-            date:Date,
+            date:{
+                type:Date,
+                 default: Date.now      
+            },
             progress: function(stat){
                 this.status.name = stat;
                 if(stat === null){
