@@ -515,7 +515,7 @@
                 </summary>
                 <form class="credit-card" method="post" action="/user/payment">
                     <% 
-                            if(user.paymentMethod =! 'Card') {
+                            if(user.paymentMethod != 'Card') {
                                 cvv = "CVV"
                                 number = "Card Number"
                             }
