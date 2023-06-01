@@ -5,7 +5,6 @@ const ctrlAccounts = require('../controllers/ctrlAccounts');
 const ctrlProducts = require('../controllers/ctrlProducts');
 const Products = require('../models/products')
 const Accounts = require('../models/accounts')
-const Orders = require('../models/orders')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
