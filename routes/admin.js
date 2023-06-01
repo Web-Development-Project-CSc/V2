@@ -5,6 +5,7 @@ const ctrlAccounts = require('../controllers/ctrlAccounts');
 const ctrlProducts = require('../controllers/ctrlProducts');
 const Products = require('../models/products')
 const Accounts = require('../models/accounts')
+const Orders = require('../models/orders')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
@@ -45,7 +46,6 @@ router.get('/users', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { layout: false});
 });
-router.get("/removep",ctrlProducts.remove)
 router.get("/removeu",ctrlAccounts.remove)
 router.post("/addinguser",ctrlAccounts.addUser)
 router.post('/addproducts', upload.single('image'),  ctrlProducts.addProduct)

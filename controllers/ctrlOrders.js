@@ -3,19 +3,21 @@ const addOrder = async (req,res)=>{
     if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
     else{
         let order = new Orders({
-        product: req.body.prodid,
+        product: req.body.itemclicked,
         customer: req.session.user._id,
+        customerName: req.session.user.name,
+        productName: req.body.searchInput,
         form: req.body.form,
         shade: req.body.shade
     });
     try{
         await order.save();
         console.log(order);
-        res.redirect('/user/cart'); 
+        res.redirect('/user/myprofile'); 
     }
     catch(err){
         console.log(err);
-        res.redirect("/user/store?message='Could not add product to cart'");
+        res.redirect("/user/store?message='Could not register order'");
     }
 }
 }

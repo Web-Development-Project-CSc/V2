@@ -19,11 +19,13 @@ const orderSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref:"products"
         },
+        productName:String,
         customer:
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref:"accounts"
             },
+            customerName:String,
             form:String,
             shade:String,
             quantity:{

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flavoured/admin dashboard</title>
-    <link rel="stylesheet" href="/CSS/productsSkin_0.css">
+    <link rel="stylesheet" href="/CSS/ordersSkin_0.css">
 </head>
 
 <body>
@@ -14,6 +14,7 @@
 
     <div class="sidebar">
         <div class="logo-details">
+
             <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
         </div>
         <ul class="nav-links">
@@ -25,15 +26,15 @@
                     <img src="/IMAGES/stats.png" alt="analytics">
                     <span class="links_name">Analytics</span></a>
             </li>
-            <li><a href="/admin/orders">
+            <li class="active"><a href="/admin/orders">
                     <img src="/IMAGES/order.png" alt="order">
                     <span class="links_name">Orders</span></a>
             </li>
-            <li class="active"><a href="/admin/products">
+            <li><a href="/admin/products">
                     <img src="/IMAGES/product.png" alt="products">
                     <span class="links_name">Products</span></a>
             </li>
-            <li> <a href="/admin/users">
+            <li > <a href="/admin/users">
                     <img src="/IMAGES/customers.png" alt="users">
                     <span class="links_name">Users</span></a>
             </li>
@@ -44,18 +45,19 @@
             </li>
         </ul>
     </div>
+
     <section>
         <nav>
             <div class="sidebar-button">
                 <span class="dashboard">Admin Dashboard</span>
             </div>
             <div class="search-box">
-                <input type="text" id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
+                <input type="text"id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
                 <form id="searched">
-                    <input type="hidden" id="itemclicked" name="itemclicked" value="">
+                <input type="hidden" id="itemclicked" name="itemclicked" value="">
                 <div id="searchResults" class="search-results"></div>
-               <img src="/IMAGES/search.png" alt="search">
-            </form>
+                <img src="/IMAGES/search.png" alt="search">
+                </form>
             </div>
             <div class="profile-details">
                 <span class="admin_name"> Welcome, Flavourer</span>
@@ -63,32 +65,37 @@
             </div>
         </nav>
     </section>
-    <section class=" products">
+    <section class="orderList">
         <ul>
-            <% for( let index = 0; index < prods.length; index++ ) { %>
-          <li>
-            <span class="title"><%=prods[index].name%></span>
-            <div class="info">EGP <%=prods[index].price%></div>
-            <img src="<%=prods[index].imgUrl%>" alt="<%=prods[index].name%>">
-            <button class ="del" onclick="location.replace('/admin/removep?name=<%=prods[index].name%>')">Delete</button>
-            <button class ="mod"  onclick="function mod(){
-               let p = document.querySelector('#price1');
-               if(p.value == '') location.replace(`/admin/products?message='Please enter a price before attempting to modify''`)
-               else location.replace(`/admin/modifyproduct?id=<%=prods[index]._id%>&price=${p.value}`)
-            } mod()">Modify</button>
-            <input type="text" placeholder="Price" id="price1" required />
+            <% for( let index = 0; index < orders.length; index++ ) { %> 
+            <li>
+            <div class="OrderID">
+                <span class="orderDate">Order Date : <%=orders[index].createdAt%></span>
+            </div>
+            <div class="OrderDetails">
+                <div class="customer">Customer : <%=orders[index].customerName%> <%=orders[index].customer%></div>
+                <div class="product">Product : <%=orders[index].productName%> <%=orders[index].product%></div>
+                <div>Quantity : <%=orders[index].quantity%></div>
+                <div>Color : <span class="color" style="background-color:<%=orders[index].shade%>"></div>
+                <div>Form : <%=orders[index].form%></div>
+                <div class="status">Status :
+                    <%  let image;
+                        if(orders[index].status.imgNum == 0)
+                        image='placed.png';
+                        else if(orders[index].status.imgNum == 1)
+                        image='shipping.png';
+                        else if(orders[index].status.imgNum == 2)
+                        image='delivered.png';
+                    %>
+                    <span><%=orders[index].status.name%></span> <img src="/IMAGES/<%=image%>" alt="status">
+                </div>
+        </div>
+            <button class ="del" onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete</button>
+            <button class ="mod">Progress</button>
         </li>
         <%}%>
       </ul>  
-     <span id="edit">
-    <form action="/admin/addproducts" method="POST" enctype="multipart/form-data">
-        <input type="text" placeholder="ProductName" name="name" id="name" required />
-        <input type="text" placeholder="Price" name="price"id="nprice" required class="pricee" />
-        <button class="imgaddbutton" id="imgadd" type="button" onclick="document.getElementById('image').click(); return false;">Upload Image</button>
-        <input type="file" name="image" style="visibility: hidden;" id="image" required />
-        <button type="submit" id="adder">Add</button>
-    </span>
-    </section>
-    <script type="text/javascript" src="/JS/productSearchAdmin.js"></script>
+ </section>
 </body>
+
 </html>
