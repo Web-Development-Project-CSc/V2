@@ -59,6 +59,18 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/maltesers.jpg"
     },
     {
+        "name": "McFries",
+        "price": 30,
+        "numPurchases": 2,
+        "imgUrl": "/IMAGES/Flavours/McFries.jpg"
+    },
+    {
+        "name": "Nacho Cheese Doritos",
+  "price": 15,
+  "numPurchases": 0,
+  "imgUrl": "/IMAGES/Flavours/doritos_nacho.jpg"
+    },
+    {
         
     }
 
