@@ -22,7 +22,20 @@ const products = [
         "numPurchases": 5,
         "imgUrl": "/IMAGES/Flavours/takis.png"
     },
-    
-    
+    {
+        "name": "ObourLand",
+        "price": 6.66,
+        "numPurchases": 1,
+        "imgUrl": "/IMAGES/Flavours/Obourland.png"
+    },
+    {
+        "name": "Bimbo",
+        "price": 16,
+        "numPurchases": 3,
+        "imgUrl": "/IMAGES/Flavours/Bimbo.jpg"
+    },
+    {
+        
+    }
 
 ]
