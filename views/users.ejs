@@ -77,7 +77,11 @@
                 <tr>
                     <% for( let index=0; index < accounts.length; index++ ) { %>
                         <td>
-                            <%=accounts[index].role%>
+                            <%
+                            let role = accounts[index].role
+                            role = role.charAt(0).toUpperCase() + role.slice(1); 
+                            %>
+                            <%=role%>
                         </td>
                         <td class="role">
                             <%=accounts[index].name%>
