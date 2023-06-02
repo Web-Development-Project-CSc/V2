@@ -20,20 +20,6 @@ img {
   padding-bottom: 15%;
 }
 
-
-
-.sidebar .logo-details {
-  height: 80px;
-  display: flex;
-  align-items: center;
-}
-
-.sidebar .logo-details .logo_name {
-  color: #f9f1db;
-  font-size: 24px;
-  font-weight: 500;
-}
-
 .sidebar .nav-links {
   margin-top: 15%;
   color: white;
