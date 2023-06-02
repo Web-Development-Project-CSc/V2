@@ -160,5 +160,8 @@ const products = [
   "numPurchases": 0,
   "imgUrl": "/IMAGES/Flavours/Coca-cola.png"
     },
+    {
+        
+    }
 
 ]
