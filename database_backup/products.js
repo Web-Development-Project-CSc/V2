@@ -112,5 +112,8 @@ const products = [
         "numPurchases": 0,
         "imgUrl": "/IMAGES/Flavours/Pringles.png"
     },
+    {
+        
+    }
 
 ]
