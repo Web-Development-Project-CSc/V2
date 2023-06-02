@@ -161,7 +161,19 @@ const products = [
   "imgUrl": "/IMAGES/Flavours/Coca-cola.png"
     },
     {
-        
+        "name": "Papa Johns Pizza",
+  "price": 35,
+  "numPurchases": 0,
+  "imgUrl": "/IMAGES/Flavours/papa johns.jpg"
     }
 
 ]
+for(let i =0;i<products.length;i++)
+{
+const product = new Products(products[i]);
+product.save().then(result => {
+    console.log(result);
+}).catch(err => {
+    console.log(err);
+})
+}
