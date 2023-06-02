@@ -41,6 +41,24 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/Roz belaban.jpg"
     },
     {
+        "name": "Salmon Nigiri",
+        "price": 57,
+        "numPurchases": 0,
+        "imgUrl": "/IMAGES/Flavours/Sushi.png"
+    },
+    {
+        "name": "Molokhia",
+        "price": 20.22,
+        "numPurchases": 8,
+        "imgUrl": "/IMAGES/Flavours/Molokhia.jpg"
+    },
+    {
+        "name": "Maltesers",
+        "price": 22,
+        "numPurchases": 0,
+        "imgUrl": "/IMAGES/Flavours/maltesers.jpg"
+    },
+    {
         
     }
 
