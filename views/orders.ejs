@@ -73,7 +73,7 @@
                             <%
                             let date = orders[index].createdAt.toString().split('G');; 
                             %>
-                            <span class="orderDate"><h3>Order:</h3><%=date%><span class="italic"> <%=orders[index]._id%></span>
+                            <span class="orderDate"><h3>Order:</h3><%=date[0]%><span class="italic"> <%=orders[index]._id%></span>
                             </span>
                         </div>
                         <div class="OrderDetails">
