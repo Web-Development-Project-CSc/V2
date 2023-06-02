@@ -70,34 +70,43 @@
                 <% for( let index=0; index < orders.length; index++ ) { %>
                     <li class="list">
                         <div class="OrderID">
-                            <%
-                            let date = orders[index].createdAt.toString().split('G');; 
-                            %>
-                            <span class="orderDate"><h3>Order</h3><%=date[0]%><span class="italic"> <%=orders[index]._id%></span>
-                            </span>
+                            <% let date=orders[index].createdAt.toString().split('G');; %>
+                                <span class="orderDate">
+                                    <h3>Order</h3>
+                                    <%=date[0]%><span class="italic">
+                                            <%=orders[index]._id%>
+                                        </span>
+                                </span>
                         </div>
                         <div class="OrderDetails">
                             <div class="customer">
-                                <h4>Customer</h4><%=orders[index].customerName%> <%=orders[index].customer%>
+                                <h4>Customer</h4>
+                                <%=orders[index].customerName%>
+                                    <%=orders[index].customer%>
                             </div>
                             <div class="product">
-                                <h4>Product</h4><%=orders[index].productName%> <%=orders[index].product%>
+                                <h4>Product</h4>
+                                <%=orders[index].productName%>
+                                    <%=orders[index].product%>
                             </div>
                             <div>
-                                <h4>Quantity</h4><%=orders[index].quantity%>
+                                <h4>Quantity</h4>
+                                <%=orders[index].quantity%>
                             </div>
                             <div>
-                                <input type = "hidden" class="shade" name="shade" value="<%=orders[index].shade%>">
+                                <input type="hidden" class="shade" name="shade" value="<%=orders[index].shade%>">
                                 <h4>Color</h4> <span class="color"></span>
                             </div>
                             <div>
-                                <h4>Form</h4> <%=orders[index].form%>
+                                <h4>Form</h4>
+                                <%=orders[index].form%>
                             </div>
                             <div class="status">
-                                <h4>Status</h4>  
-                                    <span>
-                                        <%=orders[index].status.name%>
-                                    </span> <img src="/IMAGES/<%=orders[index].status.img%>" alt="status">
+                                <h4>Status</h4>
+                                <span>
+                                    <%=orders[index].status.name%>
+                                </span>
+                                <img src="/IMAGES/<%=orders[index].status.img%>" alt="status" class="statusPic">
                             </div>
                             <button class="del"
                                 onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete

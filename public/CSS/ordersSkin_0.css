@@ -56,6 +56,12 @@ input {
   border: 1px solid #333;
 }
 
+img.statusPic {
+  vertical-align: middle;
+  border-radius: 45%;
+  margin-left: 1%;
+}
+
 span form input[type="text"] {
   display: inline-block;
   border: 0;
