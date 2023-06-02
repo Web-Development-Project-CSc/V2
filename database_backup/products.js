@@ -137,7 +137,28 @@ const products = [
   "imgUrl": "/IMAGES/Flavours/Twinkies.jpg"
     },
     {
-        
-    }
+        "name": "Krispy Kreme Original Glazed",
+        "price": 20,
+        "numPurchases": 1,
+        "imgUrl": "/IMAGES/Flavours/Krispy_Kreme.jpg"
+    },
+    {
+        "name": "Flamin Hot Cheetos",
+        "price": 18.75,
+        "numPurchases": 1,
+        "imgUrl": "/IMAGES/Flavours/Cheetos flamin hot.png"
+    },
+    {
+        "name": "Skittles",
+  "price": 12.08,
+  "numPurchases": 0,
+  "imgUrl": "/IMAGES/Flavours/skittles.png"
+    },
+    {
+        "name": "Coca-cola",
+  "price": 10,
+  "numPurchases": 0,
+  "imgUrl": "/IMAGES/Flavours/Coca-cola.png"
+    },
 
 ]
