@@ -120,10 +120,14 @@
                                 <button class="del"
                                     onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
                                 </button>
-                                <button class="mod">Progress</button>
+                                <button class="mod" onclick="prog('<%=index%>')">Progress</button>
                             </div>
                         </div>
                     </li>
+                    <form action="/admin/progress" method="post" class="f" style="display:none;">
+                        <input type="hidden" name="id" value="<%=orders[index]._id%>">
+                        <input type="hidden" name="customer" value="<%=orders[index].customer%>">
+                    </form>
                     <%}%>
             </ul>
         </section>

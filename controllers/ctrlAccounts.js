@@ -124,10 +124,10 @@ const remove = async (req,res)=>{
      res.redirect('/admin/users');
    } else {
      console.log('No account found');
-     res.redirect("/admin/login?message='Could not find account'"); 
+     res.redirect("/admin/users?message='Could not remove account'"); 
     }
   }
-  else res.redirect("/admin/login?message = 'Can not remove their royal highness'");
+  else res.redirect("/admin/users?message = 'Can not remove their royal highness'");
 }
 else res.redirect("/admin/login?message= 'Must be logged in as admin to remove account'");
 }
