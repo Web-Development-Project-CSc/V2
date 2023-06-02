@@ -68,27 +68,28 @@
         <section class="orderList">
             <ul>
                 <% for( let index=0; index < orders.length; index++ ) { %>
-                    <li>
+                    <li class="list">
                         <div class="OrderID">
-                            <span class="orderDate">Order Date : <%=orders[index].createdAt%></span>
+                            <span class="orderDate"><h3>Order Date:</h3><%=orders[index].createdAt%></span>
                         </div>
                         <div class="OrderDetails">
-                            <div class="customer">Customer : <%=orders[index].customerName%>
-                                    <%=orders[index].customer%>
+                            <div class="customer">
+                                <h3>Customer:</h3><%=orders[index].customerName%> <%=orders[index].customer%>
                             </div>
-                            <div class="product">Product : <%=orders[index].productName%>
-                                    <%=orders[index].product%>
-                            </div>
-                            <div>
-                                Quantity : <%=orders[index].quantity%>
+                            <div class="product">
+                                <h3>Product:</h3><%=orders[index].productName%> <%=orders[index].product%>
                             </div>
                             <div>
-                                Color : <span class="color" style="background-color:<%=orders[index].shade%>">
+                                <h3>Quantity:</h3><%=orders[index].quantity%>
                             </div>
                             <div>
-                                Form : <%=orders[index].form%>
+                                <h3>Color:</h3> <span class="color" style="background-color:<%=orders[index].shade%>">
                             </div>
-                            <div class="status">Status :
+                            <div>
+                                <h3>Form:</h3> <%=orders[index].form%>
+                            </div>
+                            <div class="status">
+                                <h3>Status:</h3>  
                                 <% let image; if(orders[index].status.imgNum==0) image='placed.png' ; else
                                     if(orders[index].status.imgNum==1) image='shipping.png' ; else
                                     if(orders[index].status.imgNum==2) image='delivered.png' ; %>
@@ -96,11 +97,11 @@
                                         <%=orders[index].status.name%>
                                     </span> <img src="/IMAGES/<%=image%>" alt="status">
                             </div>
+                            <button class="del"
+                                onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
+                            </button>
+                            <button class="mod">Progress</button>
                         </div>
-                        <button class="del"
-                            onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
-                        </button>
-                        <button class="mod">Progress</button>
                     </li>
                     <%}%>
             </ul>
