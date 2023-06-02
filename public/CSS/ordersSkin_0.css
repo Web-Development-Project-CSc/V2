@@ -124,8 +124,6 @@ input:focus {
   border-radius: 6px;
 }
 
-
-
 span form input[type="text"] {
   display: inline-block;
   border: 0;
@@ -297,38 +295,6 @@ nav .search-box .bx-search {
   transition: all 0.4 ease;
 }
 
-nav .profile-details {
-  margin-right: 4%;
-  display: flex;
-  align-items: center;
-  background: #F5F6FA;
-  border: 2px solid #EFEEF1;
-  border-radius: 6px;
-  height: 50px;
-  min-width: 190px;
-  padding: 0 15px 0 2px;
-}
-
-nav .profile-details .admin_name {
-  font-size: 15px;
-  font-weight: 500;
-  color: #333;
-  margin: 0 10px;
-  white-space: nowrap;
-}
-
-nav .profile-details img {
-  height: 40px;
-  width: 40px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.nav-links img {
-  filter: invert();
-  margin: 5%;
-}
-
 .orderList {
   background-color: white;
   border-radius: 15px;
@@ -368,4 +334,36 @@ ul{
   padding-bottom: 5%;
   padding-left: 1%;
   padding-right: 2%;
+}
+
+.nav-links img {
+  filter: invert();
+  margin: 5%;
+}
+
+nav .profile-details img {
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+nav .profile-details .admin_name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+nav .profile-details {
+  margin-right: 4%;
+  display: flex;
+  align-items: center;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 190px;
+  padding: 0 15px 0 2px;
 }
