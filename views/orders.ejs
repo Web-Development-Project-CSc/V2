@@ -79,10 +79,14 @@
                             <div class="product">Product : <%=orders[index].productName%>
                                     <%=orders[index].product%>
                             </div>
-                            <div>Quantity : <%=orders[index].quantity%>
+                            <div>
+                                Quantity : <%=orders[index].quantity%>
                             </div>
-                            <div>Color : <span class="color" style="background-color:<%=orders[index].shade%>"></div>
-                            <div>Form : <%=orders[index].form%>
+                            <div>
+                                Color : <span class="color" style="background-color:<%=orders[index].shade%>">
+                            </div>
+                            <div>
+                                Form : <%=orders[index].form%>
                             </div>
                             <div class="status">Status :
                                 <% let image; if(orders[index].status.imgNum==0) image='placed.png' ; else
@@ -94,7 +98,8 @@
                             </div>
                         </div>
                         <button class="del"
-                            onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete</button>
+                            onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
+                        </button>
                         <button class="mod">Progress</button>
                     </li>
                     <%}%>
