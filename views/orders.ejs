@@ -78,23 +78,23 @@
                         </div>
                         <div class="OrderDetails">
                             <div class="customer">
-                                <h3>Customer:</h3><%=orders[index].customerName%> <%=orders[index].customer%>
+                                <h4>Customer:</h4><%=orders[index].customerName%> <%=orders[index].customer%>
                             </div>
                             <div class="product">
-                                <h3>Product:</h3><%=orders[index].productName%> <%=orders[index].product%>
+                                <h4>Product:</h4><%=orders[index].productName%> <%=orders[index].product%>
                             </div>
                             <div>
-                                <h3>Quantity:</h3><%=orders[index].quantity%>
+                                <h4>Quantity:</h4><%=orders[index].quantity%>
                             </div>
                             <div>
                                 <input type = "hidden" class="shade" name="shade" value="<%=orders[index].shade%>">
-                                <h3>Color:</h3> <span class="color""></span>
+                                <h4>Color:</h4> <span class="color"></span>
                             </div>
                             <div>
-                                <h3>Form:</h3> <%=orders[index].form%>
+                                <h4>Form:</h4> <%=orders[index].form%>
                             </div>
                             <div class="status">
-                                <h3>Status:</h3>  
+                                <h4>Status:</h4>  
                                     <span>
                                         <%=orders[index].status.name%>
                                     </span> <img src="/IMAGES/<%=orders[index].status.img%>" alt="status">

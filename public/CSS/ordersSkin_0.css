@@ -34,15 +34,6 @@ input {
   margin-bottom: 2%;
 }
 
-.sidebar {
-  position: fixed;
-  height: 100%;
-  width: 240px;
-  background-color: #A84448;
-  transition: all 0.5s ease;
-  font-size: 24px;
-}
-
 .orderList {
   background-color: white;
   border-radius: 15px;
@@ -59,8 +50,10 @@ input {
 }
 
 .color {
-  padding: 1%;
+  padding: 0.7%;
+  padding-left: 2.5%;
   vertical-align: middle;
+  border: 1px solid #333;
 }
 
 span form input[type="text"] {
@@ -108,8 +101,15 @@ input:focus {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 24px;
   color: rgb(196, 151, 40);
+  display: inline-block;
+  margin: 1%;
+}
+
+h4 {
+  font-size: 20px;
+  color:  #99B19C;
   display: inline-block;
   margin: 1%;
 }
@@ -218,6 +218,15 @@ nav .sidebar-button {
   align-items: center;
   font-size: 24px;
   font-weight: 500;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background-color: #A84448;
+  transition: all 0.5s ease;
+  font-size: 24px;
 }
 
 .nav-links li {
