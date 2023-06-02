@@ -113,6 +113,12 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/Pringles.png"
     },
     {
+        "name": "Taro",
+        "price": 27.99,
+        "numPurchases": 1,
+        "imgUrl": "/IMAGES/Flavours/Taro.png"
+    },
+    {
         
     }
 
