@@ -70,7 +70,11 @@
                 <% for( let index=0; index < orders.length; index++ ) { %>
                     <li class="list">
                         <div class="OrderID">
-                            <span class="orderDate"><h3>Order Date:</h3><%=orders[index].createdAt%></span>
+                            <%
+                            let date = orders[index].createdAt.toString().split('G');; 
+                            %>
+                            <span class="orderDate"><h3>Order:</h3><%=date%><span class="italic"> <%=orders[index]._id%></span>
+                            </span>
                         </div>
                         <div class="OrderDetails">
                             <div class="customer">
@@ -83,19 +87,17 @@
                                 <h3>Quantity:</h3><%=orders[index].quantity%>
                             </div>
                             <div>
-                                <h3>Color:</h3> <span class="color" style="background-color:<%=orders[index].shade%>">
+                                <input type = "hidden" class="shade" name="shade" value="<%=orders[index].shade%>">
+                                <h3>Color:</h3> <span class="color""></span>
                             </div>
                             <div>
                                 <h3>Form:</h3> <%=orders[index].form%>
                             </div>
                             <div class="status">
                                 <h3>Status:</h3>  
-                                <% let image; if(orders[index].status.imgNum==0) image='placed.png' ; else
-                                    if(orders[index].status.imgNum==1) image='shipping.png' ; else
-                                    if(orders[index].status.imgNum==2) image='delivered.png' ; %>
                                     <span>
                                         <%=orders[index].status.name%>
-                                    </span> <img src="/IMAGES/<%=image%>" alt="status">
+                                    </span> <img src="/IMAGES/<%=orders[index].status.img%>" alt="status">
                             </div>
                             <button class="del"
                                 onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
@@ -106,6 +108,7 @@
                     <%}%>
             </ul>
         </section>
+        <script src="/JS/colordisplay.js" type="text/javascript"></script>
 </body>
 
 </html>

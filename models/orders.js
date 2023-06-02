@@ -3,11 +3,11 @@ const orderSchema = new mongoose.Schema({
     status: {
         type:{
         name:String,
-        imgNum:Number,
+        img:String,
         },
         default:{
-            name:"Placed",
-            imgNum:0
+            name:"Processing",
+            img:"placed.png",
         }
     },
     delivered:{

@@ -11,6 +11,9 @@ router.get('/', (req,res)=>{
         res.render('index', { message: '', user: (req.session.user === undefined ? "" : req.session.user) , prods: prods })
     })
 })
+router.get('/login', (req,res)=>{
+    res.redirect('/user/login')
+})
 router.get('/support', (req,res)=>{
     res.render('help' ,{ message: '', user: (req.session.user === undefined ? "" : req.session.user) })
 })

@@ -46,16 +46,18 @@ const progress = async (req,res)=>{
     else{
    let temp = await Orders.findOne({customer: req.session.user._id, _id : req.query.orderid})
    if(temp){
-    if(temp.status.name == 'Placed'){
-        temp.status.name = 'Shipped'
-        temp.status.imgNum = 1
+    if(temp.status.name == 'Processing'){
+        temp.status.name = 'Shipping'
+        temp.status.img = 'shipping.png'
     }
-    else if(temp.status.name == 'Shipped'){
-        temp.status.name = 'Delivered'
-        temp.status.imgNum = 2
+    else if(temp.status.name == 'Shipping'){
+        temp.status.name = 'Delivering'
+        temp.status.img = 'distribution.png'
     }
-    else if(temp.status.name == 'Delivered'){
+    else if(temp.status.name == 'Delivering'){
             temp.delivered = true
+            temp.status.name = 'Received'
+            temp.status.img = 'delivered.png'
     }
     temp.save()
     res.redirect('/user/myprofile')
