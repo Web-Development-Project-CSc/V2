@@ -20,22 +20,6 @@ img {
   padding-bottom: 15%;
 }
 
-button {
-  border: 0;
-  color: #ffffff;
-  background-color: #99B19C;
-  outline: 0;
-  padding: 0;
-  transition: all 200ms ease-in;
-  cursor: pointer;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
-  border-radius: 6px;
-  padding: 12px 36px;
-  margin-left: 5%;
-  font-family: 'Times New Roman', Times, serif;
-  float: right;
-}
-
 input {
   display: inline-block;
   border: 0;
@@ -50,34 +34,6 @@ input {
   margin-bottom: 2%;
 }
 
-.del {
-  background-color: #A84448;
-  margin-left: 2%;
-}
-
-button:active,
-input:focus {
-  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.525);
-  border-radius: 6px;
-}
-
-span form input[type="text"] {
-  display: inline-block;
-  border: 0;
-  padding: 0%;
-  transition: all 200ms ease-in;
-  cursor: pointer;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
-  border-radius: 2px;
-  padding: 12px 36px;
-  color: #747474;
-  font-family: inherit;
-  vertical-align: middle;
-  text-align: center;
-  margin-right: 1.2%;
-  margin-left: 1.5%;
-}
-
 .sidebar {
   position: fixed;
   height: 100%;
@@ -85,12 +41,6 @@ span form input[type="text"] {
   background-color: #A84448;
   transition: all 0.5s ease;
   font-size: 24px;
-}
-
-.sidebar .logo-details {
-  height: 80px;
-  display: flex;
-  align-items: center;
 }
 
 .orderList {
@@ -111,6 +61,50 @@ span form input[type="text"] {
 .color {
   padding: 1%;
   vertical-align: middle;
+}
+
+span form input[type="text"] {
+  display: inline-block;
+  border: 0;
+  padding: 0%;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  color: #747474;
+  font-family: inherit;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 1.2%;
+  margin-left: 1.5%;
+}
+
+button {
+  border: 0;
+  color: #ffffff;
+  background-color: #99B19C;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+  border-radius: 6px;
+  padding: 12px 36px;
+  margin-left: 5%;
+  font-family: 'Times New Roman', Times, serif;
+  float: right;
+}
+
+.del {
+  background-color: #A84448;
+  margin-left: 2%;
+}
+
+button:active,
+input:focus {
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.525);
+  border-radius: 6px;
 }
 
 h3 {
@@ -257,6 +251,12 @@ nav .sidebar-button {
   color: #f9f1db;
   font-size: 24px;
   font-weight: 500;
+}
+
+.sidebar .logo-details {
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .search-box input {
