@@ -17,8 +17,12 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/borio.png"
       },
     {
-        
-    }
+        "name": "Takis",
+        "price": 47,
+        "numPurchases": 5,
+        "imgUrl": "/IMAGES/Flavours/takis.png"
+    },
+    
     
 
 ]
