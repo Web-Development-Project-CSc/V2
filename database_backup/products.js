@@ -95,7 +95,22 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/Om Ali.jpg"
     },
     {
-        
-    }
+        "name": "Redbull",
+  "price": 45,
+  "numPurchases": 1,
+  "imgUrl": "/IMAGES/Flavours/redbull.png"
+    },
+    {
+        "name": "Cool Ranch Doritos",
+        "price": 15,
+        "numPurchases": 2,
+        "imgUrl": "/IMAGES/Flavours/doritos cool ranch.jpg"
+    },
+    {
+        "name": "Sour Cream Pringles",
+        "price": 30.25,
+        "numPurchases": 0,
+        "imgUrl": "/IMAGES/Flavours/Pringles.png"
+    },
 
 ]
