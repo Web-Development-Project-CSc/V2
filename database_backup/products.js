@@ -119,6 +119,12 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/Taro.png"
     },
     {
+        "name": "Cheese-Cake Factory New York Style",
+        "price": 48,
+        "numPurchases": 4,
+        "imgUrl": "/IMAGES/Flavours/cheesecake factory.jpg"
+    },
+    {
         
     }
 
