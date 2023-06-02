@@ -35,6 +35,12 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/Bimbo.jpg"
     },
     {
+        "name": "Sentimient Rice Pudding",
+        "price": 19.99,
+        "numPurchases": 2,
+        "imgUrl": "/IMAGES/Flavours/Roz belaban.jpg"
+    },
+    {
         
     }
 
