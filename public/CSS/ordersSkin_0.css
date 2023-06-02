@@ -20,18 +20,6 @@ img {
   padding-bottom: 15%;
 }
 
-.sidebar .nav-links li:hover,
-.active {
-  background-color: #99B19C;
-  width: 101%;
-}
-
-
-
-li:hover {
-  box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
-}
-
 button {
   border: 0;
   color: #ffffff;
@@ -105,40 +93,6 @@ span form input[type="text"] {
   align-items: center;
 }
 
-.sidebar .logo-details .logo_name {
-  color: #f9f1db;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.sidebar .nav-links {
-  margin-top: 15%;
-  color: white;
-  padding-left: 5%;
-}
-
-li {
-  list-style: none;
-}
-
-li:hover {
-  box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
-}
-
-li img {
-  vertical-align: middle;
-}
-
-.sidebar .nav-links #out {
-  position: absolute;
-  bottom: 20px;
-  width: 95%
-}
-
-.nav-links li {
-  cursor: pointer;
-}
-
 .orderList {
   background-color: white;
   border-radius: 15px;
@@ -164,6 +118,18 @@ h3 {
   color: rgb(196, 151, 40);
   display: inline-block;
   margin: 1%;
+}
+
+li {
+  list-style: none;
+}
+
+li:hover {
+  box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
+}
+
+li img {
+  vertical-align: middle;
 }
 
 ul {
@@ -260,9 +226,37 @@ nav .sidebar-button {
   font-weight: 500;
 }
 
+.nav-links li {
+  cursor: pointer;
+}
+
+.sidebar .nav-links {
+  margin-top: 15%;
+  color: white;
+  padding-left: 5%;
+}
+
+.sidebar .nav-links #out {
+  position: absolute;
+  bottom: 20px;
+  width: 95%
+}
+
+.sidebar .nav-links li:hover,
+.active {
+  background-color: #99B19C;
+  width: 101%;
+}
+
 .sidebar.active {
   width: calc(100% - 60px);
   left: 60px;
+}
+
+.sidebar .logo-details .logo_name {
+  color: #f9f1db;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .search-box input {
