@@ -26,11 +26,6 @@ img {
   width: 101%;
 }
 
-.nav-links li {
-  cursor: pointer;
-}
-
-
 .sidebar.active {
   width: calc(100% - 60px);
   left: 60px;
@@ -189,11 +184,6 @@ li:hover {
 
 li img {
   vertical-align: middle;
-}
-
-.sidebar .nav-links li:hover,
-.active {
-  background-color: #99B19C;
 }
 
 .sidebar .nav-links #out {
