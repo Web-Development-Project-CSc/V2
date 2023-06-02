@@ -20,22 +20,10 @@ img {
   padding-bottom: 15%;
 }
 
-.sidebar .nav-links {
-  margin-top: 15%;
-  color: white;
-  padding-left: 5%;
-}
-
 .sidebar .nav-links li:hover,
 .active {
   background-color: #99B19C;
   width: 101%;
-}
-
-.sidebar .nav-links #out {
-  position: absolute;
-  bottom: 20px;
-  width: 94%
 }
 
 .nav-links li {
