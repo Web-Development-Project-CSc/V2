@@ -75,12 +75,8 @@
                         <img src="<%=prods[index].imgUrl%>" alt="<%=prods[index].name%>">
                         <button class="del"
                             onclick="location.replace('/admin/removep?name=<%=prods[index].name%>')">Delete</button>
-                        <button class="mod" onclick="function mod(){
-               let p = document.querySelector('#price1');
-               if(p.value == '') location.replace(`/admin/products?message='Please enter a price before attempting to modify''`)
-               else location.replace(`/admin/modifyproduct?id=<%=prods[index]._id%>&price=${p.value}`)
-            } mod()">Modify</button>
-                        <input type="text" placeholder="Price" id="price1" required />
+                        <button class="mod" onclick=" mod('<%=index%>', '<%=prods[index]._id%>')">Modify</button>
+                        <input type="text" placeholder="Price" id="price1" class="p"  required />
                     </li>
                     <%}%>
             </ul>
