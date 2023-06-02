@@ -12,7 +12,7 @@ a {
 img {
   width: 40px;
 }
-  
+
 #searchResults {
   margin-top: 5px;
   width: 94.5%;
@@ -492,7 +492,7 @@ ul{
 
 .list{
   padding-top: 1%;
-  padding-bottom: 0%;
+  padding-bottom: 5%;
   padding-left: 1%;
   padding-right: 2%;
 }
