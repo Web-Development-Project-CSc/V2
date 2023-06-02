@@ -35,10 +35,12 @@ img {
   margin-bottom: 10%;
   padding-bottom: 0%;
 }
-.color{
-  padding:1%;
+
+.color {
+  padding: 1%;
   vertical-align: middle;
 }
+
 tr,
 td,
 th {
@@ -76,11 +78,11 @@ th {
   font-size: 24px;
 }
 
-.modButton{
+.modButton {
   padding-left: 0.5%;
 }
 
-.delButton{
+.delButton {
   padding-left: 0.5%;
 }
 
@@ -206,6 +208,7 @@ li img {
   width: calc(100% - 60px);
   left: 60px;
 }
+
 #searchResults {
   margin-top: 5px;
   width: 94.5%;
@@ -216,7 +219,7 @@ li img {
   font-style: italic;
   z-index: 500;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
 }
 
@@ -237,6 +240,7 @@ li img {
   cursor: pointer;
   color: white;
 }
+
 nav {
   color: white;
   display: flex;
