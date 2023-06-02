@@ -49,17 +49,57 @@ input {
   font-size: 20px;
 }
 
+li {
+  list-style: none;
+}
+
+li:hover {
+  box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
+}
+
+li img {
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+  margin: 1%;
+  margin-top: -0.5%;
+  margin-left: -3%;
+}
+
+.list {
+  padding-top: 1%;
+  padding-bottom: 5%;
+  padding-left: 1%;
+  padding-right: 2%;
+}
+
+.orderList li:hover{
+  border-radius: 15px;
+}
+
 .color {
   padding: 0.7%;
   padding-left: 2.5%;
+  margin-left: 1%;
   vertical-align: middle;
-  border: 1px solid #333;
+  box-shadow: 0 0 8px 2px rgba(124, 124, 124, 0.314);
+}
+
+.product {
+  margin-left: 1%;
 }
 
 img.statusPic {
+  width: 4%;
   vertical-align: middle;
-  border-radius: 45%;
+  border-radius: 50%;
   margin-left: 1%;
+  border-style: solid;
+  border-width: 5px;
+  padding: 5px;
+  border-color: #cccbcb
 }
 
 span form input[type="text"] {
@@ -111,41 +151,21 @@ h3 {
   color: rgb(196, 151, 40);
   display: inline-block;
   margin: 1%;
-  font-style: italic;
 }
 
 h4 {
   font-size: 20px;
-  color:  #99B19C;
+  color: #99B19C;
+  display: inline-block;
+  margin: 1%;
+}
+
+p {
+  font-size: 16px;
+  color: gray;
   display: inline-block;
   margin: 1%;
   font-style: italic;
-}
-
-li {
-  list-style: none;
-}
-
-li:hover {
-  box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
-}
-
-li img {
-  vertical-align: middle;
-}
-
-ul {
-  list-style: none;
-  margin: 1%;
-  margin-top: -0.5%;
-  margin-left: -3%;
-}
-
-.list {
-  padding-top: 1%;
-  padding-bottom: 5%;
-  padding-left: 1%;
-  padding-right: 2%;
 }
 
 .nav-links img {
@@ -322,7 +342,4 @@ nav .sidebar-button {
   position: absolute;
   top: 100%;
   left: 0;
-}
-div{
-  font-style: italic;
 }

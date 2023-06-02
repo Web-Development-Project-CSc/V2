@@ -72,22 +72,26 @@
                         <div class="OrderID">
                             <% let date=orders[index].createdAt.toString().split('G');; %>
                                 <span class="orderDate">
-                                    <h3>Order</h3>
-                                    <%=date[0]%><span class="italic">
-                                            <%=orders[index]._id%>
-                                        </span>
+                                    <h3>
+                                        <%=date[0]%><span class="italic">
+                                    </h3>
+                                    <p>
+                                        <%=orders[index]._id%>
+                                    </p>
+                                </span>
                                 </span>
                         </div>
                         <div class="OrderDetails">
                             <div class="customer">
                                 <h4>Customer</h4>
                                 <%=orders[index].customerName%>
-                                    <%=orders[index].customer%>
+                                <p> <%=orders[index].customer%> </p>
+                                       <span class="product"> <h4>Product</h4>
+                                        <%=orders[index].productName%>
+                                        <p> <%=orders[index].product%> </p></span>
                             </div>
                             <div class="product">
-                                <h4>Product</h4>
-                                <%=orders[index].productName%>
-                                    <%=orders[index].product%>
+
                             </div>
                             <div>
                                 <h4>Quantity</h4>
