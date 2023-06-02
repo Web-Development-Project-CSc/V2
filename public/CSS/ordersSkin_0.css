@@ -105,6 +105,7 @@ h3 {
   color: rgb(196, 151, 40);
   display: inline-block;
   margin: 1%;
+  font-style: italic;
 }
 
 h4 {
@@ -112,6 +113,7 @@ h4 {
   color:  #99B19C;
   display: inline-block;
   margin: 1%;
+  font-style: italic;
 }
 
 li {
