@@ -71,6 +71,30 @@ const products = [
   "imgUrl": "/IMAGES/Flavours/doritos_nacho.jpg"
     },
     {
+        "name": "Kentucky Fried Chicken",
+        "price": 45.02,
+        "numPurchases": 7,
+        "imgUrl": "/IMAGES/Flavours/KFC-logo-696x391.jpg"
+    },
+    {
+        "name": "M&Ms",
+        "price": 17.5,
+        "numPurchases": 3,
+        "imgUrl": "/IMAGES/Flavours/m-ms-logo-yellow-background.jpg"
+    },
+    {
+        "name": "Cinnabon",
+        "price": 36,
+        "numPurchases": 6,
+        "imgUrl": "/IMAGES/Flavours/Cinnabon.png"
+    },
+    {
+        "name": "Om Ali",
+        "price": 27.19,
+        "numPurchases": 0,
+        "imgUrl": "/IMAGES/Flavours/Om Ali.jpg"
+    },
+    {
         
     }
 
