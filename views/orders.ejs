@@ -85,10 +85,16 @@
                             <div class="customer">
                                 <h4>Customer</h4>
                                 <%=orders[index].customerName%>
-                                <p> <%=orders[index].customer%> </p>
-                                       <span class="product"> <h4>Product</h4>
+                                    <p>
+                                        <%=orders[index].customer%>
+                                    </p>
+                                    <span class="product">
+                                        <h4>Product</h4>
                                         <%=orders[index].productName%>
-                                        <p> <%=orders[index].product%> </p></span>
+                                            <p>
+                                                <%=orders[index].product%>
+                                            </p>
+                                    </span>
                             </div>
                             <div class="product">
 
@@ -111,11 +117,11 @@
                                     <%=orders[index].status.name%>
                                 </span>
                                 <img src="/IMAGES/<%=orders[index].status.img%>" alt="status" class="statusPic">
+                                <button class="del"
+                                    onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
+                                </button>
+                                <button class="mod">Progress</button>
                             </div>
-                            <button class="del"
-                                onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
-                            </button>
-                            <button class="mod">Progress</button>
                         </div>
                     </li>
                     <%}%>

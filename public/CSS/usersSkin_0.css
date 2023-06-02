@@ -26,6 +26,10 @@ img {
   background-color: #713c5f;
 }
 
+.role{
+ padding-left: 5%;
+}
+
 .userData {
   background-color: white;
   border-radius: 15px;
@@ -314,6 +318,7 @@ nav .search-box {
   border-radius: 6px;
   font-size: 18px;
   padding: 0 15px;
+  text-align: left;
 }
 
 nav .search-box .bx-search {
