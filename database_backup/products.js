@@ -125,6 +125,18 @@ const products = [
         "imgUrl": "/IMAGES/Flavours/cheesecake factory.jpg"
     },
     {
+        "name": "Toblerone",
+  "price": 66.47,
+  "numPurchases": 0,
+  "imgUrl": "/IMAGES/Flavours/1.-Toblerone-preview.jpg"
+    },
+    {
+        "name": "Twinkies",
+  "price": 8,
+  "numPurchases": 0,
+  "imgUrl": "/IMAGES/Flavours/Twinkies.jpg"
+    },
+    {
         
     }
 
