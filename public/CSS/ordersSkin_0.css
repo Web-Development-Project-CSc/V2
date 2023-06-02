@@ -20,18 +20,7 @@ img {
   padding-bottom: 15%;
 }
 
-.sidebar {
-  position: fixed;
-  height: 100%;
-  width: 240px;
-  background-color: #A84448;
-  transition: all 0.5s ease;
-  font-size: 24px;
-}
 
-.sidebar.active {
-  width: 60px;
-}
 
 .sidebar .logo-details {
   height: 80px;
@@ -119,29 +108,6 @@ nav .search-box {
   border-radius: 6px;
   font-size: 18px;
   padding: 0 15px;
-}
-
-nav .search-box .bx-search {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background: #713c5f;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 4px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  font-size: 22px;
-  transition: all 0.4 ease;
-}
-
-nav .profile-details img {
-  height: 40px;
-  width: 40px;
-  border-radius: 6px;
-  object-fit: cover;
 }
 
 li:hover {
@@ -385,6 +351,13 @@ nav .profile-details .admin_name {
   color: #333;
   margin: 0 10px;
   white-space: nowrap;
+}
+
+nav .profile-details img {
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 .nav-links img {
