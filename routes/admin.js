@@ -5,6 +5,7 @@ const ctrlAccounts = require('../controllers/ctrlAccounts');
 const ctrlProducts = require('../controllers/ctrlProducts');
 const Products = require('../models/products')
 const Accounts = require('../models/accounts')
+const Orders = require("../models/orders")
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
@@ -22,6 +23,20 @@ router.get('/', (req, res) => {
     res.redirect("/admin/login?message='Must be logged in as admin to view this page'");
   }
 });
+
+router.get('/orders' , async (req,res) => {
+if(req.session.user != undefined && req.session.user.role == "admin")
+ {
+let order = await Orders.find()
+if(order)
+res.render("orders" , { layout : false , orders : order});
+else{
+ res.redirect("/admin?message='Could not load orders'")
+}
+}
+else{
+   res.redirect("/admin/login?message='Must be logged in as admin to view this page'")
+}});
 router.post('/getResults',ctrlProducts.searchProducts);
 router.post('/getUserResults', ctrlAccounts.searchUsers);
 router.get('/products', (req, res) => {
