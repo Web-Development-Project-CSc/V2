@@ -40,6 +40,8 @@ else{
 }});
 router.post('/getResults',ctrlProducts.searchProducts);
 router.post('/getUserResults', ctrlAccounts.searchUsers);
+router.post('/getOrderResults', ctrlOrders.searchOrders);
+
 router.get('/products', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
     Products.find().then(prods =>{

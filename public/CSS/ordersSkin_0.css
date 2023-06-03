@@ -312,24 +312,6 @@ nav .sidebar-button {
   width: 30px;
 }
 
-#searchResults *:hover {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  background-color: #99B19C;
-  cursor: pointer;
-  color: white;
-}
-
-#searchResults * {
-  background-color: white;
-  padding-bottom: 2%;
-  padding-left: 2%;
-  padding-top: 2%;
-  margin: 1%;
-  cursor: pointer;
-  color: #657c68;
-}
-
 #searchResults {
   margin-top: 5px;
   width: 94.5%;
@@ -340,6 +322,26 @@ nav .sidebar-button {
   font-style: italic;
   z-index: 500;
   position: absolute;
-  top: 100%;
+  top: 100%; 
   left: 0;
+}
+
+#searchResults * {
+  background-color: white;
+  width:96%;
+  display:block;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  padding-top: 2%;
+  margin: 1%;
+  cursor: pointer;
+  color: #657c68;
+}
+
+#searchResults *:hover {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #99B19C;
+  cursor: pointer;
+  color: white;
 }

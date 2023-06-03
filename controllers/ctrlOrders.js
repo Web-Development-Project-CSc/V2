@@ -82,5 +82,12 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
         else res.redirect("/admin/login?message = 'Must be logged in as admin to view this page'");
       }
 
+      const searchOrders = async (req,res)=>{
+        let payload = req.body.payload;
+        let search = await Orders.find({productName: {$regex: new RegExp('^'+payload+'.*', 'i')}}).exec();
+        search= search.slice (0, 3);
+        res.send({payload: search});  
+    }
 
-module.exports = {addOrder, getOrders, displayOrders, progress, remove}
+
+module.exports = {addOrder, getOrders, displayOrders, progress, remove,searchOrders}
