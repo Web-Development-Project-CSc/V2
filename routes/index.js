@@ -8,7 +8,7 @@ router.get('/', (req,res)=>{
     let q=Products.find()
     q.sort({numPurchases: -1})
     q.limit(3).then(prods =>{
-        res.render('index', { message: '', user: (req.session.user === undefined ? "" : req.session.user) , prods: prods })
+        res.render('index', { message: '', user: (req.session.user === undefined ? "" : req.session.user) , prods: (prods === null ? "" : prods) })
     })
 })
 router.get('/login', (req,res)=>{
@@ -22,13 +22,13 @@ router.get('/store', (req,res)=>{
 });
 router.get('/store/:page',  (req, res) => {
     let pageNumber = parseInt(req.params.page);
-    let prods
+    let prods = null
     Products.find().then(result =>{
     if(pageNumber>result.length/9) pageNumber = result.length/9;
     if(pageNumber<1) pageNumber = 1;
     prods=result.slice((pageNumber-1)*9, ((pageNumber-1)*9)+9);
     res.render('store', { message: '', user: (req.session.user === undefined ? "" : req.session.user) , 
-    prods: prods,
+    prods: (prods === null ? "" : prods),
     current_page: pageNumber,
     total_page: Math.ceil(result.length/9)})
     }).catch(err => {console.log(err)}).then()});

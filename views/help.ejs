@@ -190,11 +190,11 @@
     </section>
     <script type="text/javascript" src="/JS/infofade.js"></script>
     <section class="help scrollfade --animate --hidden">
-        <form>
+        <form action="/user/faq" method="post" id="f">
             <label><img src="/IMAGES/ask.png" alt="ask">Can't Find Your Question ? Ask Here</label>
-            <input type="text" placeholder="special query" required>
-            <input type="email" placeholder="name@mail.com" required>
-            <button type="button">Send</button>
+            <input type="text" placeholder="special query" required name="question">
+            <input type="email" name='email' placeholder="name@mail.com" required>
+            <button type="button" onclick="document.querySelector('f').submit()" >Send</button>
         </form>
     </section>
     <script type="text/javascript" src="/JS/scrollfade.js"></script>
