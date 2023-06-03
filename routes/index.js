@@ -3,6 +3,7 @@ const router = express.Router();
 const Products = require('../models/products');
 const ctrlAccounts = require('../controllers/ctrlAccounts');
 const ctrlProducts = require('../controllers/ctrlProducts');
+const FAQandRequests = require('../controllers/ctrlFAQ&Requests')
 router.use(express.urlencoded({extended:true}))
 router.get('/', (req,res)=>{
     let q=Products.find()
@@ -47,5 +48,6 @@ router.get('/logout', (req, res) => {
             res.redirect('/user/cart');        }
 else res.redirect("/user/login?message= 'Must be logged in to view this page'")}
 )
-   
+router.post('/FAQ', FAQandRequests.addFAQ)
+router.post('/Request', FAQandRequests.addRequest)   
 module.exports = router

@@ -183,7 +183,7 @@ footer {
 .help button,
 input[type='email'],
 input[type='text'],
-input[type='button'] {
+input[type='button'],input[type='submit'] {
   display: inline-block;
   border: 0;
   color: #4b4b4b;
@@ -197,7 +197,7 @@ input[type='button'] {
   margin-top: 20px;
 }
 
-input[type='button'],
+input[type='button'],input[type='submit'],
 .help button {
   color: inherit;
 }
@@ -216,7 +216,7 @@ input {
 .FAQBox:hover,
 input[type='button']:active,
 input[type='color']:active,
-input[type='radio']:active {
+input[type='radio']:active ,input[type='submit']:active{
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.525);
 }
 
@@ -234,7 +234,7 @@ input[type='radio']:active {
 }
 
 .help button,
-input[type='button'] {
+input[type='button'],input[type='submit'] {
   background-color: #A84448;
   border-radius: 2px;
   font-family: inherit;

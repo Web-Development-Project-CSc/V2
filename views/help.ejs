@@ -18,10 +18,10 @@
             <img src="/IMAGES/faq.png" alt="FAQ">
             <details>
                 <summary>How can I request for an unlisted flavour ?</summary>
-                <div class="request">
+                <form class="request" action="/Request" method="post">
                     <div class="bar">
-                        <input type="text" placeholder="i.e Flavour " required>
-                        <input type="color" value="#A84448"><input type="button" value="Request">
+                        <input type="text" placeholder="i.e Flavour " name='flavourName' id='flavourName' required>
+                        <input type="color" value="#A84448"><input type="submit" value="Request">
                     </div>
                     <div class="type">
                         <label><img src="/IMAGES/bottle.png" alt="liquid"><input type="radio" name="state"
@@ -31,9 +31,9 @@
                     </div>
                     <div class="profilebar">
                         <label>Enter your email for request follow up</label>
-                        <input type="email" placeholder="name@mail.com" required>
+                        <input type="email" placeholder="name@mail.com">
                     </div>
-                </div>
+                </form>
             </details>
         </div>
         <div class="FAQBox scrollfade --animate --hidden">
@@ -190,11 +190,11 @@
     </section>
     <script type="text/javascript" src="/JS/infofade.js"></script>
     <section class="help scrollfade --animate --hidden">
-        <form action="/user/faq" method="post" id="f">
+        <form action="/faq" method="post" id="f">
             <label><img src="/IMAGES/ask.png" alt="ask">Can't Find Your Question ? Ask Here</label>
             <input type="text" placeholder="special query" required name="question">
             <input type="email" name='email' placeholder="name@mail.com" required>
-            <button type="button" onclick="document.querySelector('f').submit()" >Send</button>
+            <button type="button" onclick="document.querySelector('#f').submit()" >Send</button>
         </form>
     </section>
     <script type="text/javascript" src="/JS/scrollfade.js"></script>
