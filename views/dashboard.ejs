@@ -170,13 +170,13 @@
           <div class="top-sales box all">
             <div class="title">Flavour</div>
             <ul class="top-sales-details">
-              <% for( let index=0; index < prods.length; index++ ) { %>
+              <% for( let index=0; index < requests.length; index++ ) { %>
                 <li>
                   <span class="product">
-                    <%=prods[index].name%>
+                    <%=requests[index].flavourName%>
                   </span>
                   <span class="price">
-                    <%=prods[index].numPurchases%>
+                    <%=requests[index].number%>
                   </span>
                 </li>
                 <% } %>
