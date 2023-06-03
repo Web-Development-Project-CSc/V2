@@ -21,6 +21,34 @@ const addOrder = async (req,res)=>{
     }
 }
 }
+
+const batch = async (req,res)=>{
+    if(req.session.user != undefined){
+        let orders = req.session.order;
+        for(let i=0; i<orders.length; i++){
+            let order = new Orders({
+                product: orders[i].prodid,
+                customer: req.session.user._id,
+                customerName: req.session.user.name,
+                productName: orders[i].prodname,
+                form: orders[i].state,
+                shade: orders[i].shade,
+                quantity: orders[i].quantity
+            });
+            try{
+                await order.save();
+                console.log(order);
+            }
+            catch(err){
+                console.log(err);
+                res.redirect("/user/cart?message='Could not register order'");
+            }
+        }
+        req.session.order = [];
+        res.redirect('/user/myprofile');
+    }
+}
+
 const getOrders = async (req,res)=>{
     if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
     else{
@@ -83,4 +111,4 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
       }
 
 
-module.exports = {addOrder, getOrders, displayOrders, progress, remove}
+module.exports = {addOrder, getOrders, displayOrders, progress, remove, batch}

@@ -11,7 +11,7 @@
 
 <body>
     <%- include('./partials/errors.ejs') %>
-    <form action="/store/1">
+    <form action="/user/checkout" method="post">
         <img src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo" id="logo" />
         <header>Items in cart:</header>
         <% if (orders.length > 0) { 
@@ -19,18 +19,17 @@
         
         <div class="item">
             <h1><%= orders[index].prodname %></h1>
-            <h2>Total price: <span> EGP <%= orders[index].prodprice %></span></h2>
+            <h2>Total price: <span> EGP <%= orders[index].prodprice*orders[index].quantity %></span></h2>
             <img src="/IMAGES/mock <%=orders[index].state%>.png" alt="item" class="pr">
             <div class="quantity">
                 <img src="/IMAGES/minus.png" onclick="remove('<%=index%>', '<%= orders[index].prodprice %>')" alt="remove">
-                <span class="num">1</span>
+                <span class="num"><%=orders[index].quantity%></span>
                 <img src="/IMAGES/plus.png" onclick="add('<%=index%>','<%= orders[index].prodprice %>' )"  alt="add">
             </div>
         </div>
         <% } }%>   
-        <button type="button"> <img src="/IMAGES/previous.png" alt="cancel" id="cncl"></button>
-        <button type="submit"> <img src="/IMAGES/purchase.png" alt="purchase"></button> 
-        
+        <button type="button" onclick="location.replace('/store')"> <img src="/IMAGES/previous.png" alt="cancel" id="cncl"></button>
+        <button type="button" onclick="sub()"> <img src="/IMAGES/purchase.png" alt="purchase"></button>   
     </form>
     <script type="text/javascript" src="/JS/checkout.js"></script>
 </body>
