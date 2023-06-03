@@ -11,15 +11,11 @@ const accountSchema = new mongoose.Schema({
         type:String,
         default:"Cash"
     },
-    numPurchases:{
-        type:Number,
-        default:0
-    },
    role:{
     type: String, 
     default:"customer",
-    required:true} 
-    ,card:
+    required:true
+}  ,card:
     {
         type: Object({
                 cvv:String,
@@ -29,11 +25,5 @@ const accountSchema = new mongoose.Schema({
             }), 
     default:null
     }, 
-    boughtProducts:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref:"products",
-            default:null
-        }],   
 }, {timestamps:true})
 module.exports =  mongoose.model('accounts',accountSchema)
