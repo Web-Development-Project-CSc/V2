@@ -3,7 +3,7 @@ const Products = require('../models/products');
 
 const addProduct = async (req,res)=>{
 const product = new Products({
-    name: req.body.name,
+    name: req.body.name.trim(),
     price: req.body.price,
     imgUrl: "/IMAGES/Flavours/"+ req.file.filename,
 });
