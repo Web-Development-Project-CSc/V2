@@ -19,11 +19,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 router.get('/', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
-    let products = null , orders = null, faqs = null
-    Products.find().sort({numPurchases: -1}).limit(5).then( prods =>{ products = prods})
-    Orders.find().sort({date: -1}).limit(5).then( ords =>{ orders = ords})
-    FAQs.find().sort({date: -1}).limit(5).then( faq =>{ faqs = faq})
-    res.render('dashboard', { message: '', layout: false, user: req.session.user , prods: (products === null ? "" : products) , orders: (orders === null ? "" : orders) , faqs: (faqs === null ? "" : faqs)})}
+    Products.find().sort({numPurchases: -1}).limit(5).then( prods =>{
+      Orders.find().sort({date: -1}).limit(5).then( ords =>{ 
+        FAQs.find().sort({date: -1}).limit(5).then( faq =>{
+        res.render('dashboard', { message: '', layout: false, 
+        user: req.session.user , 
+        prods: (prods === null ? "" : prods) , 
+        orders: (ords === null ? "" : ords) , 
+        faqs: (faq === null ? "" : faq)})})
+      })
+    })}
     else {
     res.redirect("/admin/login?message='Must be logged in as admin to view this page'");
   }

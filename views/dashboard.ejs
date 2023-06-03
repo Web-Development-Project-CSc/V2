@@ -127,11 +127,11 @@
             <details class="button">
               <summary><span>Customer Queries</span></summary>
               <ul>
-                <li>Not filled all the way up<img src="/IMAGES/dislike.png" alt="bad"></li>
-                <li>Very fast delivery<img src="/IMAGES/thumb-up.png" alt="good"></li>
-                <li>Flavour was too flavourful<img src="/IMAGES/dislike.png" alt="bad"></li>
-                <li>Great packaging<img src="/IMAGES/thumb-up.png" alt="good"></li>
-                <li>Friendly interaction with customer service<img src="/IMAGES/thumb-up.png" alt="good"></li>
+                <%
+                  for( let index = 0; index < faqs.length; index++ ) { 
+                %>
+                <li><%=faqs[index].question%><img src="/IMAGES/query.png" alt="query"></li>
+                <%}%>
               </ul>
             </details>
           </div>
