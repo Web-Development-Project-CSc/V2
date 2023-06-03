@@ -1,11 +1,12 @@
 const Accounts = require('../models/accounts');
+const bcrypt = require('bcrypt')
 
 const addUser= async(req,res) =>{
   
     let role = req.body.role
 let user = new Accounts({
     name: req.body.name,
-    password: req.body.psw,
+    password: await bcrypt.hash(req.body.psw,12),
     email: req.body.email,
     phone: req.body.phone,
     address: req.body.address,
@@ -17,6 +18,7 @@ let user = new Accounts({
 try{
     await user.save();
     req.session.user = user;
+    req.session.user.password = req.body.psw
     if(role == 'customer') res.redirect('/store'); 
     else res.redirect('/admin/users');
 }
@@ -28,13 +30,15 @@ catch(err){
 }
 
 const findUser = async (req,res)=>{
+    let password = req.body.psw
     let user = {
-        email: req.body.email,
-        password: req.body.psw
+    email: req.body.email,
+    
     }
-    Accounts.findOne( user ).then(result => {
-        if(result){
+    Accounts.findOne(user).then(async result => {
+        if((result )&& (await bcrypt.compare(password , result.password))){
             req.session.user = result;
+            req.session.user.password = password
             console.log("logged in");
             if(req.session.user !== undefined && req.session.user.role==='admin') 
             res.redirect( "/admin");

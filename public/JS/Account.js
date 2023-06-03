@@ -16,12 +16,12 @@ function checkmail(mail){
 function checkpass(){
     let mail = document.getElementById('email')
     if(mail.value!=''){
-        fetch('/user/getaccounts',{
+        fetch('/user/getpass',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({mail: mail.value})
+            body: JSON.stringify({mail: mail.value , pass:document.getElementById('psw').value})
         }).then(res => res.json()).then(result =>{ 
-            if(document.getElementById('psw').value == result.pass){
+            if(result.pass == true){
                 document.getElementById('error0').style.display='none'}
                 else{
                 document.getElementById('error0').style.display='block'}

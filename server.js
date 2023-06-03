@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express= require('express')
 const app = express()
+const bcrypt = require('bcrypt')
 const expressLayouts= require('express-ejs-layouts')
 const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index')
@@ -22,7 +23,6 @@ app.use(express.static('public'));
 app.use('/',indexRouter)
 app.use('/user',userRouter)
 app.use('/admin',adminRouter)
-
 app.use((req, res) => {
     res.status(404).render("notFound",{layout: false});
 });

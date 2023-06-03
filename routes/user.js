@@ -6,6 +6,7 @@ const ctrlAccounts = require('../controllers/ctrlAccounts');
 const session = require('express-session');
 const Accounts = require('../models/accounts')
 const ctrlOrders = require('../controllers/ctrlOrders')
+const bcrypt = require('bcrypt')
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
 router.use(express.urlencoded({extended:true}))
@@ -16,14 +17,27 @@ router.get('/signup',(req,res)=>{
     res.render('signup',  { message: '', layout: false});
 })
 
-router.post('/getaccounts' ,(req,res)=>{
+router.post('/getpass' ,(req,res)=>{
     let email = req.body.mail
-    Accounts.findOne({ email: email}).then(result=>{
+    let password = req.body.pass
+    Accounts.findOne({ email: email}).then(async result=>{
         if(result){
-            res.send({result: 'found' , pass: result.password})
+            res.send({result: 'found' , pass: await bcrypt.compare(password,result.password)})
         }
         else{
             res.send({result: 'not found',pass: ''})
+        }
+    })
+   
+})
+router.post('/getaccounts' ,(req,res)=>{
+    let email = req.body.mail
+    Accounts.findOne({ email: email}).then(async result=>{
+        if(result){
+            res.send({result: 'found'})
+        }
+        else{
+            res.send({result: 'not found'})
         }
     })
    
