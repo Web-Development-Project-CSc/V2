@@ -70,21 +70,15 @@ router.get('/myprofile',(req,res)=>{
 })
 
 router.get('/forgetpassword',(req,res)=>{
-    if (req.session.user !== undefined) {
-        req.session.forgot = true;
+    req.session.forgot = true;
     res.render('forgetPassword',  {message: '', layout: false});
-    }
-    else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
 router.get('/confirmation',(req,res)=>{
-    if (req.session.user !== undefined ) {
         if(req.session.forgot == true){
             req.session.forgot = false;
             res.render('confirmationPage',  {message: '', layout: false});
         }
         else res.redirect("/user/forgetpassword?message= 'Enter your email to reset password'");
-    }
-    else res.redirect("/user/login?message= 'Must be logged in to view this page'");
     });
 router.get('/confirm',sendEmail.sendEmail)
 router.post('/modify', ctrlAccounts.modifyUser)

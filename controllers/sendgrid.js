@@ -258,6 +258,6 @@ Please contact us at flavouredmiu@gmail.com if you require any further assistanc
 sgMail.send(message).then( response => console.log('Mail sent successfully')).catch(error => console.log(error.message));
 res.redirect('/user/confirmation');
 }
-else res.redirect("/user/login?message= 'Must be logged in to view this page'");
+else res.redirect("/user/login?message='Must be logged in to view this page'");
 }
 module.exports = {sendEmail}
