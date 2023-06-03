@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const ctrlAccounts = require('../controllers/ctrlAccounts');
 const ctrlProducts = require('../controllers/ctrlProducts');
+const ctrlOrders = require('../controllers/ctrlOrders');
 const Products = require('../models/products')
 const Accounts = require('../models/accounts')
 const Orders = require("../models/orders")
@@ -60,9 +61,12 @@ router.get('/users', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('login', { layout: false});
 });
+router.get('/removeo',ctrlOrders.remove)
+router.get("/removep",ctrlProducts.remove)
 router.get("/removeu",ctrlAccounts.remove)
 router.post("/addinguser",ctrlAccounts.addUser)
 router.post('/addproducts', upload.single('image'),  ctrlProducts.addProduct)
+router.post('/progress', ctrlOrders.progress)
 router.get('/modify',ctrlAccounts.adminModifier)
 router.get('/modifyproduct',ctrlProducts.modify)
 module.exports = router;

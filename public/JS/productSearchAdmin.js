@@ -1,3 +1,4 @@
+let price = document.querySelectorAll('.products .p')
 let titles = document.querySelectorAll('.products .title')
 function sendData(e) {
     const searchResults = document.getElementById('searchResults');
@@ -31,9 +32,11 @@ function sendData(e) {
               document.querySelector("#searchInput").value = item.name;
               searchResults.innerHTML = '';
               for(let i =0; i < titles.length; i++) {
-                if(titles[i].innerHTML == p.innerHTML)
+                if(titles[i].innerText == p.innerHTML){
                 window.scrollTo(titles[i].offsetLeft, titles[i].offsetTop);
+                console.log(titles[i])
               }
+            }
             });
             searchResults.appendChild(p);
           });
@@ -47,3 +50,7 @@ function sendData(e) {
     searchResults.innerHTML = '';
   }
   
+function mod(index , id){
+  if(price[index].value == '') location.replace(`/admin/products?message='Please enter a price before attempting to modify''`)
+               else location.replace(`/admin/modifyproduct?id=${id}&price=${price[index].value}`)
+}

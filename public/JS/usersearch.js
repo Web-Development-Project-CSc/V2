@@ -33,7 +33,7 @@ function sendData(e) {
             searchResults.innerHTML = '';
             
             for(let i =0; i < titles.length; i++) {
-              if(titles[i].innerHTML == p.innerHTML)
+              if(titles[i].innerText == p.innerHTML)
               window.scrollTo(titles[i].offsetLeft, titles[i].offsetTop);
             }
           });

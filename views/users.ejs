@@ -12,74 +12,78 @@
 <body>
     <%- include('./partials/errors.ejs') %>
 
-    <div class="sidebar">
-        <div class="logo-details">
+        <div class="sidebar">
+            <div class="logo-details">
 
-            <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+                <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+            </div>
+            <ul class="nav-links">
+                <li> <a href="/admin">
+                        <img src="/IMAGES/data-report.png" alt="dashboard">
+                        <span class="links_name">Dashboard</span></a>
+                </li>
+                <li> <a href="/admin">
+                        <img src="/IMAGES/stats.png" alt="analytics">
+                        <span class="links_name">Analytics</span></a>
+                </li>
+                <li><a href="/admin/orders">
+                        <img src="/IMAGES/order.png" alt="order">
+                        <span class="links_name">Orders</span></a>
+                </li>
+                <li><a href="/admin/products">
+                        <img src="/IMAGES/product.png" alt="products">
+                        <span class="links_name">Products</span></a>
+                </li>
+                <li class="active"> <a href="/admin/users">
+                        <img src="/IMAGES/customers.png" alt="users">
+                        <span class="links_name">Users</span></a>
+                </li>
+                <li id="out">
+                    <a href="/logout">
+                        <img src="/IMAGES/logout.png" alt="exit">
+                        <span class="links_name">Log out</span></a>
+                </li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li> <a href="/admin">
-                    <img src="/IMAGES/data-report.png" alt="dashboard">
-                    <span class="links_name">Dashboard</span></a>
-            </li>
-            <li> <a href="/admin">
-                    <img src="/IMAGES/stats.png" alt="analytics">
-                    <span class="links_name">Analytics</span></a>
-            </li>
-            <li><a href="/admin/orders">
-                    <img src="/IMAGES/order.png" alt="order">
-                    <span class="links_name">Orders</span></a>
-            </li>
-            <li><a href="/admin/products">
-                    <img src="/IMAGES/product.png" alt="products">
-                    <span class="links_name">Products</span></a>
-            </li>
-            <li class="active"> <a href="/admin/users">
-                    <img src="/IMAGES/customers.png" alt="users">
-                    <span class="links_name">Users</span></a>
-            </li>
-            <li id="out">
-                <a href="/logout">
-                    <img src="/IMAGES/logout.png" alt="exit">
-                    <span class="links_name">Log out</span></a>
-            </li>
-        </ul>
-    </div>
 
-    <section>
-        <nav>
-            <div class="sidebar-button">
-                <span class="dashboard">Admin Dashboard</span>
-            </div>
-            <div class="search-box">
-                <input type="text"id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
-                <form id="searched">
-                <input type="hidden" id="itemclicked" name="itemclicked" value="">
-                <div id="searchResults" class="search-results"></div>
-                <img src="/IMAGES/search.png" alt="search">
-                </form>
-            </div>
-            <div class="profile-details">
-                <span class="admin_name"> Welcome, Flavourer</span>
-                <img src="/IMAGES/admin.png" alt="admin">
-            </div>
-        </nav>
-    </section>
-    <section class="userData">
-        <table>
-            <tr>
-                <th>Role</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th class="numbers">Purchases</th>
-            </tr>
+        <section>
+            <nav>
+                <div class="sidebar-button">
+                    <span class="dashboard">Admin Dashboard</span>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
+                    <form id="searched">
+                        <input type="hidden" id="itemclicked" name="itemclicked" value="">
+                        <div id="searchResults" class="search-results"></div>
+                        <img src="/IMAGES/search.png" alt="search">
+                    </form>
+                </div>
+                <div class="profile-details">
+                    <span class="admin_name"> Welcome, Flavourer</span>
+                    <img src="/IMAGES/admin.png" alt="admin">
+                </div>
+            </nav>
+        </section>
+        <section class="userData">
+            <table>
+                <tr>
+                    <th>Role</th>
+                    <th class="role">Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th class="numbers">Purchases</th>
+                </tr>
                 <tr>
                     <% for( let index=0; index < accounts.length; index++ ) { %>
                         <td>
-                            <%=accounts[index].role%>
+                            <%
+                            let role = accounts[index].role
+                            role = role.charAt(0).toUpperCase() + role.slice(1); 
+                            %>
+                            <%=role%>
                         </td>
-                        <td>
+                        <td class="role">
                             <%=accounts[index].name%>
                         </td>
                         <td>
@@ -91,38 +95,39 @@
                         <td class="numbers">
                             <%=accounts[index].numPurchases%>
                         </td>
-                        <td class="modButton"><button class="modifyButton" 
-                        onclick="function mod(){
+                        <td class="modButton"><button class="modifyButton" onclick="function mod(){
                             let news = document.querySelectorAll('#edit input');
                             location.replace(`/admin/modify?id=<%=accounts[index]._id%>&name=${news[0].value}&email=${news[1].value}&psw=${news[2].value}&phone=${news[3].value}`)
                         } mod()">modify</button></td>
-                        <td class="delButton"><button class="deleteButton" onclick="location.replace('/admin/removeu?id=<%=accounts[index]._id%>')">delete</button></td>
+                        <td class="delButton"><button class="deleteButton"
+                                onclick="location.replace('/admin/removeu?id=<%=accounts[index]._id%>')">delete</button>
+                        </td>
                 </tr>
                 <% } %>
-        </table>
-        <div id="edit">
-            <form action="/admin/addinguser" method="post">
-                <button type="submit" id="adder" class="addButton">Add</button>
-                <span>
-                    <input type="text" placeholder="Name" id="Name" name="name" required />
-                </span>
-                <span class="inputEmail">
-                    <input type="text" placeholder="Email" id="Email" name="email" required />
-                </span>
-                <span class="inputPassword">
-                    <input type="password" placeholder="Password" id="Password" name="psw" required />
-                </span>
-                <span class="inputTel">
-                    <input type="tel" placeholder="+20" id="Mobile" name="phone" required />
-                </span>
-                <input type="hidden" name="role" id="role" value="admin">
-                <input type="hidden" name="address" id="address" value="The Flavoured Lands">
-                <input type="hidden" name="country" id="country" value="Flavoura">
-                <input type="hidden" name="bdate" id="bdate" value="<%= Date.now()%>">
-            </form>
-        </div>
-    </section>
-    <script type="text/javascript" src="/JS/usersearch.js"></script>
+            </table>
+            <div id="edit">
+                <form action="/admin/addinguser" method="post">
+                    <button type="submit" id="adder" class="addButton">Add</button>
+                    <span>
+                        <input type="text" placeholder="Name" id="Name" name="name" required />
+                    </span>
+                    <span class="inputEmail">
+                        <input type="text" placeholder="Email" id="Email" name="email" required />
+                    </span>
+                    <span class="inputPassword">
+                        <input type="password" placeholder="Password" id="Password" name="psw" required />
+                    </span>
+                    <span class="inputTel">
+                        <input type="tel" placeholder="+20" id="Mobile" name="phone" required />
+                    </span>
+                    <input type="hidden" name="role" id="role" value="admin">
+                    <input type="hidden" name="address" id="address" value="The Flavoured Lands">
+                    <input type="hidden" name="country" id="country" value="Flavoura">
+                    <input type="hidden" name="bdate" id="bdate" value="<%= Date.now()%>">
+                </form>
+            </div>
+        </section>
+        <script type="text/javascript" src="/JS/usersearch.js"></script>
 </body>
 
 </html>

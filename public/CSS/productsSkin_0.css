@@ -12,6 +12,7 @@ a {
 img {
   width: 40px;
 }
+
 #searchResults {
   margin-top: 5px;
   width: 94.5%;
@@ -22,7 +23,7 @@ img {
   font-style: italic;
   z-index: 500;
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
 }
 
@@ -43,6 +44,7 @@ img {
   cursor: pointer;
   color: white;
 }
+
 #logo {
   width: 75%;
   margin: 13%;
@@ -82,7 +84,7 @@ img {
 }
 
 li {
-  list-style: n+one;
+  list-style: none;
 }
 
 li img {

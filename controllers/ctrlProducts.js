@@ -13,14 +13,13 @@ try{
 }
 catch(err){
     console.log(err);
-    res.redirect("admin/login?message='Could not add product'");
+    res.redirect("/admin?message='Could not add product'");
 
 }
 }
 
 const modify = async (req,res)=>{
     if(req.session.user != undefined && req.session.user.role=='admin'){
-
     Products.findOneAndUpdate({_id:req.query.id}, {price:req.query.price}).then(result => {
         if(result) res.redirect('/admin/products');
         else res.redirect('/admin/products?message="Could not modify product.');
@@ -29,6 +28,7 @@ const modify = async (req,res)=>{
         res.redirect('/admin/products?message="Could not modify product.');
     })
     }
+    else res.redirect("/admin/login?message='Must be logged in as admin to modify product'");
 }
 
 const remove = async (req,res)=>{
@@ -39,7 +39,7 @@ const remove = async (req,res)=>{
        res.redirect('/admin/products');
      } else {
        console.log('No product found');
-       res.redirect("/admin/login?message='Could not find product'");
+       res.redirect("/admin/products?message='Could not find product'");
       }
   }
   else res.redirect("/admin/login?message= 'Must be logged in as admin to remove product'");

@@ -12,90 +12,126 @@
 <body>
     <%- include('./partials/errors.ejs') %>
 
-    <div class="sidebar">
-        <div class="logo-details">
+        <div class="sidebar">
+            <div class="logo-details">
 
-            <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+                <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+            </div>
+            <ul class="nav-links">
+                <li> <a href="/admin">
+                        <img src="/IMAGES/data-report.png" alt="dashboard">
+                        <span class="links_name">Dashboard</span></a>
+                </li>
+                <li> <a href="/admin">
+                        <img src="/IMAGES/stats.png" alt="analytics">
+                        <span class="links_name">Analytics</span></a>
+                </li>
+                <li class="active"><a href="/admin/orders">
+                        <img src="/IMAGES/order.png" alt="order">
+                        <span class="links_name">Orders</span></a>
+                </li>
+                <li><a href="/admin/products">
+                        <img src="/IMAGES/product.png" alt="products">
+                        <span class="links_name">Products</span></a>
+                </li>
+                <li> <a href="/admin/users">
+                        <img src="/IMAGES/customers.png" alt="users">
+                        <span class="links_name">Users</span></a>
+                </li>
+                <li id="out">
+                    <a href="/logout">
+                        <img src="/IMAGES/logout.png" alt="exit">
+                        <span class="links_name">Log out</span></a>
+                </li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li> <a href="/admin">
-                    <img src="/IMAGES/data-report.png" alt="dashboard">
-                    <span class="links_name">Dashboard</span></a>
-            </li>
-            <li> <a href="/admin">
-                    <img src="/IMAGES/stats.png" alt="analytics">
-                    <span class="links_name">Analytics</span></a>
-            </li>
-            <li class="active"><a href="/admin/orders">
-                    <img src="/IMAGES/order.png" alt="order">
-                    <span class="links_name">Orders</span></a>
-            </li>
-            <li><a href="/admin/products">
-                    <img src="/IMAGES/product.png" alt="products">
-                    <span class="links_name">Products</span></a>
-            </li>
-            <li > <a href="/admin/users">
-                    <img src="/IMAGES/customers.png" alt="users">
-                    <span class="links_name">Users</span></a>
-            </li>
-            <li id="out">
-                <a href="/logout">
-                    <img src="/IMAGES/logout.png" alt="exit">
-                    <span class="links_name">Log out</span></a>
-            </li>
-        </ul>
-    </div>
 
-    <section>
-        <nav>
-            <div class="sidebar-button">
-                <span class="dashboard">Admin Dashboard</span>
-            </div>
-            <div class="search-box">
-                <input type="text"id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
-                <form id="searched">
-                <input type="hidden" id="itemclicked" name="itemclicked" value="">
-                <div id="searchResults" class="search-results"></div>
-                <img src="/IMAGES/search.png" alt="search">
-                </form>
-            </div>
-            <div class="profile-details">
-                <span class="admin_name"> Welcome, Flavourer</span>
-                <img src="/IMAGES/admin.png" alt="admin">
-            </div>
-        </nav>
-    </section>
-    <section class="orderList">
-        <ul>
-            <% for( let index = 0; index < orders.length; index++ ) { %> 
-            <li>
-            <div class="OrderID">
-                <span class="orderDate">Order Date : <%=orders[index].createdAt%></span>
-            </div>
-            <div class="OrderDetails">
-                <div class="customer">Customer : <%=orders[index].customerName%> <%=orders[index].customer%></div>
-                <div class="product">Product : <%=orders[index].productName%> <%=orders[index].product%></div>
-                <div>Quantity : <%=orders[index].quantity%></div>
-                <div>Color : <span class="color" style="background-color:<%=orders[index].shade%>"></div>
-                <div>Form : <%=orders[index].form%></div>
-                <div class="status">Status :
-                    <%  let image;
-                        if(orders[index].status.imgNum == 0)
-                        image='placed.png';
-                        else if(orders[index].status.imgNum == 1)
-                        image='shipping.png';
-                        else if(orders[index].status.imgNum == 2)
-                        image='delivered.png';
-                    %>
-                    <span><%=orders[index].status.name%></span> <img src="/IMAGES/<%=image%>" alt="status">
+        <section>
+            <nav>
+                <div class="sidebar-button">
+                    <span class="dashboard">Admin Dashboard</span>
                 </div>
-        </div>
-            <button class ="del" onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete</button>
-            <button class ="mod">Progress</button>
-        </li>
-        <%}%>
-      </ul>  
- </section>
+                <div class="search-box">
+                    <input type="text" id="searchInput" onkeyup="sendData(this)" placeholder="Search...">
+                    <form id="searched">
+                        <input type="hidden" id="itemclicked" name="itemclicked" value="">
+                        <div id="searchResults" class="search-results"></div>
+                        <img src="/IMAGES/search.png" alt="search">
+                    </form>
+                </div>
+                <div class="profile-details">
+                    <span class="admin_name"> Welcome, Flavourer</span>
+                    <img src="/IMAGES/admin.png" alt="admin">
+                </div>
+            </nav>
+        </section>
+        <section class="orderList">
+            <ul>
+                <% for( let index=0; index < orders.length; index++ ) { %>
+                    <li class="list">
+                        <div class="OrderID">
+                            <% let date=orders[index].createdAt.toString().split('G');; %>
+                                <span class="orderDate">
+                                    <h3>
+                                        <%=date[0]%><span class="italic">
+                                    </h3>
+                                    <p>
+                                        <%=orders[index]._id%>
+                                    </p>
+                                </span>
+                                </span>
+                        </div>
+                        <div class="OrderDetails">
+                            <div class="customer">
+                                <h4>Customer</h4>
+                                <%=orders[index].customerName%>
+                                    <p>
+                                        <%=orders[index].customer%>
+                                    </p>
+                                    <span class="product">
+                                        <h4>Product</h4>
+                                        <%=orders[index].productName%>
+                                            <p>
+                                                <%=orders[index].product%>
+                                            </p>
+                                    </span>
+                            </div>
+                            <div class="product">
+
+                            </div>
+                            <div>
+                                <h4>Quantity</h4>
+                                <%=orders[index].quantity%>
+                            </div>
+                            <div>
+                                <input type="hidden" class="shade" name="shade" value="<%=orders[index].shade%>">
+                                <h4>Color</h4> <span class="color"></span>
+                            </div>
+                            <div>
+                                <h4>Form</h4>
+                                <%=orders[index].form%>
+                            </div>
+                            <div class="status">
+                                <h4>Status</h4>
+                                <span>
+                                    <%=orders[index].status.name%>
+                                </span>
+                                <img src="/IMAGES/<%=orders[index].status.img%>" alt="status" class="statusPic">
+                                <button class="del"
+                                    onclick="location.replace('/admin/removeo?id=<%=orders[index]._id%>')">Delete
+                                </button>
+                                <button class="mod" onclick="prog('<%=index%>')">Progress</button>
+                            </div>
+                        </div>
+                    </li>
+                    <form action="/admin/progress" method="post" class="f" style="display:none;">
+                        <input type="hidden" name="id" value="<%=orders[index]._id%>">
+                        <input type="hidden" name="customer" value="<%=orders[index].customer%>">
+                    </form>
+                    <%}%>
+            </ul>
+        </section>
+        <script src="/JS/colordisplay.js" type="text/javascript"></script>
 </body>
 
 </html>

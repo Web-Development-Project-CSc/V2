@@ -33,7 +33,6 @@ function sendData(e) {
             });
             searchResults.appendChild(p);
           });
-          use();
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -42,11 +41,4 @@ function sendData(e) {
     
     searchResults.innerHTML = '';
   }
-  function use(){
-  let res = document.querySelector("#searchResults p")
-  for(let i=0;i<res.length;i++){
-    res[i].addEventListener('click',()=>{
-     
-    })
-  }
-  }
+ 
