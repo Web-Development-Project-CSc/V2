@@ -5,6 +5,7 @@ const sendEmail = require('../controllers/sendgrid');
 const ctrlAccounts = require('../controllers/ctrlAccounts');
 const session = require('express-session');
 const Accounts = require('../models/accounts')
+const Orders = require('../models/orders')
 const ctrlOrders = require('../controllers/ctrlOrders')
 const bcrypt = require('bcrypt')
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
@@ -57,8 +58,14 @@ router.get('/cart',(req,res)=>{
 })
 
 router.get('/myprofile',(req,res)=>{
-    if (req.session.user !== undefined) 
-    res.render('myProfile', {message: '', user: req.session.user ,layout: false});
+    if (req.session.user !== undefined){ 
+    Orders.find({customer : req.session.user._id}).then(result=>{
+    res.render('myProfile', {message: '', user: req.session.user ,layout: false, orders: (result === null ? "" : result)});
+    }).catch(err=>{
+        console.log(err)
+        res.redirect("/user/myprofile?message= 'Could not load orders'")
+    }
+    )}
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
 })
 

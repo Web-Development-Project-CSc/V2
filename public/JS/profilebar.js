@@ -6,6 +6,9 @@ let results = document.querySelectorAll('.profile span');
 let done = document.querySelector('#doneedit');
 let edits = document.querySelectorAll('#editors input');
 let form = document.querySelector('#editors');
+let colors = document.querySelectorAll(".color");
+let shades = document.querySelectorAll(".shade");
+for(let i =0; i<colors.length; i++) colors[i].style.backgroundColor = shades[i].value;
 move(showers[0]);
 function move(tag){
     for(let i =0; i<showers.length; i++) showers[i].classList.remove("active");

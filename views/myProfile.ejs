@@ -410,86 +410,69 @@
     <section class="orders">
         <details class="current">
             <summary class="orderheader">Ongoing Orders:</summary>
+            <% for(let i=0; i<orders.length; i++) { 
+                if(orders[i].delivered == false){
+            %>
             <div class="currentOrder">
                 <details>
-                    <summary>Order Id : #123</summary>
+                    <summary>Order Id : #<%= orders[i]._id%></summary>
                     <div class="product">
                         <span class="data">
-                            Kentucky Fried Chicken EGP 45.02
+                            <%
+                            let q = orders[i].quantity;
+                            if(q== 1) q = ''; %>
+                            <input type="hidden" class="shade" name="shade" value="<%=orders[i].shade%>">
+                            <%=q%> <%=orders[i].productName%> <%=orders[i].form%> <span class="color"></span>
                         </span>
                         <span class="statusBar">
-                            <img src="/IMAGES/delivered.png" alt="status" />
-                            <img src="/IMAGES/shipping.png" alt="status" />
-                            <img src="/IMAGES/placed.png" alt="status" class="done" /></span>
+                            <%
+                            let d = '' , s = '', p = '';
+                            if(orders[i].status.name == 'Processing') {
+                                p = 'done';
+                            }
+                            else if(orders[i].status.name == 'Shipping') {
+                                s = 'done';
+                                p = 'done';
+                            }
+                            else {
+                                d = 'done';
+                                s = 'done';
+                                p = 'done';
+                            }
+                             %>
+                            <img src="/IMAGES/distribution.png" alt="status" class="<%=d%>"/>
+                            <img src="/IMAGES/shipping.png" alt="status" class="<%=s%>" />
+                            <img src="/IMAGES/placed.png" alt="status" class="<%=p%>"/></span>
                     </div>
                 </details>
             </div>
-            <div class="currentOrder">
-                <details>
-                    <summary>Order Id : #067</summary>
-                    <div class="product">
-                        <span class="data">
-                            Takis EGP 47.00
-                        </span>
-                        <span class="statusBar">
-                            <img src="/IMAGES/delivered.png" alt="status" />
-                            <img src="/IMAGES/shipping.png" alt="status" />
-                            <img src="/IMAGES/placed.png" alt="status" /></span>
-                    </div>
-                </details>
-            </div>
-            <div class="currentOrder">
-                <details>
-                    <summary>Order Id : #122</summary>
-                    <div class="product">
-                        <span class="data">
-                            Cinnabon EGP 36.00</span>
-                        <span class="statusBar">
-                            <img src="/IMAGES/delivered.png" alt="status" />
-                            <img src="/IMAGES/shipping.png" alt="status" class="done" />
-                            <img src="/IMAGES/placed.png" alt="status" class="done" /></span>
-                    </div>
-                </details>
-            </div>
+            <% } } %>
         </details>
         <details class="old">
             <summary class="orderheader">Past Orders:</summary>
+            <% for(let i=0; i<orders.length; i++) { 
+                if(orders[i].delivered == true){
+            %>
             <div class="prevProduct">
                 <details>
-                    <summary>Order Id : #034</summary>
+                    <summary>Order Id : ##<%= orders[i]._id%></summary>
                     <div class="product">
                         <span class="data">
-                            Molokhia EGP 20.22</span>
+                            <% 
+                            let date =orders[i].createdAt.toString().split('G')
+                            let q = orders[i].quantity;
+                            if(q== 1) q = ''; %>
+                            <%=date[0]%>
+                            <input type="hidden" class="shade" name="shade" value="<%=orders[i].shade%>">
+                            <%=q%> <%=orders[i].productName%> <%=orders[i].form%> <span class="color"></span>
+                        </span>
                         <span class="data">
-                            27/01/2023</span>
-                        <img src="/IMAGES/done.png" alt="status" />
+                            </span>
+                        <img src="/IMAGES/delivered.png" alt="status" class="done" />
                     </div>
                 </details>
             </div>
-            <div class="prevProduct">
-                <details>
-                    <summary>Order Id : #045</summary>
-                    <div class="product">
-                        <span class="data">
-                            ObourLand EGP 6.66</span>
-                        <span class="data">
-                            04/03/2023</span>
-                        <img src="/IMAGES/done.png" alt="status" />
-                    </div>
-                </details>
-            </div>
-            <div class="prevProduct">
-                <details>
-                    <summary>Order Id : #056</summary>
-                    <div class="product">
-                        <span class="data">
-                            McFries EGP 30.00</span>
-                        <span class="data">
-                            31/12/2022</span>
-                        <img src="/IMAGES/done.png" alt="status" />
-                    </div>
-                </details>
-            </div>
+            <% } } %>
         </details>
     </section>
     <section class="paymentMethod">
