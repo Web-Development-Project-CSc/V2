@@ -8,6 +8,7 @@ const Products = require('../models/products')
 const Accounts = require('../models/accounts')
 const Orders = require("../models/orders")
 const FAQs = require('../models/faq');
+const Requests = require('../models/requests')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './public/IMAGES/Flavours');
@@ -22,13 +23,14 @@ router.get('/', (req, res) => {
     Products.find().sort({numPurchases: -1}).limit(5).then( prods =>{
       Orders.find().sort({date: -1}).limit(5).then( ords =>{ 
         FAQs.find().sort({date: -1}).limit(5).then( faq =>{
-        res.render('dashboard', { message: '', layout: false, 
-        user: req.session.user , 
-        prods: (prods === null ? "" : prods) , 
-        orders: (ords === null ? "" : ords) , 
-        faqs: (faq === null ? "" : faq)})})
-      })
-    })}
+        Requests.find().sort({number: -1}).limit(5).then(reqs => {
+          res.render('dashboard', { message: '', layout: false, 
+          user: req.session.user , 
+          prods: (prods === null ? "" : prods) , 
+          orders: (ords === null ? "" : ords) , 
+          faqs: (faq === null ? "" : faq),
+        requests: (reqs === null ? "" : reqs)})})
+        }) })})}
     else {
     res.redirect("/admin/login?message='Must be logged in as admin to view this page'");
   }

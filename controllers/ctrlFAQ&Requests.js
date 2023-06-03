@@ -20,12 +20,9 @@ const addFAQ = async (req,res)=>{
     })   
 }
 const addRequest = async (req,res)=>{
-    Requests.findOneAndUpdate({flavourName: req.body.flavourName}, {$inc: {numRequests: 1}}).then(result => {
-        res.redirect('/support');
-    }).catch(err => {
-        console.log(err);
-        res.redirect("/support?message='Could not find request'");
-    })
+    const reqs = await Requests.findOneAndUpdate({flavourName: req.body.flavourName}, {$inc: {number: 1}})
+    if(reqs) res.redirect('/support');
+    else{
     const request = new Requests({
         flavourName: req.body.flavourName,
     });
@@ -37,5 +34,6 @@ const addRequest = async (req,res)=>{
         console.log(err);
         res.redirect("/support?message='Could not register request'");
     }
+}
 } 
 module.exports = {addFAQ, addRequest}

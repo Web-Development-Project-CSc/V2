@@ -6,8 +6,7 @@ const requestsSchema = new mongoose.Schema(
                 type: Number,
                 default: 1
             },
-    }
-  )
+          }, {timestamps:true})
 module.exports = mongoose.model('requests', requestsSchema)
 
 

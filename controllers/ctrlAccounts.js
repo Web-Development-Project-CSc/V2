@@ -65,7 +65,7 @@ const findUser = async (req,res)=>{
         if(req.query.email == '') delete user.email;
         if(req.query.phone == '') delete user.phone;
         if(req.query.psw == '') delete user.password;
-    
+        if(user.email != 'flavouredmiu@gmail.com'){
         Accounts.findOneAndUpdate({_id: req.query.id}, user).then(result => {
             if(result) res.redirect('/admin/users');
             else res.redirect('/admin/users?message="Could not modify user. Email does not exist"');
@@ -73,6 +73,8 @@ const findUser = async (req,res)=>{
             console.log(err);
             res.redirect('/admin/users?message="Could not modify user"');
         })
+    }
+    else res.redirect('/admin/users?message="Can not modify their royal highness"');
     }
     else res.redirect("/admin/login?message= 'Must be logged in as admin to modify account'");
     }
