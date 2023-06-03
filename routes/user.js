@@ -10,6 +10,9 @@ const bcrypt = require('bcrypt')
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
 saveUninitialized: true }))
 router.use(express.urlencoded({extended:true}))
+router.get('/', (req,res)=>{
+    res.redirect('/user/login')
+})
 router.get('/login', (req,res)=>{
     res.render('login',  { message: '', layout: false})
 })
@@ -81,6 +84,7 @@ router.post('/modify', ctrlAccounts.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 })
+router.post('/checkout', ctrlOrders.batch)
 router.post('/payment',ctrlAccounts.update)
 
 module.exports = router

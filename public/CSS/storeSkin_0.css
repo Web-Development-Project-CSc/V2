@@ -374,6 +374,9 @@ input[type="radio"] {
   display: inline-block;
   width: 40px;
 }
+.go{
+  cursor: pointer;
+}
 #buyfromsearch{
   vertical-align: middle;
   background-color: #eaeaea00;

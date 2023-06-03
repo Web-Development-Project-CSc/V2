@@ -65,16 +65,40 @@ if(value === 'c3'){
   
   
 function addtocart(prodid,prodname,prodprice,index){
+let quantity = 1;
 let shade= shades[index].value
 let state ='powder'
 if(states[index*2].checked) state='extract'
-let product={prodid,prodname,prodprice,shade,state}
-order.push(product)
+let product={prodid,prodname,prodprice,shade,state,quantity}
+if(include(order,product)) {
+for(let i=0; i<order.length; i++){
+  if(order[i].prodid === prodid && order[i].shade === shade && order[i].state === state){
+    order[i].quantity++
+    break;
+    }
+  }
+}
+else order.push(product)
 sessionStorage.setItem('order',JSON.stringify(order))
 console.log(order)
 fetch('/addtocart',{
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({order: order})}
+  body: JSON.stringify({order: JSON.parse(sessionStorage.getItem('order'))})}
   )
+}
+
+function include(arr,obj) {
+  return (arr.findIndex((e) => e.prodid === obj.prodid && e.shade === obj.shade && e.state === obj.state) != -1);
+}
+function go (){
+  if(pre != null){
+  fetch('/addtocart',{
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({order: JSON.parse(sessionStorage.getItem('order'))})}
+    )
+    location.replace('/user/cart')
+  }
+  else location.replace('/user/cart')
 }
