@@ -1,4 +1,5 @@
 const Orders = require('../models/orders');
+const Products = require('../models/products');
 const addOrder = async (req,res)=>{
     if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
     else{
@@ -12,6 +13,7 @@ const addOrder = async (req,res)=>{
     });
     try{
         await order.save();
+        Products.findOneAndUpdate({_id: req.body.itemclicked}, {$inc: {numPurchases: 1}}).then(result => {})
         console.log(order);
         res.redirect('/user/myprofile'); 
     }
@@ -36,6 +38,7 @@ const batch = async (req,res)=>{
                 quantity: orders[i].quantity
             });
             try{
+                Products.findOneAndUpdate({_id: orders[i].prodid}, {$inc: {numPurchases: orders[i].quantity}}).then(result => {})
                 await order.save();
                 console.log(order);
             }
