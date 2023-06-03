@@ -300,7 +300,8 @@ a {
   font-weight: 500;
   color: #99B19C;
 }
-li:hover{
+
+li:hover {
   box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
 }
 

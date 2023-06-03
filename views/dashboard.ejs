@@ -11,55 +11,55 @@
 <body>
   <%- include('./partials/errors.ejs') %>
 
-  <div class="sidebar">
-    <div class="logo-details">
+    <div class="sidebar">
+      <div class="logo-details">
 
-      <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+        <span><img id="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo"></span>
+      </div>
+      <ul class="nav-links">
+        <li class="active">
+          <img src="/IMAGES/data-report.png" alt="dashboard">
+          <span class="links_name">Dashboard</span>
+        </li>
+        <li>
+          <img src="/IMAGES/stats.png" alt="analytics">
+          <span class="links_name">Analytics</span>
+        </li>
+        <li><a href="/admin/orders">
+            <img src="/IMAGES/order.png" alt="order">
+            <span class="links_name">Orders</span></a>
+        </li>
+        <li><a href="/admin/products">
+            <img src="/IMAGES/product.png" alt="products">
+            <span class="links_name">Products</span></a>
+        </li>
+        <li> <a href="/admin/users">
+            <img src="/IMAGES/customers.png" alt="users">
+            <span class="links_name">Users</span></a>
+        </li>
+        <li id="out">
+          <a href="/logout">
+            <img src="/IMAGES/logout.png" alt="exit">
+            <span class="links_name">Log out</span></a>
+        </li>
+      </ul>
     </div>
-    <ul class="nav-links">
-      <li class="active">
-        <img src="/IMAGES/data-report.png" alt="dashboard">
-        <span class="links_name">Dashboard</span>
-      </li>
-      <li>
-        <img src="/IMAGES/stats.png" alt="analytics">
-        <span class="links_name">Analytics</span>
-      </li>
-      <li><a href="/admin/orders">
-        <img src="/IMAGES/order.png" alt="order">
-        <span class="links_name">Orders</span></a>
-      </li>
-      <li><a href="/admin/products">
-        <img src="/IMAGES/product.png" alt="products">
-         <span class="links_name">Products</span></a>
-      </li>
-      <li> <a href="/admin/users"> 
-        <img src="/IMAGES/customers.png" alt="users">
-        <span class="links_name">Users</span></a>
-      </li>
-      <li id="out">
-        <a href="/logout">
-          <img src="/IMAGES/logout.png" alt="exit">
-          <span class="links_name">Log out</span></a>
-      </li>
-    </ul>
-  </div>
-  <section class="home-section">
-    <nav>
-      <div class="sidebar-button">
-        <span class="dashboard">Admin Dashboard</span>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <img src="/IMAGES/search.png" alt="search">
-      </div>
-      <div class="profile-details">
-        <span class="admin_name"> Welcome, Flavourer</span>
-        <img src="/IMAGES/admin.png" alt="admin" >
-      </div> 
-    </nav>
+    <section class="home-section">
+      <nav>
+        <div class="sidebar-button">
+          <span class="dashboard">Admin Dashboard</span>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
+          <img src="/IMAGES/search.png" alt="search">
+        </div>
+        <div class="profile-details">
+          <span class="admin_name"> Welcome, Flavourer</span>
+          <img src="/IMAGES/admin.png" alt="admin">
+        </div>
+      </nav>
 
-    <div class=" home-content">
+      <div class=" home-content">
         <div class="overview-boxes all">
           <div class="box">
             <div class="right-side">
@@ -109,47 +109,83 @@
             <div class="sales-details">
               <ul class="details">
                 <li class="topic">Date</li>
-                <li>2/3/2023</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                  <% let date=orders[i].createdAt.toString().split('G'); %>
+                    <li>
+                      <%=date[0]%>
+                    </li>
+                    <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Customer</li>
-                <li>Shawant Boraay</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                  <li>
+                    <%=orders[i].customerName%>
+                  </li>
+                  <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Status</li>
-                <li>Delivered</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                  <li>
+                    <%=orders[i].status.name%>
+                  </li>
+                  <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Quantity</li>
-                <li>300.98</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                  <li>
+                    <%=orders[i].quantity%>
+                  </li>
+                  <%}%>
               </ul>
-            </div>           
+            </div>
             <details class="button">
               <summary><span>Customer Queries</span></summary>
               <ul>
-                <%
-                  for( let index = 0; index < faqs.length; index++ ) { 
-                %>
-                <li><%=faqs[index].question%><img src="/IMAGES/query.png" alt="query"></li>
-                <%}%>
+                <% for( let index=0; index < faqs.length; index++ ) { %>
+                  <li>
+                    <%=faqs[index].question%><img src="/IMAGES/query.png" alt="query">
+                  </li>
+                  <%}%>
               </ul>
             </details>
           </div>
           <div class="top-sales box all">
             <div class="title">Top Seling Products</div>
             <ul class="top-sales-details">
-              <% for( let index = 0; index < prods.length; index++ ) { %>
-              <li>
-                <span class="product"><%=prods[index].name%> </span>
-                <span class="price"><%=prods[index].numPurchases%></span>
-              </li>
-              <% } %>
+              <% for( let index=0; index < prods.length; index++ ) { %>
+                <li>
+                  <span class="product">
+                    <%=prods[index].name%>
+                  </span>
+                  <span class="price">
+                    <%=prods[index].numPurchases%>
+                  </span>
+                </li>
+                <% } %>
+            </ul>
+          </div>
+          <div class="top-sales box all">
+            <div class="title">Flavour</div>
+            <ul class="top-sales-details">
+              <% for( let index=0; index < prods.length; index++ ) { %>
+                <li>
+                  <span class="product">
+                    <%=prods[index].name%>
+                  </span>
+                  <span class="price">
+                    <%=prods[index].numPurchases%>
+                  </span>
+                </li>
+                <% } %>
             </ul>
           </div>
         </div>
       </div>
-  </section>
-  <script src="/JS/admin.js" type="text/javascript"></script>
+    </section>
+    <script src="/JS/admin.js" type="text/javascript"></script>
 </body>
 
 </html>
