@@ -300,7 +300,8 @@ a {
   font-weight: 500;
   color: #99B19C;
 }
-li:hover{
+
+li:hover {
   box-shadow: 0px 3px 10px rgba(94, 94, 94, 0.841);
 }
 
@@ -340,6 +341,35 @@ summary {
   border-radius: 12px;
   box-shadow: 0 5px 10px #713c5f(0, 0, 0, 0.1);
 }
+
+.home-content .sales-boxes .top-sales-qu {
+  width: 35%;
+  background: #fff;
+  padding: 20px 30px;
+  margin: 0 20px 0 0;
+  margin-top: 2%;
+  margin-left: 2%;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px #713c5f(0, 0, 0, 0.1);
+}
+
+.sales-boxes .top-sales-qu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.sales-boxes .top-sales-qu li .product,
+.price {
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+}
+
 
 .sales-boxes .top-sales li {
   display: flex;
