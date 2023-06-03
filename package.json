@@ -13,8 +13,10 @@
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "ajax": "^0.0.4",
+    "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
+    "country-calling-code": "^0.0.3",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
@@ -22,6 +24,7 @@
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
     "fetch": "^1.1.0",
+    "google-geocode": "^0.0.2",
     "mongodb": "^5.5.0",
     "mongoose": "^7.1.1",
     "multer": "^1.4.5-lts.1"
