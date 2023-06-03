@@ -111,36 +111,44 @@
                 <li class="topic">Date</li>
                 <%for(let i=0;i<orders.length;i++){%>
                   <% let date=orders[i].createdAt.toString().split('G'); %>
-                <li><%=date[0]%></li>
-                <%}%>
+                    <li>
+                      <%=date[0]%>
+                    </li>
+                    <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Customer</li>
                 <%for(let i=0;i<orders.length;i++){%>
-                <li><%=orders[i].customerName%></li>
-                <%}%>
+                  <li>
+                    <%=orders[i].customerName%>
+                  </li>
+                  <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Status</li>
                 <%for(let i=0;i<orders.length;i++){%>
-                <li><%=orders[i].status.name%></li>
-                <%}%>
+                  <li>
+                    <%=orders[i].status.name%>
+                  </li>
+                  <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Quantity</li>
                 <%for(let i=0;i<orders.length;i++){%>
-                <li><%=orders[i].quantity%></li>
-                <%}%>
+                  <li>
+                    <%=orders[i].quantity%>
+                  </li>
+                  <%}%>
               </ul>
             </div>
             <details class="button">
               <summary><span>Customer Queries</span></summary>
               <ul>
-                <%
-                  for( let index = 0; index < faqs.length; index++ ) { 
-                %>
-                <li><%=faqs[index].question%><img src="/IMAGES/query.png" alt="query"></li>
-                <%}%>
+                <% for( let index=0; index < faqs.length; index++ ) { %>
+                  <li>
+                    <%=faqs[index].question%><img src="/IMAGES/query.png" alt="query">
+                  </li>
+                  <%}%>
               </ul>
             </details>
           </div>
@@ -159,9 +167,7 @@
                 <% } %>
             </ul>
           </div>
-        </div>
-        <div class="sales-boxes">
-          <div class="top-sales-qu box all">
+          <div class="top-sales box all">
             <div class="title">Flavour</div>
             <ul class="top-sales-details">
               <% for( let index=0; index < prods.length; index++ ) { %>
