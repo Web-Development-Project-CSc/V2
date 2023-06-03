@@ -109,19 +109,28 @@
             <div class="sales-details">
               <ul class="details">
                 <li class="topic">Date</li>
-                <li>2/3/2023</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                  <% let date=orders[i].createdAt.toString().split('G'); %>
+                <li><%=date[0]%></li>
+                <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Customer</li>
-                <li>Shawant Boraay</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                <li><%=orders[i].customerName%></li>
+                <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Status</li>
-                <li>Delivered</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                <li><%=orders[i].status.name%></li>
+                <%}%>
               </ul>
               <ul class="details">
                 <li class="topic">Quantity</li>
-                <li>300.98</li>
+                <%for(let i=0;i<orders.length;i++){%>
+                <li><%=orders[i].quantity%></li>
+                <%}%>
               </ul>
             </div>           
             <details class="button">
