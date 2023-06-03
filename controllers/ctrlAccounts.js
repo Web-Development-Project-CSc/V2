@@ -60,7 +60,7 @@ const findUser = async (req,res)=>{
         name: req.query.name,
         email: req.query.email,
         phone: req.query.phone,
-        password:  req.query.psw,
+        password: await bcrypt.hash(req.query.psw, 12),
         }  
         if(req.query.name == '') delete user.name;
         if(req.query.email == '') delete user.email;
@@ -92,7 +92,7 @@ const findUser = async (req,res)=>{
             name: req.body.newName,
             email: req.body.newEmail,
             phone: req.body.newPhone,
-            password: req.body.newPassword,
+            password: await bcrypt.hash(req.body.newPassword,12),
             country: req.body.newCountry,
             address: req.body.newAddress,
             birthDate: req.body.newBirthdate

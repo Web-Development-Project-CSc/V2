@@ -1,6 +1,6 @@
 let total = document.querySelectorAll("h2 span");
 let number = document.querySelectorAll(".num");
-document.getElementById("cncl").onclick= function() { location.replace("/store/1");sessionStorage.removeItem('order');}
+document.getElementById("cncl").onclick= function() { location.replace("/store/1");}
 let buttons = document.querySelectorAll('.quantity img');
 function add(index,price){
         let num = (index * 2) + 1
