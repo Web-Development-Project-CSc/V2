@@ -145,7 +145,8 @@ li img {
 
 .button li {
   width: 100%;
-  padding: 2%
+  padding: 2%;
+  padding-bottom: 3.5%;
 }
 
 nav .search-box input {
@@ -319,7 +320,7 @@ li:hover {
 }
 
 .sales-boxes .box .button {
-  width: 61.9%;
+  width: 44.4%;
   display: flex;
   justify-content: flex-end;
   left: 0
