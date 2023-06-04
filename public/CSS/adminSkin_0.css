@@ -141,16 +141,16 @@ li img {
 
 .button img {
   float: right;
+  width: 7%;
 }
 
 .button li {
   width: 100%;
   padding: 2%;
-  padding-bottom: 3.5%;
 }
 
 .sales-boxes .box .button {
-  width: 44.4%;
+  width: 44.5%;
   display: flex;
   justify-content: flex-end;
   left: 0
