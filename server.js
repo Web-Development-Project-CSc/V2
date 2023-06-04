@@ -23,6 +23,6 @@ app.use('/',indexRouter)
 app.use('/user',userRouter)
 app.use('/admin',adminRouter)
 app.use((req, res) => {
-    res.status(404).render("notFound",{layout: false});
+res.status(404).render("notFound",{layout: false});
 });
-app.listen(3000 || process.env.PORT );
+app.listen(80 || process.env.PORT );
