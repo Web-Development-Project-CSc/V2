@@ -66,7 +66,7 @@
 - Choose product type and shade
 - Request for an unlisted product
 - Pay online or with cash
-
+- Default Admin Account with email : 'Flavouredmiu@gmail.com' and password: 12345
 
 
 ## License
@@ -96,10 +96,10 @@ SOFTWARE.
 
 ## Guide
 
-Simply type this url for github pages in your browser or click the link below.
+Simply type this url in your browser or click the link below.
 
 ```
-  https://web-development-project-csc.github.io/Flavoured/HTML/index.html
+  https://flavoured.store
 ```
 
 
