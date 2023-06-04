@@ -71,7 +71,7 @@ router.get('/myprofile',(req,res)=>{
 
 router.get('/forgetpassword',(req,res)=>{
     req.session.forgot = true;
-    res.render('forgetPassword',  {message: '', layout: false});
+    res.render('forgetpassword',  {message: '', layout: false});
 })
 router.get('/confirmation',(req,res)=>{
         if(req.session.forgot == true){
