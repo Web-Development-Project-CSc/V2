@@ -192,7 +192,7 @@ To reset your password, please click the following link which will direct you to
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="495322b1-9eda-4c6d-a982-adce9d63b29a" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:18px 20px 18px 0px; line-height:22px; text-align:inherit; background-color:#A84448;" height="100%" valign="top" bgcolor="#A84448" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-family: times new roman,times,serif; font-size: 18px; color: #ffffff"><em><strong>localhost:3000/user/confirm</strong></em></span></div><div></div></div></td>
+        <td style="padding:18px 20px 18px 0px; line-height:22px; text-align:inherit; background-color:#A84448;" height="100%" valign="top" bgcolor="#A84448" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-family: times new roman,times,serif; font-size: 18px; color: #ffffff"><em><strong>flavoured.store//user/confirm</strong></em></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="b16a4afb-f245-4156-968e-8080176990ea.1.1" data-mc-module-version="2019-10-22">
