@@ -76,8 +76,10 @@
         </div>
         <div class="profile">
             <label>Birth Date :
-               <% if(user.birthDate == undefined) user.birthDate = Date.now()
-               let bday = user.birthDate.toString()
+               <% if(user.birthDate == undefined) {
+                user.birthDate = Date.now()
+                user.birthDate.setHours(0, 0, 0, 0);}
+               let bday = user.birthDate
                bday = bday.substring(0,10)
                 %>
                 <span id="clientBirthdate"><%= bday  %></span>
