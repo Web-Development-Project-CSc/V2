@@ -76,8 +76,7 @@
         </div>
         <div class="profile">
             <label>Birth Date :
-               <%
-               <% if(user.birthDate == undefined) user.birthDate = Date.now()%>
+               <% if(user.birthDate == undefined) user.birthDate = Date.now()
                let bday = user.birthDate
                bday = bday.substring(0,10)
                 %>
