@@ -78,9 +78,23 @@
             <label>Birth Date :
                <% if(user.birthDate == undefined) {
                 user.birthDate = Date.now()
-                user.birthDate.setHours(0, 0, 0, 0);}
+                function padTo2Digits(num) {
+                    return num.toString().padStart(2, '0');
+                  }
+                  
+                  function formatDate(date) {
+                    return [
+                      date.getFullYear(),
+                      padTo2Digits(date.getMonth() + 1),
+                      padTo2Digits(date.getDate()),
+                    ].join('-');
+                  }
+                user.birthDate = formatDate(new Date(user.birthDate))
+            }
+            else{
                let bday = user.birthDate
                bday = bday.substring(0,10)
+            }
                 %>
                 <span id="clientBirthdate"><%= bday  %></span>
             </label>
