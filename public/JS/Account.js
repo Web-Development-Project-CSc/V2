@@ -31,3 +31,10 @@ function checkpass(){
              document.getElementById('error0').style.display='none'
             }
         }
+        const input = document.querySelector("input[type='password']");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        event.preventDefault();
+        document.querySelector('#logger').click();
+  }
+});
