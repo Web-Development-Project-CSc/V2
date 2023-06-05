@@ -91,7 +91,9 @@
             <div class="right-side">
               <div class="box-topic">Total Profit</div>
               <% let profit=0; for(let i=0;i<orders.length;i++){ for(let j=0; j<prods.length; j++){
-                if(orders[i].productName==prods[j].name){ profit+=orders[i].quantity * prods[j].price; } } } %>
+                if(orders[i].productName==prods[j].name){ profit+=orders[i].quantity * prods[j].price; } } } 
+                profit = Math.ceil(profit);
+                %>
                 <div class="number">
                   <%=profit%>
                 </div>
@@ -119,7 +121,7 @@
             <div class="sales-details">
               <ul class="details">
                 <li class="topic">Date</li>
-                <%for(let i=0;i<orders.length;i++){%>
+                <%for(let i=0;i<5;i++){%>
                   <% let date=orders[i].createdAt.toString().split('G'); %>
                     <li>
                       <%=date[0]%>
@@ -165,7 +167,7 @@
           <div class="top-sales box all">
             <div class="title">Top Seling Products</div>
             <ul class="top-sales-details">
-              <% for( let index=0; index < prods.length; index++ ) { %>
+              <% for( let index=0; index < 5; index++ ) { %>
                 <li>
                   <span class="product">
                     <%=prods[index].name%>

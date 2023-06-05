@@ -20,8 +20,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 router.get('/', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
-    Products.find().sort({numPurchases: -1}).limit(5).then( prods =>{
-      Orders.find().sort({date: -1}).limit(5).then( ords =>{ 
+    Products.find().sort({numPurchases: -1}).then( prods =>{
+      Orders.find().sort({date: -1}).then( ords =>{ 
         FAQs.find().sort({date: -1}).limit(5).then( faq =>{
         Requests.find().sort({number: -1}).limit(5).then(reqs => {
           res.render('dashboard', { message: '', layout: false, 
