@@ -18,6 +18,7 @@
     </header>
     <nav id="navbar">
         <div class="scroller active" onclick="move(this)">My Information</div>
+        <div class="scroller" onclick="move(this)">My Wishlist</div>
         <div class="scroller" onclick="move(this)">My Orders</div>
         <div class="scroller" onclick="move(this)">Payment Methods</div>
         <a href="/store/1">Store</a>
@@ -406,6 +407,23 @@
             <input type="hidden" name="ogid" id="ogid" value="<%= user._id %>" />
         </form>
         <button type="button" id="doneedit" style="margin-left: 89%; margin-bottom: 1%; display:none" onclick="document.getElementById('editors').submit();">Done</button>
+    </section>
+    <section class="orders">
+            <% for(let i = 0; i<favorites.length; i++) { %>
+                <div class="wish">
+            <form  method="post" action="/user/createOrder">
+                    <span class="data">
+                        <%=favorites[i].productName%>
+                        <label><img src="/IMAGES/bottle.png" alt="liquid" /><input type="radio" name="form" value="Extract" required
+                            class="liquid" /></label>
+                    <label><img src="/IMAGES/powder.png" alt="powder" /><input type="radio" name="form" value="Powder" required
+                            class="powder" /></label>
+                        <input type="color" name="shade" value="#A84448">
+                        <button type="button" onclick="location.replace('/user/removew?id=<%=favorites[i].product%>')">Remove</button>
+                        <button type="submit" class="sub"><img class="cart" src="/IMAGES/cart icon.png" alt="add searched to cart"></button>
+             </form>
+         </div>
+            <% } %>
     </section>
     <section class="orders">
         <details class="current">

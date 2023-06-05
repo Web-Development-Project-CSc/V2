@@ -6,6 +6,7 @@ const ctrlAccounts = require('../controllers/ctrlAccounts');
 const session = require('express-session');
 const Accounts = require('../models/accounts')
 const Orders = require('../models/orders')
+const Favorites = require('../models/wishlist')
 const ctrlOrders = require('../controllers/ctrlOrders')
 const bcrypt = require('bcrypt')
 router.use(session({ secret: 'Your_Secret_Key', resave: false,
@@ -60,8 +61,9 @@ router.get('/cart',(req,res)=>{
 router.get('/myprofile',(req,res)=>{
     if (req.session.user !== undefined){ 
     Orders.find({customer : req.session.user._id}).then(result=>{
-    res.render('myProfile', {message: '', user: req.session.user ,layout: false, orders: (result === null ? "" : result)});
-    }).catch(err=>{
+    Favorites.find({customer : req.session.user._id}).then(favorites=>{
+    res.render('myProfile', {message: '', user: req.session.user ,layout: false, orders: (result === null ? "" : result) , favorites: (favorites === null ? "" : favorites)});
+    })}).catch(err=>{
         console.log(err)
         res.redirect("/user/myprofile?message= 'Could not load orders'")
     }
@@ -85,6 +87,7 @@ router.post('/modify', ctrlAccounts.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 })
+router.post('/wishing', ctrlOrders.wish)
 router.post('/faq')
 router.post('/checkout', ctrlOrders.batch)
 router.post('/payment',ctrlAccounts.update)

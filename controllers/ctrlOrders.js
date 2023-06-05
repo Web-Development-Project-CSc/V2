@@ -1,5 +1,6 @@
 const Orders = require('../models/orders');
 const Products = require('../models/products');
+const Favorites = require('../models/wishlist');
 const addOrder = async (req,res)=>{
     if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
     else{
@@ -119,5 +120,28 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
         search= search.slice (0, 3);
         res.send({payload: search});  
     }
-    
-module.exports = {addOrder, getOrders, displayOrders, progress, remove, searchOrders , batch}
+    const wish = async (req,res)=>{
+        if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
+        else{
+        if(await Favorites.findOne({product: req.body.wish.prodid, customer: req.session.user._id})) {
+            return;
+        }
+        else{
+        let wish = new Favorites({
+            product: req.body.wish.prodid,
+            productName: req.body.wish.prodName,
+            customer: req.session.user._id,
+        });
+        try{
+            await wish.save();
+            console.log(wish);
+        }
+        catch(err){
+            console.log(err);
+            res.redirect("/user/store?message='Could not add to wishlist'");
+        }
+    }
+    }
+    }
+
+module.exports = {addOrder, getOrders, displayOrders, progress, remove, searchOrders , batch, wish}

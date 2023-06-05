@@ -1,5 +1,5 @@
 document.getElementById("cpword").onchange = function() {confirmPass()};
-document.getElementById("cancelBTN").onclick= function() { location.replace("http://localhost:3000/");}
+document.getElementById("cancelBTN").onclick= function() { location.replace("/");}
 let vp = true, ve = false;
     function confirmPass(){
 

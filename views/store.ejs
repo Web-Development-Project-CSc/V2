@@ -48,6 +48,7 @@
                         <input type="color" value="#9A6751" /></label>
                     <div class="cart">
                         <button type="button" name="addtocart" onclick="addtocart('<%=prods[element].id%>','<%=prods[element].name%>','<%=prods[element].price%>', '<%=element%>');"><img src="/IMAGES/cart icon.png" alt="cart"></button>
+                        <button type="button" name="wish" id="wish" onclick="addtowish('<%=prods[element].id%>','<%=prods[element].name%>')"><img src='/IMAGES/wishlist.png' style="transform:scaleX(-1)"alt="add to wishlist"></button>
                     </div>
                 </div>
             </details>

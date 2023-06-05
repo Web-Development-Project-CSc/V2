@@ -102,3 +102,12 @@ function go (){
   }
   else location.replace('/user/cart')
 }
+
+function addtowish(prodid,prodName){
+  let wish = {prodid,prodName}
+  fetch('/user/wishing',{
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({wish: wish})}
+    )
+}
