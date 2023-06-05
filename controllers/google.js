@@ -52,10 +52,12 @@ const handler = async (req,res) => {
             email: googleUser.email,
             name: googleUser.name,
             password: googleUser.sub,
+            role: 'customer'
         },{
             email: googleUser.email,
             name: googleUser.name,
             password: googleUser.sub,
+            role: 'customer'
         },{
             upsert: true,
             new: true

@@ -65,6 +65,7 @@
         </div>
         <div class="profile">
             <label>Phone Number :
+                <% if(user.phone == undefined) user.phone = "UNSPECIFIED"%>
                 <span id="clientPhone"><%= user.phone%></span>
             </label>
             <details>
@@ -75,7 +76,8 @@
         </div>
         <div class="profile">
             <label>Birth Date :
-               <% 
+               <%
+               <% if(user.birthDate == undefined) user.birthDate = Date.now()%>
                let bday = user.birthDate
                bday = bday.substring(0,10)
                 %>
@@ -89,6 +91,7 @@
         </div>
         <div class="profile">
             <label>Country :
+                <% if(user.country == undefined) user.country = "UNSPECIFIED"%>
                 <span id="clientCountry"><%= user.country %></span>
             </label>
             <details>
@@ -388,6 +391,7 @@
         </div>
         <div class="profile">
             <label>Address :
+                <% if(user.address == undefined) user.address = "UNSPECIFIED"%>
                 <span id="clientAddress"><%= user.address %></span>
             </label>
             <details>
