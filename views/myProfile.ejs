@@ -89,14 +89,14 @@
                       padTo2Digits(date.getDate()),
                     ].join('-');
                   }
-                user.birthDate = formatDate(new Date(user.birthDate))
+                let bday = formatDate(new Date(user.birthDate))
             }
             else{
                let bday = user.birthDate
                bday = bday.substring(0,10)
             }
                 %>
-                <span id="clientBirthdate"><%= bday  %></span>
+                <span id="clientBirthdate"><%=bday%></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
