@@ -39,6 +39,7 @@ router.post('/getResults', ctrlProducts.searchProducts);
     
 router.get('/logout', (req, res) => {
     if (req.session.user !== undefined) req.session.destroy();
+    sessionStorage.clear();
     res.redirect('/');
   });
   router.post('/logging', ctrlAccounts.findUser)
