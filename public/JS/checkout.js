@@ -1,5 +1,3 @@
-const session = require("express-session");
-
 let total = document.querySelectorAll("h2 span");
 let number = document.querySelectorAll(".num");
 let buttons = document.querySelectorAll('.quantity img');
@@ -11,6 +9,7 @@ function add(index,price){
         total[index].innerHTML = 'EGP '+(int*price);
         array[index].quantity = int;
         sessionStorage.setItem('order', JSON.stringify(array));
+        console.log(array)
 }
 function remove(index,price){
         let num = (index * 2) 
