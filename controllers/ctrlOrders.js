@@ -144,4 +144,19 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
     }
     }
 
-module.exports = {addOrder, getOrders, displayOrders, progress, remove, searchOrders , batch, wish}
+    const removewish = async (req,res)=>{
+        if(req.session.user != undefined){
+      
+          const favorite = await Favorites.findOneAndRemove({ customer: req.session.user._id,product: req.query.id });
+      
+         if (favorite) {
+           console.log(favorite);
+           res.redirect('/user/myprofile');
+         } else {
+           console.log('item not in wishlist');
+           res.redirect("/user/myprofile?message='Could not remove item from wishlist'"); 
+          }
+        }
+        else res.redirect("/user/login?message = 'Must be logged in to view this page'");
+      }
+module.exports = {addOrder, getOrders, displayOrders, progress, remove, searchOrders , batch, wish, removewish}

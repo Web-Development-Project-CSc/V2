@@ -414,6 +414,8 @@
             <form  method="post" action="/user/createOrder">
                     <span class="data">
                         <%=favorites[i].productName%>
+                        <input type="hidden" name="itemclicked" value="<%=favorites[i].product%>">
+                        <input type="hidden" name="searchInput" value="<%=favorites[i].productName%>">
                         <label><img src="/IMAGES/bottle.png" alt="liquid" /><input type="radio" name="form" value="Extract" required
                             class="liquid" /></label>
                     <label><img src="/IMAGES/powder.png" alt="powder" /><input type="radio" name="form" value="Powder" required

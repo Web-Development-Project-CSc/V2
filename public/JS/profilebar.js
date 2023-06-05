@@ -8,6 +8,7 @@ let edits = document.querySelectorAll('#editors input');
 let form = document.querySelector('#editors');
 let colors = document.querySelectorAll(".color");
 let shades = document.querySelectorAll(".shade");
+let rems = document.querySelectorAll('.remover')
 for(let i =0; i<colors.length; i++) colors[i].style.backgroundColor = shades[i].value;
 move(showers[0]);
 function move(tag){

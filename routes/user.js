@@ -87,6 +87,7 @@ router.post('/modify', ctrlAccounts.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
     res.render('privacyPolicy',{ layout:false})
 })
+router.get('/removew', ctrlOrders.removewish)
 router.post('/wishing', ctrlOrders.wish)
 router.post('/faq')
 router.post('/checkout', ctrlOrders.batch)
