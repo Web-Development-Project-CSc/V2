@@ -213,6 +213,10 @@ button {
 }
 .wish{
   text-align: center;
+  padding-top: -1%;
+  padding-bottom:5%;
+  height: 100px;
+  vertical-align: middle;
 }
 .wish img{
   width:5%;
