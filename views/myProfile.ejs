@@ -76,7 +76,8 @@
         </div>
         <div class="profile">
             <label>Birth Date :
-               <% if(user.birthDate == undefined) {
+               <% let bday
+               if(user.birthDate == undefined) {
                 user.birthDate = Date.now()
                 function padTo2Digits(num) {
                     return num.toString().padStart(2, '0');
@@ -89,10 +90,10 @@
                       padTo2Digits(date.getDate()),
                     ].join('-');
                   }
-                let bday = formatDate(new Date(user.birthDate))
+                 bday = formatDate(new Date(user.birthDate))
             }
             else{
-               let bday = user.birthDate
+                bday = user.birthDate
                bday = bday.substring(0,10)
             }
                 %>
