@@ -1,6 +1,6 @@
 require("dotenv").config();
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SG_K);
+sgMail.setApiKey(process.env.SG_K.toString());
 const sendEmail = async (req,res) => {
  if (req.session.user !== undefined) {
 

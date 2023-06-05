@@ -4,6 +4,7 @@ const Products = require('../models/products');
 const ctrlAccounts = require('../controllers/ctrlAccounts');
 const ctrlProducts = require('../controllers/ctrlProducts');
 const FAQandRequests = require('../controllers/ctrlFAQ&Requests')
+const google = require('../controllers/google')
 router.use(express.urlencoded({extended:true}))
 router.get('/', (req,res)=>{
     let q=Products.find()
@@ -50,4 +51,6 @@ else res.redirect("/user/login?message= 'Must be logged in to view this page'")}
 )
 router.post('/FAQ', FAQandRequests.addFAQ)
 router.post('/Request', FAQandRequests.addRequest)   
+router.get('/googletry', google.geturl)
+router.get('/google',google.handler)
 module.exports = router

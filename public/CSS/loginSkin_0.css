@@ -156,3 +156,29 @@ a:hover {
 span img {
     margin-right: 20px;
 }
+
+#google img{
+    width: 25px;
+    border-radius: 2px;
+    margin-left: 3%;
+    margin-right: 3%;
+    vertical-align: middle;
+    display: inline-block;
+}
+#google a{
+    font-size:60%;
+    margin-top:2%;
+    width:60%;
+    background-color:white;
+    color:#A84448;
+    padding:0%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.304);
+}
+#google a:hover{
+    background-color:#99B19C;
+    color:white;
+}
+#google #long{
+    width:60px
+}
