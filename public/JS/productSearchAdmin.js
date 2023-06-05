@@ -33,7 +33,7 @@ function sendData(e) {
               searchResults.innerHTML = '';
               for(let i =0; i < titles.length; i++) {
                 if(titles[i].innerText == p.innerHTML){
-                window.scrollTo(titles[i].offsetLeft, titles[i].offsetTop);
+                window.scrollTo({left :titles[i].offsetLeft,top: titles[i].offsetTop, behavior:"smooth"});
                 console.log(titles[i])
               }
             }

@@ -51,8 +51,6 @@ const handler = async (req,res) => {
         const user = await Accounts.findOneAndUpdate({
             email: googleUser.email,
             name: googleUser.name,
-            password: googleUser.sub,
-            role: 'customer'
         },{
             email: googleUser.email,
             name: googleUser.name,

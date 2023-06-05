@@ -44,7 +44,7 @@ function sendData(e) {
             
             for(let i =0; i < titles.length; i++) {
               if(titles[i].innerText == p.innerHTML)
-              window.scrollTo(titles[i].parentElement.parentElement.parentElement.parentElement.offsetLeft, titles[i].parentElement.parentElement.parentElement.parentElement.offsetTop);
+              window.scrollTo({left: titles[i].parentElement.parentElement.parentElement.parentElement.offsetLeft, top: titles[i].parentElement.parentElement.parentElement.parentElement.offsetTop, behavior: 'smooth'});
             }
           });
           searchResults.appendChild(p);
