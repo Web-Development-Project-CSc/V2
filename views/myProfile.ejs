@@ -76,28 +76,11 @@
         </div>
         <div class="profile">
             <label>Birth Date :
-               <% let bday
-               if(user.birthDate == undefined) {
-                user.birthDate = Date.now()
-                function padTo2Digits(num) {
-                    return num.toString().padStart(2, '0');
-                  }
-                  
-                  function formatDate(date) {
-                    return [
-                      date.getFullYear(),
-                      padTo2Digits(date.getMonth() + 1),
-                      padTo2Digits(date.getDate()),
-                    ].join('-');
-                  }
-                 bday = formatDate(new Date(user.birthDate))
-            }
-            else{
-                bday = user.birthDate
+               <% if(user.birthDate == undefined) user.birthDate = Date.now()
+               let bday = user.birthDate.toString()
                bday = bday.substring(0,10)
-            }
                 %>
-                <span id="clientBirthdate"><%=bday%></span>
+                <span id="clientBirthdate"><%= bday  %></span>
             </label>
             <details>
                 <summary><img src="/IMAGES/editing.png" alt="edit" /></summary>
