@@ -2,7 +2,7 @@ const Accounts = require('../models/accounts');
 const bcrypt = require('bcrypt')
 const addUser= async(req,res) =>{
     let found =  await Accounts.findOne({email : req.body.email} )
-  if(found) res.redirect('/user/signup?message="Email is already registered"')
+  if(found) res.redirect('/user/login?message="Email is already registered"')
   else{
     let role = req.body.role
     let user = new Accounts({
@@ -24,8 +24,8 @@ try{
 }
 catch(err){
     console.log(err);
-    if(role == 'customer') res.redirect("signup?message='Could not add user'");
-    else res.redirect("admin/login?message='Could not add user'");
+    if(role == 'customer') res.redirect("/signup?message='Could not add user'");
+    else res.redirect("/admin/users?message='Could not add user'");
 }}}
 
 const findUser = async (req,res)=>{
@@ -156,7 +156,7 @@ const update = async (req,res)=>{
             res.redirect("/user/myprofile");
         }
         else{
-        res.redirect( "/user/login/?message='Failed to add payment method'",)
+        res.redirect( "/user/myprofile/?message='Failed to add payment method'",)
         }
     })
     .catch(err => {
