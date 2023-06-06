@@ -25,7 +25,7 @@ function move(tag){
         hidden[2].style.display="block";
     }
     else {
-        hidden[3].style.display="block";
+        document.querySelector('#p').style.display="block";
     }
 }
 let payments = document.querySelectorAll('input[name="method"]');
