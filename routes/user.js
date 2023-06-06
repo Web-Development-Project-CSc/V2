@@ -72,16 +72,11 @@ router.get('/myprofile',(req,res)=>{
 })
 
 router.get('/forgetpassword',(req,res)=>{
-    req.session.forgot = true;
     res.render('forgetpassword',  {message: '', layout: false});
 })
 router.get('/confirmation',(req,res)=>{
-        if(req.session.forgot == true){
-            req.session.forgot = false;
             res.render('confirmationPage',  {message: '', layout: false});
-        }
-        else res.redirect("/user/forgetpassword?message= 'Enter your email to reset password'");
-    });
+        });
 router.get('/confirm',sendEmail.sendEmail)
 router.post('/modify', ctrlAccounts.modifyUser)
 router.get('/privacypolicy', (req,res)=>{
