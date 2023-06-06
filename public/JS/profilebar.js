@@ -25,7 +25,7 @@ function move(tag){
         hidden[2].style.display="block";
     }
     else if(tag == showers[3]){
-      document.querySelector('#favs').style.display="block";
+      document.querySelector('#payment').style.display="block";
         hidden[3].style.display="block";
     }
 }
