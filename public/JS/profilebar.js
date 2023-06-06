@@ -24,6 +24,9 @@ function move(tag){
    else if(tag == showers[2]){
         hidden[2].style.display="block";
     }
+    else if(tag == showers[3]){
+        hidden[3].style.display="block";
+    }
 }
 let payments = document.querySelectorAll('input[name="method"]');
 payments[1].addEventListener('change', function (e) {
