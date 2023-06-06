@@ -13,7 +13,7 @@
     <header>
         <a href="/"><img class="logo" src="/IMAGES/Flavoured_with_slogan-transformedd.png"
                 alt="flavoured" /></a>
-                <a href="/logout"> <div class="profileIcon"> Log Out <img  src="/IMAGES/logout.png" alt="profile" /></div></a>
+                <a href="/logout"> <div style=""class="profileIcon"> Log Out <img src="/IMAGES/logout.png" alt="profile" /></div></a>
 
     </header>
     <nav id="navbar">
@@ -445,7 +445,7 @@
                             let q = orders[i].quantity;
                             if(q== 1) q = ''; %>
                             <input type="hidden" class="shade" name="shade" value="<%=orders[i].shade%>">
-                            <%=q%> <%=orders[i].productName%> <%=orders[i].form.charAt(0).toUpperCase() + orders[i].form.slice(1);%>. <span class="color"></span>
+                            <%=q%> <%=orders[i].productName%> <%=orders[i].form.charAt(0).toUpperCase() + orders[i].form.slice(1);%> <span class="color"></span>
                         </span>
                         <span class="statusBar">
                             <%
@@ -491,7 +491,7 @@
                         </span>
                         <span class="data">
                             </span>
-                        <img src="/IMAGES/delivered.png" alt="status" class="done" />
+                        <img src="/IMAGES/delivered.png" alt="status" title="Recieved"class="done" />
                     </div>
                 </details>
             </div>
