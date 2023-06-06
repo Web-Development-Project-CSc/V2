@@ -43,6 +43,7 @@ img {
   padding-right: -2%;
   margin-bottom: 10%;
   padding-bottom: 0%;
+  padding-right:2%
 }
 
 tr,
@@ -100,10 +101,10 @@ th {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
   border-radius: 6px;
   padding: 12px 36px;
-  margin-left: 6.5%;
   font-family: 'Times New Roman', Times, serif;
   vertical-align: middle;
   text-align: center;
+  margin-left: -6%;
 }
 
 .deleteButton {
@@ -116,7 +117,6 @@ th {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
   border-radius: 6px;
   padding: 12px 36px;
-  margin-left: 3%;
   font-family: 'Times New Roman', Times, serif;
   vertical-align: middle;
   text-align: center;
