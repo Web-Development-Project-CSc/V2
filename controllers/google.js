@@ -50,7 +50,6 @@ const handler = async (req,res) => {
         const googleUser = jwt.decode(id_token);
         const user = await Accounts.findOneAndUpdate({
             email: googleUser.email,
-            name: googleUser.name,
         },{
             email: googleUser.email,
             name: googleUser.name,
