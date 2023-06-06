@@ -445,7 +445,7 @@
                             let q = orders[i].quantity;
                             if(q== 1) q = ''; %>
                             <input type="hidden" class="shade" name="shade" value="<%=orders[i].shade%>">
-                            <%=q%> <%=orders[i].productName%> <%=orders[i].form%> <span class="color"></span>
+                            <%=q%> <%=orders[i].productName%> <%=orders[i].form.charAt(0).toUpperCase() + orders[i].form.slice(1);%>. <span class="color"></span>
                         </span>
                         <span class="statusBar">
                             <%
@@ -463,9 +463,9 @@
                                 p = 'done';
                             }
                              %>
-                            <img src="/IMAGES/distribution.png" alt="status" class="<%=d%>"/>
-                            <img src="/IMAGES/shipping.png" alt="status" class="<%=s%>" />
-                            <img src="/IMAGES/placed.png" alt="status" class="<%=p%>"/></span>
+                            <img src="/IMAGES/distribution.png" alt="status"  title="Delivering"class="<%=d%>"/>
+                            <img src="/IMAGES/shipping.png" alt="status" title="Shipping" class="<%=s%>" />
+                            <img src="/IMAGES/placed.png" alt="status" title="Processing" class="<%=p%>"/></span>
                     </div>
                 </details>
             </div>
@@ -487,7 +487,7 @@
                             if(q== 1) q = ''; %>
                             <%=date[0]%>
                             <input type="hidden" class="shade" name="shade" value="<%=orders[i].shade%>">
-                            <%=q%> <%=orders[i].productName%> <%=orders[i].form%> <span class="color"></span>
+                            <%=q%> <%=orders[i].productName%> <%=orders[i].form.charAt(0).toUpperCase() + orders[i].form.slice(1)%> <span class="color"></span>
                         </span>
                         <span class="data">
                             </span>
