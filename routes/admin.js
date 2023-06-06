@@ -6,7 +6,7 @@ const ctrlProducts = require('../controllers/ctrlProducts');
 const ctrlOrders = require('../controllers/ctrlOrders');
 const Products = require('../models/products')
 const Accounts = require('../models/accounts')
-const Orders = require("../models/orders")
+const Orders = require('../models/orders')
 const FAQs = require('../models/faq');
 const Requests = require('../models/requests')
 const storage = multer.diskStorage({
@@ -21,8 +21,8 @@ const upload = multer({ storage: storage });
 router.get('/', (req, res) => {
   if (req.session.user !== undefined && req.session.user.role === 'admin') {
     Products.find().sort({numPurchases: -1}).then( prods =>{
-      Orders.find().sort({date: -1}).then( ords =>{ 
-        FAQs.find().sort({date: -1}).limit(5).then( faq =>{
+      Orders.find().sort({createdAt: -1}).then( ords =>{ 
+        FAQs.find().sort({createdAt: -1}).limit(5).then( faq =>{
         Requests.find().sort({number: -1}).limit(5).then(reqs => {
           res.render('dashboard', { message: '', layout: false, 
           user: req.session.user , 

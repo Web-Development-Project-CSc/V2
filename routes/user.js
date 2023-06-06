@@ -49,10 +49,9 @@ router.post('/getaccounts' ,(req,res)=>{
 })
 router.post('/signing',ctrlAccounts.addUser);
 
-router.post('/createOrder' , ctrlOrders.addOrder)
+router.post('/createOrder', ctrlOrders.addOrder)
 
 router.get('/cart',(req,res)=>{
-
     if (req.session.user !== undefined) 
     res.render('cart',  { message: '', layout: false, orders: (req.session.order === undefined ? "" : req.session.order)});
     else res.redirect("/user/login?message= 'Must be logged in to view this page'");
@@ -84,7 +83,6 @@ router.get('/privacypolicy', (req,res)=>{
 })
 router.get('/removew', ctrlOrders.removewish)
 router.post('/wishing', ctrlOrders.wish)
-router.post('/faq')
 router.post('/checkout', ctrlOrders.batch)
 router.post('/payment',ctrlAccounts.update)
 
