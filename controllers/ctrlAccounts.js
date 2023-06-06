@@ -1,5 +1,7 @@
-const Accounts = require('../models/accounts');
 const bcrypt = require('bcrypt')
+const Accounts = require('../models/accounts');
+const NOT = require('./pages').PUBLIC
+
 const addUser= async(req,res) =>{
     let found =  await Accounts.findOne({email : req.body.email} )
   if(found) res.redirect('/user/login?message="Email is already registered"')
@@ -76,7 +78,7 @@ const findUser = async (req,res)=>{
     }
     else res.redirect('/admin/users?message="Can not modify their royal highness"');
     }
-    else res.redirect("/admin/login?message= 'Must be logged in as admin to modify account'");
+    else NOT.notAnAdmin
     }
 
 
@@ -115,7 +117,7 @@ const findUser = async (req,res)=>{
                 res.redirect('/user/myprofile?message="Could not modify user."');
             })
         }
-        else res.redirect("/user/login?message= 'Must be logged in to modify account'");
+        else NOT.notLogged
     }
     
 const remove = async (req,res)=>{
@@ -134,7 +136,7 @@ const remove = async (req,res)=>{
   }
   else res.redirect("/admin/users?message = 'Can not remove their royal highness'");
 }
-else res.redirect("/admin/login?message= 'Must be logged in as admin to remove account'");
+else NOT.notAnAdmin
 }
 
 const update = async (req,res)=>{

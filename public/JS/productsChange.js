@@ -81,7 +81,7 @@ for(let i=0; i<order.length; i++){
 else order.push(product)
 sessionStorage.setItem('order',JSON.stringify(order))
 console.log(order)
-fetch('/addtocart',{
+fetch('/user/addtocart',{
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({order: JSON.parse(sessionStorage.getItem('order'))})}
@@ -93,7 +93,7 @@ function include(arr,obj) {
 }
 function go (){
   if(pre != null){
-  fetch('/addtocart',{
+  fetch('/user/addtocart',{
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({order: JSON.parse(sessionStorage.getItem('order'))})}

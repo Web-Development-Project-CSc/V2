@@ -1,8 +1,10 @@
 const Orders = require('../models/orders');
 const Products = require('../models/products');
 const Favorites = require('../models/wishlist');
+const NOT = require('./pages').PUBLIC
+
 const addOrder = async (req,res)=>{
-    if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
+    if(req.session.user === undefined) NOT.notLogged
     else{
         let order = new Orders({
         product: req.body.itemclicked,
@@ -51,10 +53,11 @@ const batch = async (req,res)=>{
         req.session.order = [];
         res.redirect('/user/myprofile');
     }
+    else NOT.notLogged
 }
 
 const getOrders = async (req,res)=>{
-    if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
+    if(req.session.user === undefined) NOT.notLogged
     else{
 Orders.find({customer: req.session.user._id}).populate('product').then(orders =>{
     if(orders) res.redirect('/user/cart');
@@ -64,7 +67,7 @@ Orders.find({customer: req.session.user._id}).populate('product').then(orders =>
 }
 }
 const displayOrders = async (req,res)=>{
-    if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
+    if(req.session.user === undefined) NOT.notLogged
     else{
     Orders.find({customer: req.session.user._id}).populate('product').then(orders =>{
         if(orders) res.redirect('/user/myprofile');
@@ -95,7 +98,7 @@ const progress = async (req,res)=>{
    }
     else res.redirect('/admin/orders?message="Order was not found"');
 }
-else res.redirect('/admin/login?message="Must be logged in as admin to view this page"');
+else NOT.notAnAdmin
     }
 
     const remove = async (req,res)=>{
@@ -111,7 +114,7 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
            res.redirect("/admin/orders?message='Could not delete order'"); 
           }
         }
-        else res.redirect("/admin/login?message = 'Must be logged in as admin to view this page'");
+        else NOT.notAnAdmin
       }
 
       const searchOrders = async (req,res)=>{
@@ -121,7 +124,7 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
         res.send({payload: search});  
     }
     const wish = async (req,res)=>{
-        if(req.session.user === undefined) res.redirect('/user/login?message="Must be logged in to view this page"')
+        if(req.session.user === undefined) NOT.notLogged
         else{
         if(await Favorites.findOne({product: req.body.wish.prodid, customer: req.session.user._id})) {
             return;
@@ -157,6 +160,6 @@ else res.redirect('/admin/login?message="Must be logged in as admin to view this
            res.redirect("/user/myprofile?message='Could not remove item from wishlist'"); 
           }
         }
-        else res.redirect("/user/login?message = 'Must be logged in to view this page'");
+        else NOT.notLogged
       }
 module.exports = {addOrder, getOrders, displayOrders, progress, remove, searchOrders , batch, wish, removewish}

@@ -9,7 +9,7 @@ function sendData(e) {
       searchResults.innerHTML = '';
       return;
     } else if (match && match[0] === e.value) {
-      fetch('/admin/getResults', {
+      fetch('/admin/getProductResults', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ payload: e.value })
