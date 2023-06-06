@@ -24,9 +24,8 @@ function move(tag){
    else if(tag == showers[2]){
         hidden[2].style.display="block";
     }
-    else if(tag == showers[3]){
-      document.querySelector('#payment').style.display="block";
-        hidden[3].style.display="block";
+    else {
+        document.querySelector('#payment').style.display="block";
     }
 }
 let payments = document.querySelectorAll('input[name="method"]');
