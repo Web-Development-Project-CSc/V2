@@ -2,8 +2,6 @@ require("dotenv").config();
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SG_K.toString());
 const sendEmail = async (req,res) => {
- if (req.session.user !== undefined) {
-
 let page = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -257,7 +255,5 @@ Please contact us at flavouredmiu@gmail.com if you require any further assistanc
 }
 sgMail.send(message).then( response => console.log('Mail sent successfully')).catch(error => console.log(error.message));
 res.redirect('/');
-}
-else res.redirect("/user/login?message='Must be logged in to view this page'");
 }
 module.exports = {sendEmail}
