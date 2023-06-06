@@ -16,6 +16,9 @@ router.get('/', (req,res)=>{
 router.get('/login', (req,res)=>{
     res.redirect('/user/login')
 })
+router.get('/signup', (req,res)=>{
+    res.redirect('/user/signup')
+})
 router.get('/support', (req,res)=>{
     res.render('help' ,{ message: '', user: (req.session.user === undefined ? "" : req.session.user) })
 })
