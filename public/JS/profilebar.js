@@ -15,7 +15,6 @@ function move(tag){
     for(let i =0; i<showers.length; i++) showers[i].classList.remove("active");
     tag.classList.add("active");
     for(let i=0; i<hidden.length; i++) hidden[i].style.display="none";
-    hidden[3].style.display="block";
     if(tag == showers[0]){
         hidden[0].style.display="block";
     }
@@ -26,6 +25,7 @@ function move(tag){
         hidden[2].style.display="block";
     }
     else if(tag == showers[3]){
+      document.querySelector('#favs').style.display="block";
         hidden[3].style.display="block";
     }
 }
