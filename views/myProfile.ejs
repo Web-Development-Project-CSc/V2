@@ -482,7 +482,7 @@
                     <div class="product">
                         <span class="data">
                             <% 
-                            let date =orders[i].createdAt.toString().split('G')
+                            let date =orders[i].updatedAt.toString().split('G')
                             let q = orders[i].quantity;
                             if(q== 1) q = ''; %>
                             <%=date[0]%>
