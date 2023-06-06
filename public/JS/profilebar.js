@@ -15,6 +15,7 @@ function move(tag){
     for(let i =0; i<showers.length; i++) showers[i].classList.remove("active");
     tag.classList.add("active");
     for(let i=0; i<hidden.length; i++) hidden[i].style.display="none";
+    hidden[3].style.display="block";
     if(tag == showers[0]){
         hidden[0].style.display="block";
     }
@@ -26,7 +27,6 @@ function move(tag){
     }
     else if(tag == showers[3]){
         hidden[3].style.display="block";
-        console.log("hi");
     }
 }
 let payments = document.querySelectorAll('input[name="method"]');
