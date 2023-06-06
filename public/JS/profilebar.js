@@ -1,5 +1,5 @@
-let hidden = document.querySelectorAll("section");
-let showers = document.querySelectorAll("scroller");
+let hidden = document.getElementsByTagName("section");
+let showers = document.getElementsByClassName("scroller");
 let inputs = document.querySelectorAll('.profile input');
 let savers = document.querySelectorAll('.profile button');
 let results = document.querySelectorAll('.profile span');
@@ -24,8 +24,8 @@ function move(tag){
    else if(tag == showers[2]){
         hidden[2].style.display="block";
     }
-    else {
-        document.querySelector('#payment').style.display="block";
+    else if(tag == showers[3]){
+        hidden[3].style.display="block";
     }
 }
 let payments = document.querySelectorAll('input[name="method"]');

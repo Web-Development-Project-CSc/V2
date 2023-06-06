@@ -24,7 +24,7 @@
         <a href="/store/1">Store</a>
         <a href="/support">Support</a>
     </nav>
-    <section id="profile">
+    <section class="big">
         <%- include('./partials/errors.ejs') %>
         <div class="profile">
             <label>Full Name :
@@ -411,7 +411,7 @@
         </form>
         <button type="button" id="doneedit" style="margin-left: 89%; margin-bottom: 1%; display:none" onclick="document.getElementById('editors').submit();">Done</button>
     </section>
-    <section id="favs">
+    <section class="big">
             <% for(let i = 0; i<favorites.length; i++) { %>
                 <div class="wish">
             <form  method="post" action="/user/createOrder">
@@ -430,7 +430,7 @@
          </div>
             <% } %>
     </section>
-    <section id="orders">
+    <section class="big">
         <details class="current">
             <summary class="orderheader">Ongoing Orders:</summary>
             <% for(let i=0; i<orders.length; i++) { 
@@ -498,7 +498,7 @@
             <% } } %>
         </details>
     </section>
-    <section class="paymentMethod" id="payment">
+    <section class="paymentMethod big" >
         <div class="method">
             <%  let cs ="", cd=""
                 if (user.paymentMethod == 'Cash') 
