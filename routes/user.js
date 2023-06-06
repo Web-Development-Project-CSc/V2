@@ -18,6 +18,7 @@ router.get('/', (req,res)=>{
 
 router.get('/login', Page.PUBLIC.goToLogin)
 router.get('/signup', Page.PUBLIC.goToSignup)
+router.get('/not', Page.PUBLIC.notLogged)
 
 router.post('/signing',ctrlAccounts.addUser);
 router.post('/getpass', Page.USER.getPassword)

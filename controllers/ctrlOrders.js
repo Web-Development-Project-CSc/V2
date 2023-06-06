@@ -1,10 +1,9 @@
 const Orders = require('../models/orders');
 const Products = require('../models/products');
 const Favorites = require('../models/wishlist');
-const NOT = require('./pages').PUBLIC
 
 const addOrder = async (req,res)=>{
-    if(req.session.user === undefined) NOT.notLogged
+    if(req.session.user === undefined) res.redirect('/user/not');
     else{
         let order = new Orders({
         product: req.body.itemclicked,
@@ -53,11 +52,11 @@ const batch = async (req,res)=>{
         req.session.order = [];
         res.redirect('/user/myprofile');
     }
-    else NOT.notLogged
+    else res.redirect('/user/not');
 }
 
 const getOrders = async (req,res)=>{
-    if(req.session.user === undefined) NOT.notLogged
+    if(req.session.user === undefined) res.redirect('/user/not');
     else{
 Orders.find({customer: req.session.user._id}).populate('product').then(orders =>{
     if(orders) res.redirect('/user/cart');
@@ -67,7 +66,7 @@ Orders.find({customer: req.session.user._id}).populate('product').then(orders =>
 }
 }
 const displayOrders = async (req,res)=>{
-    if(req.session.user === undefined) NOT.notLogged
+    if(req.session.user === undefined) res.redirect('/user/not');
     else{
     Orders.find({customer: req.session.user._id}).populate('product').then(orders =>{
         if(orders) res.redirect('/user/myprofile');
@@ -98,7 +97,7 @@ const progress = async (req,res)=>{
    }
     else res.redirect('/admin/orders?message="Order was not found"');
 }
-else NOT.notAnAdmin
+else res.redirect('/admin/not');
     }
 
     const remove = async (req,res)=>{
@@ -114,7 +113,7 @@ else NOT.notAnAdmin
            res.redirect("/admin/orders?message='Could not delete order'"); 
           }
         }
-        else NOT.notAnAdmin
+        else res.redirect('/admin/not');
       }
 
       const searchOrders = async (req,res)=>{
@@ -124,7 +123,7 @@ else NOT.notAnAdmin
         res.send({payload: search});  
     }
     const wish = async (req,res)=>{
-        if(req.session.user === undefined) NOT.notLogged
+        if(req.session.user === undefined) res.redirect('/user/not');
         else{
         if(await Favorites.findOne({product: req.body.wish.prodid, customer: req.session.user._id})) {
             return;
@@ -160,6 +159,6 @@ else NOT.notAnAdmin
            res.redirect("/user/myprofile?message='Could not remove item from wishlist'"); 
           }
         }
-        else NOT.notLogged
+        else res.redirect('/user/not');
       }
 module.exports = {addOrder, getOrders, displayOrders, progress, remove, searchOrders , batch, wish, removewish}

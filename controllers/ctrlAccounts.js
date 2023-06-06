@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt')
 const Accounts = require('../models/accounts');
-const NOT = require('./pages').PUBLIC
 
 const addUser= async(req,res) =>{
     let found =  await Accounts.findOne({email : req.body.email} )
@@ -78,7 +77,7 @@ const findUser = async (req,res)=>{
     }
     else res.redirect('/admin/users?message="Can not modify their royal highness"');
     }
-    else NOT.notAnAdmin
+    else res.redirect('/admin/not');
     }
 
 
@@ -117,7 +116,7 @@ const findUser = async (req,res)=>{
                 res.redirect('/user/myprofile?message="Could not modify user."');
             })
         }
-        else NOT.notLogged
+        else res.redirect('/user/not');
     }
     
 const remove = async (req,res)=>{
@@ -136,7 +135,7 @@ const remove = async (req,res)=>{
   }
   else res.redirect("/admin/users?message = 'Can not remove their royal highness'");
 }
-else NOT.notAnAdmin
+else res.redirect('/admin/not');
 }
 
 const update = async (req,res)=>{

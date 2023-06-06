@@ -22,6 +22,7 @@ router.get('/login', Page.ADMIN.adminLogin)
 router.get('/orders', Page.ADMIN.allOrders );
 router.get('/products', Page.ADMIN.allProducts);
 router.get('/users', Page.ADMIN.allUsers);
+router.get('/not', Page.PUBLIC.notAnAdmin)
 
 router.post('/getProductResults',ctrlProducts.searchProducts);
 router.post('/getUserResults', ctrlAccounts.searchUsers);

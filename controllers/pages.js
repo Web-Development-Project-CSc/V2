@@ -80,7 +80,7 @@ const myProfile = (req,res)=>{
         res.redirect("/user/myprofile?message= 'Could not load orders'")
     }
     )}
-    else notLogged
+    else res.redirect('/user/not');
 }
 const addToCart = (req,res)=>{
     if (req.session.user !== undefined){
@@ -88,12 +88,12 @@ const addToCart = (req,res)=>{
                res.session = req.session;
                res.redirect('/user/cart');        
             }
-        else notLogged;
+        else res.redirect('/user/not');;
     }
 const getCart = (req,res)=>{
     if (req.session.user !== undefined) 
     res.render('cart',  { message: '', layout: false, orders: (req.session.order === undefined ? "" : req.session.order)});
-    else notLogged;
+    else res.redirect('/user/not');
 }
 
 const adminLogin = (req, res) => {res.render('login', { layout: false})}
@@ -110,7 +110,7 @@ const dashboard = (req, res) => {
             faqs: (faq === null ? "" : faq),
           requests: (reqs === null ? "" : reqs)})})
           }) })})}
-      else notAnAdmin
+      else res.redirect('/admin/not')
   }
 const allOrders = async (req,res) => {
     if(req.session.user != undefined && req.session.user.role == "admin")
@@ -122,19 +122,19 @@ const allOrders = async (req,res) => {
      res.redirect("/admin?message='Could not load orders'")
     }
     }
-    else notAnAdmin
+    else res.redirect('/admin/not')
 }
 const allProducts =  (req, res) => {
     if (req.session.user !== undefined && req.session.user.role === 'admin') {
       Products.find().then(prods =>{
       res.render('products', { message: '', layout: false, user: req.session.user , prods: (prods === null ? "" : prods)})});
-    } else notAnAdmin
+    } else res.redirect('/admin/not')
   }
 const allUsers = (req, res) => {  
     if (req.session.user !== undefined && req.session.user.role === 'admin') {
       Accounts.find().then(accounts =>
       res.render('users',{ layout: false, user: req.session.user , accounts: accounts}))
-    } else notAnAdmin
+    } else res.redirect('/admin/not')
   }
 
 

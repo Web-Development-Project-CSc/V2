@@ -13,7 +13,6 @@ router.get('/', Page.ROOT.home)
 router.get('/support', Page.ROOT.support)
 router.get('/privacypolicy', Page.ROOT.termsOfPrivacy)
 router.get('/store/:page', Page.ROOT.store);
-
 router.get('/store', (req,res)=>{
     res.redirect('/store/1')
 });
@@ -24,7 +23,6 @@ router.get('/login', (req,res)=>{
 router.get('/signup', (req,res)=>{
     res.redirect('/user/signup')
 })
-
 router.get('/logout', Page.PUBLIC.logout);
 
 router.get('/googletry', google.geturl)

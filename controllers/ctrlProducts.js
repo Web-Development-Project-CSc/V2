@@ -1,5 +1,4 @@
 const Products = require('../models/products');
-const NOT = require('./pages').PUBLIC
 
 const addProduct = async (req,res)=>{
 const product = new Products({
@@ -28,7 +27,7 @@ const modify = async (req,res)=>{
         res.redirect('/admin/products?message="Could not modify product.');
     })
     }
-    else NOT.notAnAdmin
+    else res.redirect('/admin/not');
 }
 
 const remove = async (req,res)=>{
@@ -42,7 +41,7 @@ const remove = async (req,res)=>{
        res.redirect("/admin/products?message='Could not find product'");
       }
   }
-  else NOT.notAnAdmin
+  else res.redirect('/admin/not');
 }
 
   const searchProducts = async (req,res)=>{
