@@ -24,7 +24,7 @@ function move(tag){
    else if(tag == showers[2]){
         hidden[2].style.display="block";
     }
-    else if(tag == showers[3]){
+    else {
         hidden[3].style.display="block";
     }
 }
