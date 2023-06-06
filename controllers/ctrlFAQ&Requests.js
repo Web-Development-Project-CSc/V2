@@ -2,11 +2,9 @@ const FAQs = require('../models/faq');
 const Accounts = require('../models/accounts');
 const Requests = require('../models/requests');
 const addFAQ = async (req,res)=>{
-    let customer;
     Accounts.findOne({email: req.body.email}).then(async result=>{
-    customer = result
     const faq = new FAQs({
-        customer: customer._id,
+        customer: result._id,
         question: req.body.question
     });
     try{
