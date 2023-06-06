@@ -1,5 +1,5 @@
-let hidden = document.getElementsByTagName("section");
-let showers = document.getElementsByClassName("scroller");
+let hidden = document.querySelectorAll("section");
+let showers = document.querySelectorAll("scroller");
 let inputs = document.querySelectorAll('.profile input');
 let savers = document.querySelectorAll('.profile button');
 let results = document.querySelectorAll('.profile span');
