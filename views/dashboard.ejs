@@ -77,7 +77,8 @@
             <div class="right-side">
               <div class="box-topic">Total Sales</div>
               <% let sales=0; for(let i=0;i<orders.length;i++){ for(let j=0; j<prods.length; j++){
-                if(orders[i].productName==prods[j].name){ sales+=prods[j].price; } } } %>
+                if(orders[i].productName==prods[j].name){ sales+=prods[j].price; } } } 
+                sales = Math.ceil(sales)%>
                 <div class="number">
                   <%=sales%>
                 </div>
