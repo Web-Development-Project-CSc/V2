@@ -32,7 +32,7 @@ function sub(){
         fetch('/addtocart',{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({order: JSON.parse(sessionStorage.getItem('order'))})}
+                body: JSON.stringify({order: array})}
                 )
         sessionStorage.clear();
         document.querySelector("form").submit();
