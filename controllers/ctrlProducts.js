@@ -1,6 +1,10 @@
 const Products = require('../models/products');
 
 const addProduct = async (req,res)=>{
+if(req.session.user != undefined && req.session.user.role=='admin'){
+const found = await Products.findOne({name: req.body.name.trim()});
+if(found) res.redirect("/admin/products?message='Product already exists.'");
+else{
 const product = new Products({
     name: req.body.name.trim(),
     price: req.body.price,
@@ -13,8 +17,10 @@ try{
 catch(err){
     console.log(err);
     res.redirect("/admin?message='Could not add product'");
-
 }
+}
+}
+else res.redirect('/admin/not');
 }
 
 const modify = async (req,res)=>{
