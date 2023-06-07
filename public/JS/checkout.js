@@ -1,7 +1,7 @@
 let total = document.querySelectorAll("h2 span");
 let number = document.querySelectorAll(".num");
 let buttons = document.querySelectorAll('.quantity img');
-const array = JSON.parse(sessionStorage.getItem('order'));
+let array = JSON.parse(sessionStorage.getItem('order'));
 function add(index,price){
         let num = (index * 2) + 1
         let int = buttons[num].parentNode.querySelector("span").innerHTML;
@@ -9,6 +9,7 @@ function add(index,price){
         total[index].innerHTML = 'EGP '+(int*price);
         array[index].quantity = int;
         sessionStorage.setItem('order', JSON.stringify(array));
+        array = JSON.parse(sessionStorage.getItem('order'));
         console.log(array)
 }
 function remove(index,price){
@@ -23,6 +24,7 @@ function remove(index,price){
                 array.splice(index,1);
         }
         sessionStorage.setItem('order', JSON.stringify(array));
+        array = JSON.parse(sessionStorage.getItem('order'));
         console.log(array)
         }
 }
