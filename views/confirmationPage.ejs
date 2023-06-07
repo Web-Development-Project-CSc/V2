@@ -10,14 +10,17 @@
 
 <body>
     <%- include('./partials/errors.ejs') %>
-    <form action="/user/myprofile" method="get" id="myForm">
+    <form action="/user/reset" method="post" id="myForm">
         <div class="flavoured">
             <header>Password Recovery</header>
             <img src="/IMAGES/Flavoured_with_slogan-transformedd.png" alt="logo" />
         </div>
         <div>
             <label class="name" for="email">Email :</label>
-            <input type="email" placeholder="Enter Your Email" name="email" id="email" required />
+            <input type="email" onkeyup="checkmail(this)" placeholder="Enter Your Email" name="email" id="email" required />
+            <div id="error-1">
+                <span><img src="/IMAGES/required.png" alt="req" />Email is not registered</span>
+            </div>
         </div>
         <div>
             <label class="password" for="psw">Password :</label>
@@ -25,18 +28,18 @@
         </div>
         <div>
             <label for="psw-repeat">Confirm Password :</label>
-            <input type="password" id="cpword" placeholder="Confirm Your Password" name="confirmation" required />
-            <div id="error">
+            <input type="password" onchange='confirmPass()'id="cpword" placeholder="Confirm Your Password" name="confirmation" required />
+            <div id="error0">
                 <span><img src="/IMAGES/required.png" alt="required" />Passwords do not
                     match</span>
             </div>
         </div>
         <div class="clearfix">
-            <button type="submit" class="signupbtn">Confirm</button>
-            <button id="cancelBTN" type="button" class="cancelbtn">Cancel</button>
+            <button type="button" onclick='can()'class="signupbtn">Confirm</button>
+            <button id="cancelBTN" type="button" class="cancelbtn" onclick="location.replace('/')">Cancel</button>
         </div>
     </form>
-    <script type="text/javascript" src="/JS/verification.js"></script>
+    <script type="text/javascript" src="/JS/confirm.js"></script>
 </body>
 
 </html>

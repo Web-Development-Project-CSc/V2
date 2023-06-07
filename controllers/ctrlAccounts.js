@@ -19,7 +19,9 @@ const addUser= async(req,res) =>{
 try{
     await user.save();
     req.session.user = user;
-    req.session.user.password = req.body.psw
+    let temp = req.body.psw
+    req.session.user.password = ''
+    for(let i =0; i<temp.length; i++) req.session.user.password += 'x'
     if(role == 'customer') res.redirect('/store'); 
     else res.redirect('/admin/users');
 }
@@ -30,15 +32,16 @@ catch(err){
 }}}
 
 const findUser = async (req,res)=>{
-    let password = req.body.psw
+    let temp = req.body.psw
     let user = {
     email: req.body.email,
     
     }
     Accounts.findOne(user).then(async result => {
-        if((result )&& (await bcrypt.compare(password , result.password))){
+        if((result )&& (await bcrypt.compare(temp , result.password))){
             req.session.user = result;
-            req.session.user.password = password
+            req.session.user.password = ''
+            for(let i =0; i<temp.length; i++) req.session.user.password += 'x'            
             console.log("logged in");
             if(req.session.user !== undefined && req.session.user.role==='admin') 
             res.redirect( "/admin");
@@ -104,7 +107,9 @@ const findUser = async (req,res)=>{
                     req.session.user.name = req.body.newName;
                     req.session.user.email = req.body.newEmail;
                     req.session.user.phone = req.body.newPhone;
-                    req.session.user.password = req.body.newPassword;
+                    let temp = req.body.newPassword
+                    req.session.user.password = ''
+                    for(let i =0; i<temp.length; i++) req.session.user.password += 'x'
                     req.session.user.country = req.body.newCountry;
                     req.session.user.address = req.body.newAddress;
                     req.session.user.birthDate = req.body.newBirthdate;
@@ -166,6 +171,18 @@ const update = async (req,res)=>{
     }
     )}
 
+    const passwordReset = async (req,res)=>{
+        Accounts.findOneAndUpdate({email : req.body.email}, {password: await bcrypt.hash(req.body.psw,12)})
+        .then(result =>{
+            console.log(result)
+            res.redirect('/user/login');
+        })
+        .catch(err=>{
+            console.log(err)
+            res.redirect('user/confirmation?message="Failed to update password"')
+        })
+    }
+
     const searchUsers = async (req, res) => {
         let payload = req.body.payload;
         let search = await Accounts.find({name: {$regex: new RegExp('^'+payload+'.*', 'i')}}).exec();
@@ -173,4 +190,4 @@ const update = async (req,res)=>{
         res.send({payload: search});
     }
 
-module.exports = {addUser, findUser, adminModifier, modifyUser, remove, update, searchUsers}
+module.exports = {addUser, findUser, adminModifier, modifyUser, remove, update, passwordReset, searchUsers}

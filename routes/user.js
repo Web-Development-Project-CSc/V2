@@ -23,6 +23,7 @@ router.get('/not', Page.PUBLIC.notLogged)
 router.post('/signing',ctrlAccounts.addUser);
 router.post('/getpass', Page.USER.getPassword)
 router.post('/getaccounts', Page.USER.getEmail)
+router.post('/reset', ctrlAccounts.passwordReset)
 
 router.get('/forgetpassword', Page.USER.forgetPassword)
 router.get('/confirmation',Page.USER.resetPassword)
