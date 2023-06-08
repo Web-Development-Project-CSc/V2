@@ -89,7 +89,7 @@ const findUser = async (req,res)=>{
                 if(req.body.newName == '') req.body.newName = req.session.user.name;
                 if(req.body.newEmail == '') req.body.newEmail = req.session.user.email;
                 if(req.body.newPhone == '') req.body.newPhone = req.session.user.phone;
-                if(req.body.newPassword == '') req.body.newPassword = req.session.user.password;
+                if(req.body.newPassword == '') req.body.newPassword = "nopass"
                 if(req.body.newCountry == '') req.body.newCountry = req.session.user.country;
                 if(req.body.newAddress == '') req.body.newAddress = req.session.user.address;
                 if(req.body.newBirthdate == '') req.body.newBirthdate = req.session.user.birthDate;
@@ -102,6 +102,7 @@ const findUser = async (req,res)=>{
             address: req.body.newAddress,
             birthDate: req.body.newBirthdate
             }
+            if(req.body.newPassword == "nopass") delete user.password
             Accounts.findOneAndUpdate({_id: req.body.ogid}, user).then(result => {
                 if(result) { 
                     req.session.user.name = req.body.newName;
