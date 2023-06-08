@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const Accounts = require('../models/accounts');
 
 const addUser= async(req,res) =>{
-    let found =  await Accounts.findOne({email : req.body.email} )
+    let found =   Accounts.findOne({email : req.body.email} )
   if(found) res.redirect('/user/login?message="Email is already registered"')
   else{
     let role = req.body.role
