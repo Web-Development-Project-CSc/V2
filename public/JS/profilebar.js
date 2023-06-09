@@ -80,13 +80,13 @@ savers[4].addEventListener('click', function (e){
 })
 savers[5].addEventListener('click', function (e){
   e.preventDefault();
-  results[5].innerHTML = inputs[5].value;
-  edits[5].value = inputs[5].value;
+  results[5].innerHTML = document.querySelector('select').value;
+  edits[5].value = document.querySelector('select').value;
   done.style.display="block";
 })
 savers[6].addEventListener('click', function (e){
   e.preventDefault();
-  results[6].innerHTML = inputs[6].value;
-  edits[6].value = inputs[6].value;
+  results[6].innerHTML = inputs[5].value;
+  edits[6].value = inputs[5].value;
   done.style.display="block";
 })
